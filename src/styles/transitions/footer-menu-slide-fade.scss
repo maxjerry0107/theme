@@ -1,0 +1,15 @@
+$delay: 0.3s;
+$timing: 0.3s;
+
+// menu-slide-fade-left
+.footer-menu-slide-fade-enter-active {
+  transition: opacity $timing $delay, transform $timing $delay ease;
+}
+
+.footer-menu-slide-fade-leave-active {}
+
+.footer-menu-slide-fade-enter,
+.footer-menu-slide-fade-leave-active {
+  transform: translateX(-30px);
+  opacity: 0;
+}

@@ -1,0 +1,32 @@
+.collection-tile {
+  position: relative;
+  color: $color-blue-900;
+  text-decoration: none;
+}
+
+.collection-tile__image-wrapper {
+  position: relative;
+  margin-bottom: px-to-rem(12px);
+  padding-top: 100%;
+
+  @include tablet-up {
+    margin-bottom: px-to-rem(24px);
+  }
+}
+
+.collection-tile__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.collection-tile__title {
+  margin-bottom: 9px;
+
+  @include tablet-down {
+    font-size: $font-size-heading-6;
+    line-height: px-to-rem(17px);
+  }
+}

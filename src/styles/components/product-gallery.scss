@@ -1,0 +1,15 @@
+.product-images-carousel__list--zoom {
+  @include mobile-only {
+    min-height: 100vh;
+  }
+}
+
+.product-images-carousel__zoom-image {
+  display: block;
+  margin: 0 auto;
+
+  @include mobile-only {
+    width: auto;
+    height: auto;
+  }
+}

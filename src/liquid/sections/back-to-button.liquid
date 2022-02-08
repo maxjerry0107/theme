@@ -1,0 +1,37 @@
+{%- assign linkUrl = blog.url -%}
+{%- if section.settings.back_to_link != nil -%}
+  {%- assign linkUrl = section.settings.back_to_link -%}
+{%- endif -%}
+<div class="back-to-button">
+  <a class="article__return-link article__return-link--bottom" href="{{- linkUrl -}}"><span class="article__return-link-icon"><icon name="chevron-left" width="4" height="8"></icon></span>{{- section.settings.back_to_text -}}</a>
+</div>
+
+{% schema %}
+  {
+    "name": "Back to Link",
+    "settings": [
+      {
+        "type": "url",
+        "id": "back_to_link",
+        "label": "Back to Link URL",
+        "info": "Set the link URL where you want users to go back to. Defaults to the blog URL."
+      },
+      {
+        "type": "text",
+        "id": "back_to_text",
+        "label": "Back to Link Text",
+        "info": "Set the link text where you want users to go back to.",
+        "default": "Back to all Fabrics"
+      }
+    ],
+    "templates": ["article", "page"],
+    "presets": [
+      {
+        "name": "Back to Link",
+        "category": "Generic"
+      }
+    ]
+  }
+{% endschema %}
+
+

@@ -1,0 +1,19 @@
+{
+  "name": "Collection",
+  "sections": {
+    "collection-header": {
+      "type": "collection-header"
+    },
+    "collection-grid": {
+      "type": "collection-grid"
+    },
+    "collection-footer": {
+      "type": "collection-footer"
+    }
+  },
+  "order": [
+    "collection-header",
+    "collection-grid",
+    "collection-footer"
+  ]
+}

@@ -1,0 +1,36 @@
+<div class="blog__top-section">
+  <div class="blog__billboard">
+    <div class="blog-banner">
+      <h1 class="blog-banner__title">
+        {% if section.settings.banner_title != blank %}
+          {{ section.settings.banner_title }}
+        {% else %}
+          {{ blog.title }}
+        {% endif %}
+      </h1>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Blog Banner",
+    "settings": [
+      {
+        "type": "text",
+        "id": "banner_title",
+        "label": "Banner Title",
+        "info": "Alternative title to show instead of the blog title."
+      }
+    ],
+    "templates": ["blog"],
+    "presets": [
+      {
+        "name": "Blog Text Banner",
+        "category": "Blog"
+      }
+    ]
+  }
+{% endschema %}
+
+

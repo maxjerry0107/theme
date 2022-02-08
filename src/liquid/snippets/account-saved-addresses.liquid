@@ -1,0 +1,164 @@
+{%- for address in customer.addresses -%}
+  <account-saved-address ref="address-{{ forloop.index }}" id="{{ address.id }}">
+    <template slot="info">
+      <div class="address-info__summary">
+        <h2 class="address-info__summary-name">{{ address.name }}</h2>
+        <p class="address-info__summary-address">
+          {%- unless address.company == blank -%}{{ address.company }}<br>{%- endunless -%}
+          {{ address.address1 }}{%- unless address.address2 == blank -%}, {{ address.address2 }}{%- endunless -%}<br>
+          {{ address.city }}, {{ address.province_code }}, {{ address.zip }}  
+        </p>
+
+        {% if address == customer.default_address %}
+          <p class="address-info__summary-default">Default Address</p>
+        {% endif %}
+      </div>
+      
+      <a href="#" class="address-info__edit" @click.prevent="$refs['address-{{forloop.index}}'].showForm">Edit</a>
+      <a href="#" class="address-info__delete" @click.prevent="$refs['address-{{forloop.index}}'].destroyAddress">Delete</a>
+    </template>
+
+    <template slot="form">
+      {%- form 'customer_address', address -%}
+
+      <div class="address-form__header">
+        <h2 class="address-form__title">Edit Address</h2>
+        <a href="#" @click.prevent="$refs['address-{{forloop.index}}'].hideForm">Cancel</a>
+      </div>
+
+        <div class="address-form__default checkbox-input">
+          {{ form.set_as_default_checkbox }}
+          <span class="checkbox-input__checkbox">
+            <icon
+              class="checkbox-input__check"
+              name="check"
+              size="32px"
+            ></icon>
+          </span>
+          <label class="checkbox-input__label-text" for="address_default_address_{{ form.id }}">Make Default</label>
+        </div>
+
+        <div class="address-form__row">
+          <div class="address-form__input-container">
+            <input type="text"
+                  name="address[first_name]"
+                  id="AddressFirstName_{{ form.id }}"
+                  class="address-form__input"
+                  placeholder="First Name"
+                  value="{{ form.first_name }}"
+                  autocapitalize="words"
+                  required>
+            <label for="AddressFirstName_{{ form.id }}" class="u-sr-only">First Name</label>
+          </div>
+          <div class="address-form__input-container">
+            <input type="text"
+                  name="address[last_name]"
+                  id="AddressLastName_{{ form.id }}"
+                  class="address-form__input"
+                  placeholder="Last Name"
+                  value="{{ form.last_name }}"
+                  autocapitalize="words"
+                  required>
+            <label for="AddressLastName_{{ form.id }}" class="u-sr-only">Last Name</label>
+          </div>
+        </div>
+
+        <div class="address-form__row">
+          <div class="address-form__input-container">
+            <input type="text"
+                  name="address[address1]"
+                  id="AddressAddress1_{{ form.id }}"
+                  class="address-form__input"
+                  placeholder="Address Line 1"
+                  value="{{ form.address1 }}"
+                  autocapitalize="words"
+                  required>
+            <label for="AddressAddress1_{{ form.id }}" class="u-sr-only">Address Line 1</label>
+          </div>
+        </div>
+
+        <div class="address-form__row">
+          <div class="address-form__input-container">
+            <input type="text"
+                  name="address[address2]"
+                  id="AddressAddress2_{{ form.id }}"
+                  class="address-form__input"
+                  placeholder="Apt, Suite, etc."
+                  value="{{ form.address2 }}"
+                  autocapitalize="words">
+            <label for="AddressAddress2_{{ form.id }}" class="u-sr-only">Apt, Suite, etc.</label>
+          </div>
+          <div class="address-form__input-container">
+            <input type="tel"
+                  name="address[phone]"
+                  id="AddressPhone_{{ form.id }}"
+                  class="address-form__input"
+                  placeholder="Phone Number"
+                  value="{{ form.phone }}"
+                  pattern="[0-9\-]*"
+                  required>
+            <label for="AddressPhone_{{ form.id }}" class="u-sr-only">Phone Number</label>
+          </div>
+        </div>
+
+        <div class="address-form__row">
+          <div id="AddressProvinceWrapper_{{ address.id }}">
+            <div class="address-form__input-container">
+              <select data-address-province
+                name="address[province]"
+                id="AddressProvince_{{ form.id }}"
+                class="address-form__input"
+                placeholder="State"
+                data-default="{{ form.province }}"
+                required>
+              </select>
+              <icon class="address-form__input-arrow" name="chevron-down" size="15px"></icon>
+              <label for="AddressProvince_{{ address.id }}" class="u-sr-only">State</label>
+            </div>
+          </div>
+          <div class="address-form__input-container">
+            <input type="text"
+                  name="address[city]"
+                  id="AddressCity_{{ form.id }}"
+                  class="address-form__input"
+                  placeholder="City"
+                  value="{{ form.city }}"
+                  autocapitalize="words"
+                  required>
+            <label for="AddressCity_{{ form.id }}" class="u-sr-only">City</label>
+          </div>
+        </div>
+
+        <div class="address-form__row">
+          <div class="address-form__input-container">
+            <input type="text"
+                  name="address[zip]"
+                  id="AddressZip_{{ form.id }}"
+                  class="address-form__input"
+                  placeholder="Zip Code"
+                  value="{{ form.zip }}"
+                  autocapitalize="characters"
+                  required>
+            <label for="AddressZip_{{ form.id }}" class="u-sr-only">Zip Code</label>
+          </div>
+          <div class="address-form__input-container">
+            <select data-address-country
+              name="address[country]"
+              id="AddressCountry_{{ form.id }}"
+              class="address-form__input"
+              placeholder="Country"
+              data-form-id="{{ form.id }}"
+              data-default="{{ form.country }}"
+              required>
+              {{ country_option_tags }}
+            </select>
+            <icon class="address-form__input-arrow" name="chevron-down" size="15px"></icon>
+            <label for="AddressCountry_{{ address.id }}" class="u-sr-only">Country</label>
+          </div>
+        </div>
+
+        <submit-button class="address-form__submit-button" label="Save" full></submit-button>
+      {%- endform -%}
+    </template>
+  </account-saved-address>
+{%- endfor -%}

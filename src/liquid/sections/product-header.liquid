@@ -1,0 +1,29 @@
+{%- if section.settings.enabled -%}
+  {%- render 'product-header' -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product Header",
+  "class": "section--product-header",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Enable",
+      "default": true,
+      "info": "Enable or disable this section"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Left side form is sticky on desktop",
+      "default": true
+    }
+  ],
+  "templates": ["product"],
+  "presets": [{
+    "name": "Product Header"
+  }]
+}
+{% endschema %}

@@ -1,0 +1,56 @@
+
+%responsive-table,
+.responsive-table {
+  @include mobile-only {
+    width: 100%;
+
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: block;
+    }
+
+    // IE9 table layout fixes
+    tr,
+    td {
+      width: 100%;
+      float: left;
+      clear: both;
+    }
+
+    th,
+    td {
+      display: block;
+      margin: 0;
+      padding: $grid-gutter / 2;
+      text-align: right;
+    }
+
+    td::before {
+      padding-right: 10px;
+      float: left;
+      text-align: center;
+      content: attr(data-label);
+    }
+    
+    // Add a keyline between rows
+    .responsive-table-row + .responsive-table-row,
+    tfoot > .responsive-table-row:first-child {
+      position: relative;
+      margin-top: 10px;
+      padding-top: $grid-gutter / 2;
+
+      &::after {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: $grid-gutter / 2;
+        left: $grid-gutter / 2;
+        border-bottom: 1px solid $border--main;
+        content: '';
+      }
+    }
+  }
+}

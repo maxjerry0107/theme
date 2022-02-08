@@ -1,0 +1,85 @@
+
+<div class="testimonial animation--fade-in">
+  <div class="container container--wide">
+    <div class="testimonial__container">
+      <div class="testimonial__inner">
+        {% if section.settings.headline %}
+          <h2 class="testimonial__heading heading--2">{{ section.settings.headline }}</h2>
+        {% endif %}
+
+        {% if section.settings.title %}
+          <h5 class="testimonial__title heading--5">{{ section.settings.title }}</h5>
+        {% endif %}
+
+        {% if section.settings.content %}
+          <p class="testimonial__content body--large">“{{ section.settings.content }}”</p>
+        {% endif %}
+
+        {% if section.settings.name %}
+          <p class="testimonial__name">–{{ section.settings.name }}</p>
+        {% endif %}
+
+        {% if section.settings.review_label %}
+          <h5 class="testimonial__review-label">{{ section.settings.review_label }}</h5>
+        {% endif %}
+
+        <div class="testimonial__reviews">
+          <icon name="review-star-full" size="20px"></icon>
+          <icon name="review-star-full" size="20px"></icon>
+          <icon name="review-star-full" size="20px"></icon>
+          <icon name="review-star-full" size="20px"></icon>
+          <icon name="review-star-full" size="20px"></icon>
+        </div>
+      </div>
+
+      <div class="testimonial__border">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonial",
+  "class": "testimonial-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Testimonials"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Love your Designs!"
+    },
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Content",
+      "default": "I have purchased several of your tees. I love the designs and I love the color on Amazing Grace. It was perfect for Easter this year. Your tees are so soft and fit perfectly."
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "label": "Name",
+      "default": "–Donna Leigh"
+    },
+    {
+      "type": "text",
+      "id": "review_label",
+      "label": "Review label",
+      "default": "Over 95,000 5 Star Customer Reviews"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial",
+      "category": "Generic"
+    }
+  ]
+}
+{% endschema %}

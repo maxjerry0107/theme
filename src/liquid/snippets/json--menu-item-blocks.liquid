@@ -1,0 +1,40 @@
+
+[
+  {%- for block in menu_blocks -%}
+    {
+      "name": {{ block.settings.title | json}},
+      "title": {{ block.settings.title | json}},
+      "link": {{ block.settings.link | json}},
+      "text_content_toggle": {{ block.settings.text_content_toggle | json }},
+      "text_content_heading": {{ block.settings.text_content_heading | json }},
+      "text_content_body": {{ block.settings.text_content_body | json }},
+      "text_content_cta_url": {{ block.settings.text_content_cta_url | json }},
+      "text_content_cta_text": {{ block.settings.text_content_cta_text | json }},
+      "link_list": {{ block.settings.link_list | json }},
+      "featured_list_enabled": {{ block.settings.featured_list_enabled | json }},
+      "children": {%- render 'json--linklist', linklist: linklists[block.settings.link_list].links | json -%},
+      "tiles_heading": {{ block.settings.tiles_heading | json }},
+      "tile_1_image": {
+        "src": {{ block.settings.tile_1_image | json }},
+        "alt": {{ block.settings.tile_1_image.alt | json }},
+      },
+      "tile_1_link": {{ block.settings.tile_1_link | json }},
+      "tile_1_heading": {{ block.settings.tile_1_heading | json }},
+      "tile_1_text": {{ block.settings.tile_1_text | json }},
+      "tile_2_image": {
+        "src": {{ block.settings.tile_2_image | json }},
+        "alt": {{ block.settings.tile_2_image.alt | json }},
+      },
+      "tile_2_link": {{ block.settings.tile_2_link | json }},
+      "tile_2_heading": {{ block.settings.tile_2_heading | json }},
+      "tile_2_text": {{ block.settings.tile_2_text | json }},
+      "tile_3_image": {
+        "src": {{ block.settings.tile_3_image | json }},
+        "alt": {{ block.settings.tile_3_image.alt | json }},
+      },
+      "tile_3_link": {{ block.settings.tile_3_link | json }},
+      "tile_3_heading": {{ block.settings.tile_3_heading | json }},
+      "tile_3_text": {{ block.settings.tile_3_text | json }}
+    },
+  {%- endfor -%}
+]

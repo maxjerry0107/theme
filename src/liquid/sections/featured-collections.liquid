@@ -1,0 +1,95 @@
+{%- capture collections_array -%}
+[
+  {%- for block in section.blocks -%}
+    {%- assign block_collection = collections[block.settings.featured_collection] -%}
+    {
+      {{- '"link"' -}}: "{{- block_collection.url -}}",
+      {{- '"title"' -}}: "{{- block.settings.title | escape | default: block_collection.title -}}",
+      {{- '"description"' -}}: "{{- block.settings.body_text | escape -}}",
+      {{- '"imageSrc"' -}}: {{- block.settings.background_image.src | img_url: '450x' | format: 'pjpg' | json -}},
+      {{- '"imageAlt"' -}}: {{- block.settings.background_image.alt | json -}},
+    }{%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+]
+{%- endcapture -%}
+
+<featured-collections
+  title="{{- section.settings.heading -}}"
+  :collections='{{- collections_array | strip_newlines | strip -}}'
+></featured-collections>
+
+{% schema %}
+  {
+    "name": "Collection Blocks",
+    "class": "featured-collections-section",
+    "tag": "section",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Section Heading",
+        "info": "Heading text for these Collection Blocks (Optional)"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection_tile",
+        "name": "Collection Tile",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "featured_collection",
+            "label": "Collection",
+            "info": "Choose Collection to Link to"
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "info": "Optional"
+          },
+          {
+            "type": "text",
+            "id": "body_text",
+            "label": "Description Text",
+            "info": "Optional"
+          }
+        ]
+      }
+    ],
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "collection",
+      "customers/account",
+      "customers/activate_account",
+      "customers/addresses",
+      "customers/login",
+      "customers/order",
+      "customers/register",
+      "customers/reset_password",
+      "index",
+      "page",
+      "product",
+      "password",
+      "search"
+    ],
+    "presets": [
+      {
+        "name": "Collection Blocks",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}

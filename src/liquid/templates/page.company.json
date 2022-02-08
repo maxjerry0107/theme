@@ -1,0 +1,16 @@
+{
+  "name": "Company Page",
+  "wrapper": "div.page-layout.page-layout--company",
+  "sections": {
+    "page-content": {
+      "type": "page-content",
+      "settings": {
+        "show_page_title": true,
+        "container_classes": "container container--wide"
+      }
+    }
+  },
+  "order": [
+    "page-content"
+  ]
+}

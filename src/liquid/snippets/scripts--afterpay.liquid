@@ -1,0 +1,38 @@
+{%- comment -%}  Begin Afterpay Liquid Snippet for Shopify v2.5.3 {%- endcomment -%} 
+{% assign afterpay_logo_theme = 'black' %}
+{% assign afterpay_count_eligible_variants = 0 %}
+{% assign afterpay_supported_currencies = 'AUD, NZD, USD' | split: ', ' %}
+{% if shop.currency == 'USD' %}
+  {% assign afterpay_minimum_value_in_cents = 3500 %}
+  {% assign afterpay_maximum_value_in_cents = 100000 %}
+  {% assign afterpay_terms_url = 'https://www.afterpay.com/installment-agreement' %}
+  {% assign afterpay_line_1 = 'or 4 installments of' %}
+  {% assign afterpay_line_2 = 'by' %}
+{% else %}
+  {% assign afterpay_minimum_value_in_cents = 4 %}
+  {% assign afterpay_maximum_value_in_cents = 200000 %}
+  {% assign afterpay_terms_url = 'https://www.afterpay.com/terms' %}
+  {% assign afterpay_line_1 = 'or make 4 interest-free payments of' %}
+  {% assign afterpay_line_2 = 'fortnightly with ' %}
+{% endif %}
+{% if afterpay_supported_currencies contains shop.currency %}
+  {% for afterpay_variant in product.variants %}
+    {% if afterpay_variant.available and afterpay_variant.price >= afterpay_minimum_value_in_cents and afterpay_variant.price <= afterpay_maximum_value_in_cents %}
+      {% assign afterpay_count_eligible_variants = afterpay_count_eligible_variants | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% if afterpay_count_eligible_variants > 0 %}
+  <p class="afterpay-paragraph" style="display: {%- if product.selected_or_first_available_variant.available and product.selected_or_first_available_variant.price >= afterpay_minimum_value_in_cents and product.selected_or_first_available_variant.price <= afterpay_maximum_value_in_cents %}block{% else %}none{% endif %};" data-product-id="{{ product.id }}">
+    <span class="afterpay-text1">{{ afterpay_line_1 }}</span>
+    <strong class="afterpay-instalments">${{ product.selected_or_first_available_variant.price | divided_by: 4.0 | round | money_without_currency }}&nbsp;{{ shop.currency }}</strong>
+    <span class="afterpay-text2">{{ afterpay_line_2 }}</span>
+    <img class="afterpay-logo" style="vertical-align:middle;" src="https://static.afterpay.com/integration/product-page/logo-afterpay-{{ afterpay_logo_theme }}.png" srcset="https://static.afterpay.com/integration/product-page/logo-afterpay-{{ afterpay_logo_theme }}.png 1x, https://static.afterpay.com/integration/product-page/logo-afterpay-{{ afterpay_logo_theme }}@2x.png 2x, https://static.afterpay.com/integration/product-page/logo-afterpay-{{ afterpay_logo_theme }}@3x.png 3x" width="62" height="13" alt="Afterpay" />
+    <a class="afterpay-link" href="{{ afterpay_terms_url }}" target="_blank">
+      <span class="afterpay-link-inner">&#9432;</span>
+      <u class="u-sr-only">More info</u>
+    </a>
+  </p>
+{% endif %}
+<script id="afterpayData" type="text/json">{"currency_symbol": "{{ currency.symbol }}", "afterpay_minimum_value_in_cents": {{ afterpay_minimum_value_in_cents }}, "afterpay_maximum_value_in_cents": {{ afterpay_maximum_value_in_cents }}, "afterpay_terms_url": "{{ afterpay_terms_url | escape }}", "afterpay_line_1": "{{ afterpay_line_1 | escape }}", "afterpay_line_2": "{{ afterpay_line_2 | escape }}", "afterpay_logo_theme": "{{ afterpay_logo_theme }}", "afterpay_count_eligible_variants": {{ afterpay_count_eligible_variants }}, "afterpay_supported_currencies": ["AUD", "NZD", "USD"]}</script>
+{%- comment -%} End Afterpay Liquid Snippet for Shopify v2.5.3 {%- endcomment -%}

@@ -1,0 +1,22 @@
+.product-review-summary--yotpo {
+  margin-bottom: $spacing-unit * 5;
+}
+
+.product-review-summary--yotpo__rating {
+  display: flex;
+  align-items: center;
+}
+
+.product-review-summary--yotpo__stars {
+  margin-right: 8px;
+}
+
+.product-review-summary--yotpo__count,
+.product-review-summary--yotpo__no-ratings {
+  position: relative;
+  bottom: 3px;
+  margin: 0;
+  font-size: rem(14);
+  line-height: 1.28;
+  text-decoration: none;
+}

@@ -1,0 +1,59 @@
+{% comment %}
+  Care information.
+  Same logic as sizing information above.
+{% endcomment %}
+<article>
+  {% liquid
+    assign product_name = product.title
+    assign product_name_tag = product.title | prepend: 'Product | '
+    assign care_counter = 0
+
+    for article in blogs.sizing-care-returns.articles
+      if article.title contains "Care"
+        for article_tag in article.tags
+          if article_tag == product_name or article_tag == product_name_tag
+            echo article.content
+            echo '<span class="hidden">'
+            increment care_counter
+            echo '</span>'
+            break
+          endif
+        endfor
+      endif
+      if care_counter > 0
+      	break
+      endif
+    endfor
+  %}
+  {% comment %}
+    Returns information.
+    Returns are product based or global.
+  {% endcomment %}
+  {% liquid
+    assign returns_counter = 0
+
+    for article in blogs.sizing-care-returns.articles
+      if article.title contains "Returns"
+        for article_tag in article.tags
+          if article_tag == product_name or article_tag == product_name_tag
+            echo article.content
+            echo '<span class="hidden">'
+            increment returns_counter
+            echo '</span>'
+            break
+          endif
+        endfor
+      endif
+      if returns_counter > 0
+      	break
+      endif
+    endfor
+  
+    unless returns_counter > 0
+      assign returns_article = settings.returns_default
+      if returns_article != blank
+        echo returns_article.content
+      endif
+    endunless
+  %}
+</article>

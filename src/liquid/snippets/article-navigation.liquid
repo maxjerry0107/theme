@@ -1,0 +1,22 @@
+{% if section.settings.enable_article_navigation %}
+  {%- if blog.next_article or blog.previous_article -%}
+    <div class="article__paginate">
+      <icon-link
+        href="{{ blog.previous_article }}"
+        label="Previous Article"
+        icon="long-arrow-left"
+        width="34px"
+        height="10px"
+        {% unless blog.previous_article %}:disabled="true"{% endunless %}>
+      </icon-link>
+      <icon-link
+        href="{{ blog.next_article }}"
+        label="Next Article"
+        icon="long-arrow-right"
+        width="34px"
+        height="10px"
+        {% unless blog.next_article %}:disabled="true"{% endunless %}>
+      </icon-link>
+    </div>
+  {%- endif -%}
+{% endif %}

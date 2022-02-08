@@ -1,0 +1,208 @@
+$text-input-error-height: $spacing-unit * 6;
+
+.text-input {
+  display: inline-block;
+  position: relative;
+  padding-bottom: px-to-rem(5px);
+  width: 100%;
+  max-width: $spacing-unit * 71;
+  vertical-align: top;
+}
+
+.text-input--hidden-label {
+  margin-top: $spacing-unit * 6;
+}
+
+.text-input--full-width {
+  display: block;
+  max-width: none;
+}
+
+.text-input--last-input {
+  padding-bottom: $spacing-unit;
+}
+
+.text-input--error {}
+
+.text-input--gift-message-input {
+  width: 100%;
+  max-width: none;
+}
+
+.text-input__label {
+  color: $form-field--input-label;
+
+  .klaviyo-form__input & {
+    color: $color-white;
+  }
+}
+
+.text-input__label-note {
+  display: inline-block;
+  margin: 0 0 0 $spacing-unit;
+  color: $color-grey-900;
+  font-size: px-to-rem(13px);
+
+  .klaviyo-form__input & {
+    color: $color-white;
+  }
+}
+
+.text-input__input {
+  display: block;
+  padding: ($spacing-unit * 2) ($spacing-unit * 3);
+  width: 100%;
+  color: $color-blue-900;
+  font-size: rem(16);
+  line-height: rem(20);
+  border: 2px solid $color-teal-900;
+  border-radius: 2px;
+
+  .navbar-search & {
+    padding: $spacing-unit ($spacing-unit * 3.25);
+    padding-left: $spacing-unit * 10.75;
+    font-size: rem(14);
+    line-height: rem(20);
+    border-color: $color-blue-800;
+  }
+
+  &::placeholder {
+    color: $color-teal-800;
+
+    .navbar-search & {
+      text-transform: uppercase;
+
+      @include mobile-only {
+        font-size: rem(10);
+        line-height: 2rem;
+        letter-spacing: 1.5px;
+      }
+    }
+  }
+
+  &:hover {
+    border-color: $color-blue-900;
+  }
+
+  &:focus {
+    border: 2px solid $form-field--focus;
+  }
+
+  .text-input--disabled &,
+  &[disabled] {
+    color: $color-teal-900;
+    background-color: $color-disabled;
+    border-color: $color-disabled;
+    box-shadow: none;
+  }
+
+  .klaviyo-form__input & {
+    border-color: $color-white;
+  }
+
+  .text-input--error & {
+    border: 2px solid $form-field--error-border;
+  }
+
+  .klaviyo-form--light-bg & {
+    border-color: $color-black;
+  }
+
+  .text-input--gift-message-input & {
+    width: 100%;
+    height: 140px;
+    background-color: transparent;
+    border-color: $color-teal-700;
+
+    &::placeholder {
+      color: $color-teal-700;
+    }
+  }
+}
+
+.text-input__input-grey {
+  border: 1.2px solid $color-grey-900;
+}
+
+.text-input__icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+  height: calc(100% - 1.5rem);
+
+  &.button {
+    pointer-events: initial;
+    background-color: $color-blue-900;
+    border-color: $color-blue-900;
+  }
+
+  svg {
+    fill: $color-white;
+
+    .klaviyo-form__input & {
+      stroke: $color-white;
+    }
+  }
+}
+
+.text-input__error-notice {
+  margin-top: px-to-rem(6px);
+  color: $form-field--error;
+  font-size: px-to-rem(12px);
+  line-height: px-to-rem(13px);
+  letter-spacing: 0.4px;
+}
+
+.input--text-align-left {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.register-template .radio-input__label-text {
+  color: $color-black;
+}
+
+.register-template .text-input.klaviyo-form__input {
+  display: none;
+}
+
+.register-template .klaviyo-form .radio-input__radio-input {
+  background-color: $color-white;
+  border: 1px solid $color-black;
+}
+
+.register-template .radio-input__input:checked + .radio-input__radio-input {
+  background-color: $color-mauve-900;
+  border-color: $color-black;
+  border-width: 4px;
+}
+
+.text-input__email-capture,
+.text-input__email-capture input[type='email'] {
+  min-height: rem(50);
+  font-size: rem(14);
+  line-height: 1.43;
+  border-radius: rem(4);
+
+  button[type='submit'] {
+    padding: rem(22);
+    min-height: rem(50);
+    background-color: transparent;
+    border: unset;
+
+    svg.icon--arrow-long-right {
+      fill: transparent;
+      stroke: $color-blue-900;
+
+      &.icon-focused {
+        stroke: $color-mauve-900;
+      }
+    }
+
+    &:hover {
+      background-color: transparent;
+      border: unset;
+    }
+  }
+}

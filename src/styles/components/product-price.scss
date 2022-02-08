@@ -1,0 +1,25 @@
+.product-price {
+  position: relative;
+
+  @include desktop-up {
+    min-width: 88px;
+  }
+}
+
+.product-price__price {
+  display: inline-block;
+  width: 100%;
+  font-size: rem(20);
+  font-weight: $font-weight-regular;
+  line-height: rem(24);
+  letter-spacing: rem(-2);
+  text-align: right;
+}
+
+.product-price__price--compare-at {
+  margin: $spacing-unit 0;
+  color: $color-grey-500;
+  font-size: $font-size-body-small;
+  letter-spacing: 0;
+  text-align: right;
+}

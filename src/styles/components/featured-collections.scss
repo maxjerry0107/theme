@@ -1,0 +1,43 @@
+.featured-collections__container {
+  position: relative;
+}
+
+.featured-collections {
+  padding: px-to-rem(35px) 0;
+
+  @include tablet-up {
+    padding: px-to-rem(48px) 0;
+  }
+}
+
+.featured-collections__title {
+  margin-bottom: px-to-rem(24px);
+
+  @include tablet-down {
+    margin-bottom: px-to-rem(8px);
+    font-size: $font-size-heading-5;
+    font-weight: $font-weight-bold;
+    line-height: px-to-rem(25px);
+    letter-spacing: initial;
+    text-transform: initial;
+  }
+}
+
+.carousel--featured-collections {
+  padding-bottom: px-to-rem(40px);
+
+  @include tablet-up {
+    display: flex;
+  }
+}
+
+.slide--featured-collections {
+  @include tablet-up {
+    flex: 1;
+    margin-right: px-to-rem(32px);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

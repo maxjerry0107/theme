@@ -1,0 +1,109 @@
+<div class="order-header order-header--desktop">
+  <h1 class="order-header__heading">
+    <a class="u-no-link order-header__heading-icon" href="/account" aria-label="View all orders">
+      <icon name="caret-left" size="10px"></icon>
+    </a>
+    {{ 'customer.order.title' | t: name: order.name }}
+  </h1>
+  <a class="account__logout" href="/account/logout">Logout</a>
+</div>
+
+<div class="order-content">
+  <div class="order-header">
+    <h1 class="order-header__heading order-header__heading--mobile">
+      <a class="u-no-link order-header__heading-icon" href="/account" aria-label="View all orders">
+        <icon name="caret-left" size="10px"></icon>
+      </a>
+      {{ 'customer.order.title' | t: name: order.name }}
+    </h1>
+    <p class="order-header__date">
+      {{ 'customer.order.date' | t: date: order.created_at | date: "%B %d, %Y" }}
+    </p>
+  </div>
+  <section class="order-details">
+    <div class="order-details__row">
+      <div class="order-details__column">
+        <h2 class="order-details__header">Shipping Address</h2>
+        {{ order.shipping_address | format_address }}
+      </div>
+      <div class="order-details__column">
+        <h2 class="order-details__header">Billing Address</h2>
+        {{ order.billing_address | format_address }}
+      </div>
+    </div>
+    <div class="order-details__row">
+      <div class="order-details__column">
+        <h2 class="order-details__header">Shipping Method</h2>
+        <p class="order-details__content">
+          {%- for shipping_method in order.shipping_methods -%}
+            {%- if shipping_method.price == 0 -%}
+              Free
+            {%- else -%}
+              {{ shipping_method.price | money }}
+            {%- endif -%}<br>
+            {{ shipping_method.title }}{% unless forloop.last %}<br>{% endunless %}
+          {%- endfor -%}
+        </p>
+      </div>
+      <div class="order-details__column">
+        <h2 class="order-details__header">Billing Method</h2>
+        <p class="order-details__content">
+          {%- for transaction in order.transactions -%}
+            {%- if transaction.payment_details.credit_card_company -%}
+              {{ transaction.payment_details.credit_card_company }} ending in {{ transaction.payment_details.credit_card_number | slice: 15, 4 }}
+            {%- else -%}
+              Other Payment Method (non-card)
+            {%- endif -%}{% unless forloop.last %}<br>{% endunless %}
+          {%- endfor -%}
+        </p>
+      </div>
+    </div>
+
+    {%- if fulfillment.tracking_url != blank -%}
+      <a class="order-content__tracking" href="{{ fulfillment.tracking_url }}">Track Package</a>
+    {%- endif -%}
+  </section>
+
+  <section class="order-items">
+    {%- for line_item in order.line_items -%}
+      {%- if line_item.properties.subscription_id -%}
+        {%- assign subscription = true -%}
+      {%- endif -%}
+
+      <div class="order-items__item">
+        <responsive-image class="order-items__image" src="{{ line_item.image | img_url: '170x' }}" alt="{{ line_item.title | escape }}"></responsive-image>
+        <div class="order-items__details">
+          <h3 class="order-items__details-title">{{ line_item.title }}</h3>
+          <p class="order-items__details-price">{{ line_item.price | money }}</p>
+          <p class="order-items__details-variant">{{ line_item.variant.title }}</p>
+          <p class="order-items__details-quantity">QTY : {{ line_item.quantity }}</p>
+        </div>
+      </div>
+    {%- endfor -%}
+  </section>
+
+  <table class="order-totals">
+    <tr class="order-totals__subtotal">
+      <th scope="row" class="order-totals__heading">Subtotal</th>
+      <td class="order-totals__cell">{{ order.subtotal_price | money }}</td>
+    </tr>
+    <tr class="order-totals__tax">
+      <th scope="row" class="order-totals__heading">Taxes</th>
+      <td class="order-totals__cell">{{ order.tax_price | money }}</td>
+    </tr>
+    <tr class="order-totals__shipping">
+      <th scope="row" class="order-totals__heading">Shipping</th>
+      <td class="order-totals__cell">
+        {%- if order.shipping_price == 0 -%}
+          Free
+        {%- else -%}
+          {{ order.shipping_price | money }}
+        {%- endif -%}
+      </td>
+    </tr>
+    <tr class="order-totals__total">
+      <th scope="row" class="order-totals__heading">Total</th>
+      <td class="order-totals__cell">{{ order.total_price | money }}</td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,38 @@
+<section class="orders">
+  <table class="orders-list">
+    <thead>
+      <tr class="orders-list__heading-row">
+        <th class="orders-list__heading">Order</th>
+        <th class="orders-list__heading">Date</th>
+        <th class="orders-list__heading">Status</th>
+        <th class="orders-list__heading">Total</th>
+        <th class="orders-list__heading"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {%- if customer.orders.size != 0 -%}
+      {%- for order in customer.orders -%}
+        <tr>
+          <td class="orders-list__cell orders-list__cell--order-number">
+            <a class="u-no-link" href="{{ order.customer_url }}">{{ order.name }}</a>
+          </td>
+          <td class="orders-list__cell">{{ order.created_at | date: "%b %d, %Y" }}</td>
+          <td class="orders-list__cell">{{ order.fulfillment_status }}</td>
+          <td class="orders-list__cell">{{ order.total_price | money }}</td>
+          <td class="orders-list__cell orders-list__cell--action">
+            <a class="u-no-link" href="{{ order.customer_url }}">
+              <icon name="caret-right" size="10px"></icon>
+              <span class="u-sr-only">go to order</span>
+            </a>
+          </td>
+        </tr>
+      {%- endfor -%}
+      </tbody>
+      </table>
+      {%- else -%}
+      </tbody>
+      </table>
+        <h2 class="orders-list__no-orders-message">You have no order history.</h2>
+        <a class="orders-list__cta u-no-link button button--primary" href="/collections/all">Start Shopping</a>
+      {%- endif -%}
+</section>

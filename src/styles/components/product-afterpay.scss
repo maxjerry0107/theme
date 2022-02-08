@@ -1,0 +1,110 @@
+/* stylelint-disable */
+.afterpay-paragraph {
+  padding: ($spacing-unit * 2) 0;
+  font-size: $font-size-body-small;
+}
+
+.afterpay-link {
+  color: $color-grey-500;
+  text-decoration: none;
+}
+
+/* Modal Styles */
+#afterpay-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999999999;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#afterpay-modal-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999999999999;
+  padding: 8px;
+  width: 50%;
+  text-align: center;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+#afterpay-modal-modal:focus,
+#afterpay-modal-modal:active {
+  box-shadow: none;
+  outline: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  body.afterpay-modal-open {
+    overflow: visible;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+/* 
+    Chrome, Safari, Opera and Android
+    http://browserhacks.com/#hack-f4ade0540d8e891e8190065f75acb186
+  */
+#afterpay-modal-close:not(*:root) {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+  float: right;
+}
+
+/* 
+    Firefox 
+    http://browserhacks.com/#hack-8b9c5852c4b9eb1f2cbaf7d82e0c6576
+  */
+_::-moz-range-track,
+body:last-child #afterpay-modal-close {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+  float: right;
+}
+
+/* 
+    IE11 
+    http://browserhacks.com/#hack-d19e53a0fdfba5ec0f283ae86175a3af
+    https://www.ryadel.com/en/css3-media-query-target-only-ie-ie6-ie11-firefox-chrome-safari-edge/#IE_11_and_above
+  */
+_:-ms-fullscreen,
+:root #afterpay-modal-close {
+  position: none;
+  top: 0px;
+  float: right;
+}
+
+/* 
+    Edge
+    https://www.ryadel.com/en/css3-media-query-target-only-ie-ie6-ie11-firefox-chrome-safari-edge/#Microsoft_Edge
+  */
+@supports (-ms-ime-align: auto) {
+  #afterpay-modal-close {
+    position: none;
+    top: 0px;
+    float: right;
+  }
+}
+
+#afterpay-modal-close:hover {
+  cursor: pointer;
+}
+
+#afterpay-modal-close a:focus {
+  outline: thin dotted;
+}
+
+/* stylelint-enable */

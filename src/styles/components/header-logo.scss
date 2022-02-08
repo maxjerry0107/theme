@@ -1,0 +1,24 @@
+.header-logo {}
+
+.header-logo__heading {
+  margin: 0;
+}
+
+.header-logo__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 110px;
+    height: auto;
+
+    @include mobile-only {
+      max-height: 25px;
+    }
+
+    @include tablet-up {
+      width: 160px;
+    }
+  }
+}

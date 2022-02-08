@@ -1,0 +1,67 @@
+{%- capture article_data -%}
+  {% render 'json--article' article: article %}
+{%- endcapture -%}
+<div class="article__content-wrapper">
+  <div class="article__content container--tiny container article__content--main">{{ article.content }}</div>
+  {%- if article.tags.size > 0 and section.settings.show_tags == true -%}
+    <ul class="article__tags u-list-inline">
+      {%- for tag in article.tags -%}
+        <li>
+          <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}{% unless forloop.last %} /&nbsp;{% endunless %}</a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+  <div class="article__content container--tiny container article__content--auxiliary">
+    {%- if section.settings.show_socials -%}
+      <article-social-share
+        :article="{{- article_data | escape | strip -}}"
+        button-size="{{ section.settings.social_buttons_size }}"
+      ></article-social-share>
+    {%- endif -%}
+    <a class="article__return-link article__return-link--bottom" href="{{ blog.url }}"><span class="article__return-link-icon"><icon name="chevron-left" width="4" height="8"></icon></span>Back to all blog posts</a>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Article Content",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_tags",
+        "label": "Show Article Tags",
+        "info": "Article tags will link back to the blog, filtered by that tag.",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_socials",
+        "label": "Show Social Share Links",
+        "info": "Show or hide the social media links for all articles.",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "social_buttons_size",
+        "label": "Social Share Button Size",
+        "info": "Choose Large or Small Buttons.",
+        "options": [
+          {
+            "label": "Small",
+            "value": "small"
+          },
+          {
+          "label": "Large",
+          "value": "large"
+          }
+        ],
+        "default": "large"
+      }
+    ],
+    "templates": ["article"]
+  }
+{% endschema %}
+
+

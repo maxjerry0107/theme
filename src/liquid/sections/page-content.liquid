@@ -1,0 +1,40 @@
+<div class="{{ section.settings.container_classes }}">
+  <div class="page-layout__section page-layout__section--{{ page.handle }}">
+    {%- if section.settings.show_page_title -%}
+      <h1 class="heading--1 page-layout__title">{{ page.title }}</h1>
+    {%- endif -%}
+    {{ page.content }}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Page Content",
+    "class": "page-layout",
+    "templates": ["page"],
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "container_classes",
+        "label": "Container Classes",
+        "default": "container container--wide",
+        "info": "Space separated list of CSS classes to apply to the content container."
+      },
+      {
+        "type": "checkbox",
+        "id": "show_page_title",
+        "label": "Show Page Title",
+        "default": false
+      }
+    ],
+    "templates": [
+      "page"
+    ],
+    "presets": [
+      {
+        "name": "Page Content",
+        "category": "Content"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,97 @@
+<div class="customers register-template">
+  <div class="login-splash" style="background-image: url({{ settings.login_image | img_url: '1440x' }});"></div>
+  <div class="login-form">
+    <h1 class="login__heading">{{ settings.login_heading }}</h1>
+    <p class="login__text">{{ settings.login_blurb }}</p>
+    <div class="form-state-tabs">
+      <a href="/account/login" class="log-in-tab tab">{{ 'customer.login.title' | t }}</a>
+      <a href="/account/register" class="create-account-tab tab active">{{ 'customer.register.title' | t }}</a>
+    </div>
+    <div class="form-container register">
+      {% form 'create_customer' %}
+      <div class="register-fields">
+        <div class="input input--text-align-left">
+          <label for="FirstName" class="account__label">
+            {{ 'customer.register.first_name' | t }} *
+          </label>
+          <input required type="text" name="customer[first_name]" class=" text-input__input text-input__input-grey" id="FirstName"
+            placeholder="{{ 'customer.register.first_name' | t }}" autofocus {% if form.first_name
+            %}value="{{ form.first_name }}" {% endif %}>
+        </div>
+        <div class="input input--text-align-left">
+          <label for="LastName" class="account__label">
+            {{ 'customer.register.last_name' | t }} *
+          </label>
+          <input required type="text" name="customer[last_name]" class=" text-input__input text-input__input-grey"  id="LastName"
+            placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}" {%
+            endif %}>
+        </div>
+        <div class="input input--text-align-left">
+          <label for="Email" class="account__label">
+            {{ 'customer.register.email' | t }} *
+          </label>
+          <input required type="email" name="customer[email]" class=" text-input__input text-input__input-grey"  id="Email"
+            class="{% if form.errors contains 'email' %}input-error{% endif %}"
+            placeholder="{{ 'customer.register.email' | t }}" value="{% if form.email %}{{ form.email }}{% endif %}"
+            spellcheck="false" autocomplete="off" autocapitalize="off">
+        </div>
+        <div class="input input--text-align-left">
+          <label for="CreatePassword" class="account__label">
+            {{ 'customer.register.password' | t }} *
+          </label>
+          <input required type="password" name="customer[password]" class=" text-input__input text-input__input-grey"  id="CreatePassword"
+            class="{% if form.errors contains 'password' %}input-error{% endif %}"
+            placeholder="{{ 'customer.register.password' | t }}">
+        </div>
+        <div id="accepts_marketing " class="clearfix large_form">
+          <checkbox-input label="{{ 'customer.register.sign_up_for_newsletter' | t }}"
+            name="customer[accepts_marketing]" :value="true" checked></checkbox-input>
+        </div>
+        <div class="row collapse">
+          <div class="column large-up--no-gutters klaviyo-form__radios-label-wrapper">
+            <span class="klaviyo-form__radios-label">SHOPPING FOR</span>
+          </div>
+          <div class="column large-up--no-gutters">
+            <label class="radio-input klaviyo-form__input radio-input--selected">
+              <input type="radio" name="customer[note][Shopping For]" id="k_id_shoppingfor_womens" class="radio-input__input" value="womens">
+              <span class="radio-input__radio-input"></span>
+              <div class="radio-input__label-text">Womens</div>
+            </label>
+          </div>
+          <div class="column large-up--no-gutters">
+            <label class="radio-input klaviyo-form__input">
+              <input type="radio" name="customer[note][Shopping For]" id="k_id_shoppingfor_mens" class="radio-input__input" value="mens">
+              <span class="radio-input__radio-input"></span>
+              <div class="radio-input__label-text">Mens</div>
+            </label>
+          </div>
+          <div class="column large-up--no-gutters">
+            <label class="radio-input klaviyo-form__input">
+              <input type="radio" name="customer[note][Shopping For]" id="k_id_shoppingfor_both" class="radio-input__input" value="both">
+              <span class="radio-input__radio-input"></span>
+              <div class="radio-input__label-text">Both</div>
+            </label>
+          </div>
+        </div>
+        <div class="button-container">
+          <input type="submit" value="{{ 'customer.register.submit' | t }}" class="button">
+        </div>
+      </div>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Account Register",
+    "class": "account--register",
+    "tag": "div",
+    "templates": [
+      "customers/register"
+    ],
+    "presets": [{
+      "name": "Account Register"
+    }]
+  }
+{% endschema %}

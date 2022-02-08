@@ -1,0 +1,96 @@
+<div class="fabric-first container--wide">
+  <div class="fabric-first__header">
+    <h2 class="fabric-first__title">{{ section.settings.title }}</h2>
+    <div class="fabric-first__description">{{ section.settings.description }}</div>
+    <div class="fabric-first__scondary-text">{{ section.settings.secondary_text }}</div>
+  </div>
+  <div class="fabric-first__grid row">
+    {% for block in section.blocks %}
+      <div class="fabric-first__column column small-12 medium-4">
+        <picture class="fabric-first__fabric-image">
+          <source media="(max-width:649px)" srcset="{{ block.settings.image_mobile | img_url: '500x' | format: 'pjpg' }}"/>
+          <img src="{{ block.settings.image | img_url: '800x' | format: 'pjpg'}}" alt="block.settings.image.alt" >
+        </picture>
+        <h3 class="fabric-first__fabric-title">{{ block.settings.title }}</h3>
+        <p class="fabric-first__fabric-description">{{ block.settings.description }}</p>
+        <button-component class="button--link fabric-first__fabric-cta" href="{{ block.settings.cta_url }}">
+        {{ block.settings.cta_text }}
+        </button-component>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Fabric First Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Fabric First"
+      },
+      {
+        "type": "html",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "secondary_text",
+        "label": "Secondary Text"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "fabric",
+        "name": "Fabric",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "image_mobile",
+            "label": "Mobile Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Microfiber"
+          },
+          {
+            "type": "text",
+            "id": "description",
+            "label": "Description",
+            "default": "Our signature, highly-technical, patented fabric."
+          },
+          {
+            "type": "url",
+            "id": "cta_url",
+            "label": "CTA URL"
+          },
+          {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA Text",
+            "default": "Read More"
+          }
+        ]
+      }
+    ],
+    "templates": ["article", "blog", "page"],
+    "presets": [
+      {
+        "name": "Fabric First",
+        "category": "Block Content"
+      }
+    ]
+  }
+{% endschema %}
+
+

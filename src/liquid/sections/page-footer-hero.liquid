@@ -1,0 +1,313 @@
+{%- capture _slides -%}
+  [
+    {%- for block in section.blocks -%}
+      {
+        background_image: "{%- if block.settings.background_image != nil %}{{ block.settings.background_image.src | img_url: '2000x', format: 'pjpg' }}{% endif -%}",
+        background_image_alt: "{%- if block.settings.background_image != nil %}{{ block.settings.background_image.alt }}{% endif -%}",
+        background_width: "{%- if block.settings.background_image != nil %}{{ block.settings.background_image.width }}{% endif -%}",
+        background_height: "{%- if block.settings.background_image != nil %}{{ block.settings.background_image.height }}{% endif -%}",
+        body_text: "{{ block.settings.body_text | replace_first: '<p>', '' | replace_first: '</p>', '' | escape }}",
+        body_text_color: "{{ block.settings.body_text_color }}",
+        content_below_on_mobile: true,
+        content_top_mobile: {{ block.settings.content_top_mobile | json }},
+        mobile_text_position: {{ block.settings.mobile_text_position | json }},
+        content_width: "{{ block.settings.content_width }}",
+        cta_label: "{{ block.settings.cta_label | strip_html | escape }}",
+        cta_link: "{{ block.settings.cta_link }}",
+        ctaType: "{{ block.settings.cta_type }}",
+        mobile_background_image: "{%- if block.settings.mobile_background_image != nil %}{{ block.settings.mobile_background_image.src | img_url: '1000x', format: 'pjpg' }}{% endif -%}",
+        mobile_background_alt: "{%- if block.settings.mobile_background_image != nil %}{{ block.settings.mobile_background_image.alt }}{% endif -%}",
+        mobile_background_width: "{%- if block.settings.mobile_background_image != nil %}{{ block.settings.mobile_background_image.width }}{% endif -%}",
+        mobile_background_height: "{%- if block.settings.mobile_background_image != nil %}{{ block.settings.mobile_background_image.height }}{% endif -%}",
+        overlay_color: "{{ block.settings.overlay_color }}",
+        overlay_opacity: {{ block.settings.overlay_opacity | default: 0 }},
+        pre_heading: "{{ block.settings.pre_heading | strip_html | escape }}",
+        pre_heading_color: "{{ block.settings.pre_heading_color }}",
+        text_align: "{{ block.settings.text_align }}",
+        text_position_horizontal: "{{ block.settings.text_position_horizontal }}",
+        text_position_vertical: "{{ block.settings.text_position_vertical }}",
+        title: "{{ block.settings.title | strip_html | escape }}",
+        title_color: "{{ block.settings.title_color }}",
+      },
+    {%- endfor -%}
+  ]
+{%- endcapture -%}
+{%- capture marginTop -%}
+  {
+    mobile: "{{ section.settings.margin_top_mobile | default: 0 }}",
+    desktop: "{{ section.settings.margin_top_desktop | default: 0 }}",
+  }
+{%- endcapture -%}
+{%- capture marginBottom -%}
+  {
+    mobile: "{{ section.settings.margin_bottom_mobile | default: '1.75rem' }}",
+    desktop: "{{ section.settings.margin_bottom_desktop | default: '1.75rem' }}",
+  }
+{%- endcapture -%}
+
+<hero
+  :slides='{{ _slides }}'
+  :margin-top='{{ marginTop }}'
+  :margin-bottom='{{ marginBottom }}'
+  class="{{ section.settings.extra_classes }}"
+>
+</hero>
+
+{% schema %}
+  {
+    "name": "Page Hero 2",
+    "class": "homepage-hero-section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "margin_top_mobile",
+        "label": "Mobile Top Spacing",
+        "info": "The spacing above the hero on mobile sized devices. You can use any unit valid in CSS (px, %, vw). If no value is provided then the default will be 0."
+      },
+      {
+        "type": "text",
+        "id": "margin_top_desktop",
+        "label": "Desktop Top Spacing",
+        "info": "The spacing above the hero desktop sized devices. You can use any unit valid in CSS (px, %, vw). If no value is provided then the default will be 0."
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom_mobile",
+        "label": "Mobile Bottom Spacing",
+        "info": "The spacing below the hero on mobile sized devices. You can use any unit valid in CSS (px, %, vw). If no value is provided then the default will be 1.75rem"
+      },
+      {
+        "type": "text",
+        "id": "margin_bottom_desktop",
+        "label": "Desktop Bottom Spacing",
+        "info": "The spacing below the hero desktop sized devices. You can use any unit valid in CSS (px, %, vw). If no value is provided then the default will be 1.75rem"
+      },
+      {
+        "type": "text",
+        "id": "extra_classes",
+        "label": "Extra CSS class",
+        "info": "Apply additional CSS classes depending on the page and context each separted by a single space.",
+        "default": "fabric-detail--hero-section"
+      }
+    ],
+    "max_blocks": 4,
+    "blocks": [
+      {
+        "type": "hero_slide",
+        "name": "Hero Slide",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Images"
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile_background_image",
+            "label": "Mobile Background Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image"
+          },
+          {
+            "type": "text",
+            "id": "background_image_alt",
+            "label": "Background Image Alt Text",
+            "info": "Alternative text for use with screen readers to describe the content of the image."
+          },
+          {
+            "type": "header",
+            "content": "Content"
+          },
+          {
+            "type": "text",
+            "id": "pre_heading",
+            "label": "Pre-Heading"
+          },
+          {
+            "type": "color",
+            "id": "pre_heading_color",
+            "label": "Pre-Heading Color",
+            "default": "#000000"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "color",
+            "id": "title_color",
+            "label": "Title Color",
+            "default": "#000000"
+          },
+          {
+            "type": "richtext",
+            "id": "body_text",
+            "label": "Body Text"
+          },
+          {
+            "type": "color",
+            "id": "body_text_color",
+            "label": "Body Text Color",
+            "default": "#494949"
+          },
+          {
+            "type": "header",
+            "content": "CTA"
+          },
+          {
+            "type": "text",
+            "id": "cta_label",
+            "label": "Label"
+          },
+          {
+            "type": "url",
+            "id": "cta_link",
+            "label": "Link"
+          },
+          {
+            "type": "select",
+            "id": "cta_type",
+            "label": "Choose CTA Style",
+            "options": [
+              {
+                "value": "primary",
+                "label": "Primary"
+              },
+              {
+                "value": "secondary",
+                "label": "Secondary"
+              },
+              {
+                "value": "link",
+                "label": "Link"
+              }
+            ],
+            "default": "primary"
+          },
+          {
+            "type": "header",
+            "content": "Positioning and Alignment"
+          },
+          {
+            "type": "select",
+            "id": "text_position_vertical",
+            "label": "Text Vertical Position on Desktop",
+            "options": [
+              {
+                "value": "flex-start",
+                "label": "Top"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "flex-end",
+                "label": "Bottom"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "select",
+            "id": "text_position_horizontal",
+            "label": "Text Horizonatal Position on Desktop",
+            "options": [
+              {
+                "value": "flex-start",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "flex-end",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "select",
+            "id": "text_align",
+            "label": "Text Alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "text",
+            "id": "content_width",
+            "label": "Content Width",
+            "info": "The width for the hero's content on desktop sized devices. You can use any unit valid in CSS (px, %, vw). Mobile will always display the content as full width. If no value is provided then the width will be 40%"
+          },
+          {
+            "type": "select",
+            "id": "mobile_text_position",
+            "label": "Mobile Text Position",
+            "info": "Do you want the text above or below the image on mobile? Default is below.",
+            "options": [
+              {
+                "value": "0",
+                "label": "Above"
+              },
+              {
+                "value": "1",
+                "label": "Below"
+              }
+            ],
+            "default": "1"
+          },
+          {
+            "type": "text",
+            "id": "content_top_mobile",
+            "label": "Content Vertical Positioning for Mobile",
+            "info": "The distance from the top for the hero's content on mobile sized devices. You can use any unit valid in CSS (px, %, vw) but precentages work best."
+          },
+          {
+            "type": "header",
+            "content": "Overlay Settings"
+          },
+          {
+            "type": "color",
+            "id": "overlay_color",
+            "label": "Overlay Color"
+          },
+          {
+            "type": "range",
+            "id": "overlay_opacity",
+            "label": "Overlay Opacity",
+            "min": 0,
+            "max": 1,
+            "step": 0.1,
+            "default": 0
+          }
+        ]
+      }
+    ],
+    "templates": ["article", "blog", "page"],
+    "presets": [
+      {
+        "name": "Page Hero 2",
+        "category": "Hero"
+      }
+    ]
+  }
+{% endschema %}

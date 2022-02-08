@@ -1,0 +1,53 @@
+.banner {
+  position: relative;
+  z-index: index($layout, 'page-layout-content');
+
+  .column {
+    align-items: center;
+  }
+}
+
+.image__wrapper {
+  position: relative;
+  margin: 0 auto;
+  min-height: 150px;
+}
+
+.banner__image {
+  display: block;
+  width: auto;
+  height: auto;
+
+  @include desktop-up {
+    width: 100vw;
+  }
+}
+
+.banner__cta--mobile {
+  position: absolute;
+  bottom: ($spacing-unit * 5);
+  left: ($spacing-unit * 6);
+  width: calc(100% - 3rem);
+}
+
+.banner__text {
+  padding: ($spacing-unit * 3) ($spacing-unit * 4);
+  max-width: 500px;
+
+  @include tablet-up {
+    padding: $spacing-unit ($spacing-unit * 4);
+  }
+
+  @include desktop-up {
+    padding: ($spacing-unit * 4) ($spacing-unit * 10);
+  }
+}
+
+.banner__body-text {
+  margin-bottom: ($spacing-unit * 4);
+
+  @include desktop-up {
+    margin-bottom: ($spacing-unit * 7);
+  }
+}
+

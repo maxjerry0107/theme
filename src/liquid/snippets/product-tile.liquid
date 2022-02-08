@@ -1,0 +1,12 @@
+
+{%- capture product_json -%}
+  {%- render 'json--product' with product: product -%}
+{%- endcapture -%}
+
+<product-tile
+  :product="{{ product_json | escape }}"
+  :tile-color="'{{ settings.product_image_background_color }}'"
+  :show-price={{ show_price | default: true }}
+  :show-swatches={{ show_swatches | default: true }}
+  >
+</product-tile>

@@ -1,0 +1,11 @@
+
+<script src="{{ 'vendors-main.js' | asset_url }}" async defer></script>
+<script src="{{ 'main.js' | asset_url }}" async defer></script>
+
+<!-- Klaviyo -->
+ {%- render 'scripts--klaviyo' -%}
+<!-- End Klaviyo -->
+
+{%- if template.name == 'account' and template.suffix == 'rewards' -%}
+  {% render 'loyaltylion' %}
+{%- endif -%}

@@ -1,0 +1,136 @@
+// ---------------------------------
+//   Headings
+// ---------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+%heading,
+.heading {
+  margin: 0 0 ($spacing-unit * 4);
+  font-family: $font-headings;
+  font-weight: $font-weight-bold;
+  letter-spacing: initial;
+  text-transform: initial;
+}
+
+h1,
+%heading--1,
+.heading--1 {
+  font-size: $font-size-heading-1;
+  font-weight: $font-weight-bold;
+  line-height: px-to-rem(44px);
+  letter-spacing: initial;
+  text-transform: initial;
+
+  @include desktop-up {
+    font-size: $font-size-heading-1-desktop;
+    line-height: px-to-rem(66px);
+  }
+}
+
+h2,
+%heading--2,
+.heading--2 {
+  font-size: $font-size-heading-2;
+  font-weight: $font-weight-bold;
+  line-height: px-to-rem(39px);
+  letter-spacing: initial;
+  text-transform: initial;
+
+  @include desktop-up {
+    font-size: $font-size-heading-2-desktop;
+    line-height: px-to-rem(50px);
+  }
+}
+
+h3,
+%heading--3,
+.heading--3 {
+  font-size: $font-size-heading-3;
+  font-weight: $font-weight-bold;
+  line-height: px-to-rem(40px);
+  letter-spacing: initial;
+  text-transform: initial;
+
+  @include desktop-up {
+    font-size: $font-size-heading-3-desktop;
+    line-height: px-to-rem(50px);
+  }
+}
+
+h4,
+%heading--4,
+.heading--4 {
+  font-size: $font-size-heading-4;
+  font-weight: $font-weight-bold;
+  line-height: px-to-rem(32px);
+  letter-spacing: initial;
+  text-transform: initial;
+
+  @include desktop-up {
+    font-size: $font-size-heading-4-desktop;
+    line-height: px-to-rem(27px);
+  }
+}
+
+h5,
+%heading--5,
+.heading--5 {
+  font-size: $font-size-heading-5;
+  font-weight: $font-weight-bold;
+  line-height: px-to-rem(25px);
+  letter-spacing: initial;
+  text-transform: initial;
+
+  @include desktop-up {
+    font-size: $font-size-heading-5-desktop;
+    line-height: px-to-rem(28px);
+  }
+}
+
+h6,
+%heading--6,
+.heading--6 {
+  font-size: $font-size-heading-6;
+  font-weight: $font-weight-bold;
+  line-height: px-to-rem(20px);
+  letter-spacing: px-to-rem(1px);
+
+  @include desktop-up {
+    font-size: $font-size-heading-6-desktop;
+    line-height: px-to-rem(22px);
+  }
+}
+
+%heading--preheader,
+.heading--preheader {
+  color: $color--primary;
+  font-size: px-to-rem(14px);
+  font-weight: $font-weight-bold;
+  line-height: px-to-rem(18px);
+  letter-spacing: px-to-rem(2px);
+  text-transform: uppercase;
+
+  @include desktop-up {
+    font-size: px-to-rem(14px);
+    line-height: px-to-rem(22px);
+  }
+}
+
+.heading--divider {
+  display: flex;
+  text-align: left;
+
+  &::after {
+    content: '';
+    display: block;
+    margin-bottom: $spacing-unit * 2;
+    margin-left: $spacing-unit * 4;
+    flex-grow: 1;
+    border-bottom: 1px solid $color-black;
+  }
+}

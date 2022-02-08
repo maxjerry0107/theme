@@ -1,0 +1,18 @@
+.grid-collections {
+  position: relative;
+  padding: ($spacing-unit * 5) 0;
+
+  @include desktop-up {
+    padding: ($spacing-unit * 10) ($spacing-unit * 16);
+  }
+}
+
+.grid-collections__heading {
+  font-size: rem(32);
+  line-height: rem(39);
+
+  @include desktop-up {
+    font-size: rem(44);
+    line-height: rem(50);
+  }
+}

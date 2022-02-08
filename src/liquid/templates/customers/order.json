@@ -1,0 +1,11 @@
+{
+  "name": "Order Page",
+  "sections": {
+    "page-account": {
+      "type": "template-order"
+    }
+  },
+  "order": [
+    "page-account"
+  ]
+}

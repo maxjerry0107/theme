@@ -1,0 +1,27 @@
+.loading {
+  &:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 8px;
+    width: 64px;
+    height: 64px;
+    border: 6px solid $color-white;
+    border-color: $color-white transparent $color-white transparent;
+    border-radius: 50%;
+    animation: loading 1.2s linear infinite;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

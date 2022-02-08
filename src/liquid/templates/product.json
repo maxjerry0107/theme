@@ -1,0 +1,717 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-header",
+      "settings": {
+        "enabled": true
+      }
+    },
+    "icons-microfiber": {
+      "type": "product-icons-microfiber",
+      "blocks": {
+        "origin": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/CountryOrigin_506a98eb-e31b-4996-955a-dc318122010b.png",
+            "title": "farbic origin",
+            "description": "Italy"
+          }
+        },
+        "patented": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Patent_e6f83340-1691-4821-afb3-709a99ada228.png",
+            "title": "patented fabric",
+            "description": "Made with a patented honeycomb construction."
+          }
+        },
+        "raw": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Finish-01_d34e715f-0b0d-4bd3-829d-a8750e631bc4.png",
+            "title": "raw-cut",
+            "description": "Raw-cut edges and no elastic, trim, or taping."
+          }
+        },
+        "stretch": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Stretch_Recovery_664e5145-67ef-4f27-a8f1-39ea3f155b41.png",
+            "title": "stretch + recovery",
+            "description": "Knit with Lycra Beauty Fiber for\nfour-way stretch, recovery, and\nmolding to the body."
+          }
+        },
+        "gauge": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/High_Gauge.png",
+            "title": "high-gauge",
+            "description": "Knit with more needles per inch than standard microfibers."
+          }
+        },
+        "usa": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/USA_414a18e5-0ee6-4a63-8940-921214f406a4.png",
+            "title": "USA made",
+            "description": "Cut + sewn in the USA."
+          }
+        },
+        "breathability": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Breathability_45049be7-6ad2-4f0f-a6dc-587bc411a936.png",
+            "title": "high breathability",
+            "description": "Patented honeycomb construction allows for high fabric breathability."
+          }
+        },
+        "pilling": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Pilling2-01_5a93ee51-7219-45c2-af0a-c57cc0f2e402.png",
+            "title": "pilling-resistant",
+            "description": "A high-gauge makes this fabric\nresistant to pilling."
+          }
+        },
+        "eco": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Eco-Certification.png",
+            "title": "eco-certified",
+            "description": "Made from renewable beech trees,\nPEF, Eco-Tex Standard 100, OekoTex\nSTep, and REACH certified."
+          }
+        }
+      },
+      "block_order": [
+        "origin",
+        "patented",
+        "raw",
+        "stretch",
+        "gauge",
+        "usa",
+        "breathability",
+        "pilling",
+        "eco"
+      ],
+      "settings": {
+        "show_section": true,
+        "product_tags": "icon-grid-microfiber",
+        "title": "Microfiber Details",
+        "description": "",
+        "show_dots": true,
+        "show_arrows_desktop": true,
+        "slides_to_show_mobile": 2,
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll": 1,
+        "scroll_loops": true
+      }
+    },
+    "icons-butter": {
+      "type": "product-icons-butter",
+      "blocks": {
+        "73ca1804-07ff-4180-8770-895ce9567bc8": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/CountryOrigin_506a98eb-e31b-4996-955a-dc318122010b.png",
+            "title": "farbic origin",
+            "description": "Austria"
+          }
+        },
+        "aeca2451-66b4-4e2f-a5aa-23586668e516": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Pilling2-01_5a93ee51-7219-45c2-af0a-c57cc0f2e402.png",
+            "title": "pilling-resistant",
+            "description": "A high-gauge makes this fabric\nresistant to pilling."
+          }
+        },
+        "28560e18-ff55-4518-971b-2a1327a1fffa": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Finish-01_d34e715f-0b0d-4bd3-829d-a8750e631bc4.png",
+            "title": "raw-cut",
+            "description": "A high-gauge allows for raw-cut\nedges with no elastic, trim, or taping."
+          }
+        },
+        "158c91e9-300b-4522-8eef-76a5a4c512c4": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Feel-01_4ac77a48-4d8a-4986-9555-05694757f376.png",
+            "title": "hand-feel",
+            "description": "Ultra-soft modal with a smooth feel."
+          }
+        },
+        "81d7314d-f2a2-4576-9744-c279c6e01a79": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Stretch_Recovery_664e5145-67ef-4f27-a8f1-39ea3f155b41.png",
+            "title": "stretch + recovery",
+            "description": "Knit with Lycra Beauty Fiber for\nfour-way stretch, recovery, and\nmolding to the body."
+          }
+        },
+        "80eb511b-0813-4cf0-b6f0-95d2451945b2": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Eco-Certification.png",
+            "title": "eco-certified",
+            "description": "Made from renewable beech trees,\nPEF, Eco-Tex Standard 100, OekoTex\nSTep, and REACH certified."
+          }
+        },
+        "b9a96782-ec36-41d1-8c42-cb3ec5d525e3": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/High_Gauge.png",
+            "title": "high-gauge",
+            "description": "Knit with 50 needles per inch,\ncompared to typical modals at 28."
+          }
+        }
+      },
+      "block_order": [
+        "73ca1804-07ff-4180-8770-895ce9567bc8",
+        "aeca2451-66b4-4e2f-a5aa-23586668e516",
+        "28560e18-ff55-4518-971b-2a1327a1fffa",
+        "158c91e9-300b-4522-8eef-76a5a4c512c4",
+        "81d7314d-f2a2-4576-9744-c279c6e01a79",
+        "80eb511b-0813-4cf0-b6f0-95d2451945b2",
+        "b9a96782-ec36-41d1-8c42-cb3ec5d525e3"
+      ],
+      "settings": {
+        "show_section": true,
+        "product_tags": "icon-grid-butter",
+        "title": "Butter Details",
+        "description": "",
+        "show_dots": true,
+        "show_arrows_desktop": true,
+        "slides_to_show_mobile": 2,
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll": 1,
+        "scroll_loops": true
+      }
+    },
+    "icons-cotton": {
+      "type": "product-icons-cotton",
+      "blocks": {
+        "origin": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/CountryOrigin_506a98eb-e31b-4996-955a-dc318122010b.png",
+            "title": "farbic origin",
+            "description": "Italy"
+          }
+        },
+        "stretch": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Stretch_Recovery_664e5145-67ef-4f27-a8f1-39ea3f155b41.png",
+            "title": "stretch + recovery",
+            "description": "Four-way stretch and high recovery."
+          }
+        },
+        "sustainable": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Eco-Certification.png",
+            "title": "sustainably made",
+            "description": "Neoprene is Oekotex Standard 100, FSC, ECOLABEL and EMAS certified."
+          }
+        },
+        "drying": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/USA_414a18e5-0ee6-4a63-8940-921214f406a4.png",
+            "title": "fast-drying",
+            "description": "Moisture-wicking properties."
+          }
+        },
+        "pilling": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Pilling2-01_5a93ee51-7219-45c2-af0a-c57cc0f2e402.png",
+            "title": "pilling-resistant",
+            "description": "A high-gauge makes this fabric\nresistant to pilling."
+          }
+        },
+        "raw": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Finish-01_d34e715f-0b0d-4bd3-829d-a8750e631bc4.png",
+            "title": "raw-cut",
+            "description": "Raw-cut edges and no elastic, trim, or taping."
+          }
+        },
+        "gauge": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/High_Gauge.png",
+            "title": "high-gauge",
+            "description": "Knit with a high number of needles per inch."
+          }
+        },
+        "washable": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Breathability_45049be7-6ad2-4f0f-a6dc-587bc411a936.png",
+            "title": "machine washable",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "origin",
+        "stretch",
+        "sustainable",
+        "drying",
+        "pilling",
+        "raw",
+        "gauge",
+        "washable"
+      ],
+      "settings": {
+        "show_section": true,
+        "product_tags": "icon-grid-cotton",
+        "title": "Cotton Details",
+        "description": "",
+        "show_dots": true,
+        "show_arrows_desktop": true,
+        "slides_to_show_mobile": 2,
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll": 1,
+        "scroll_loops": true
+      }
+    },
+    "icons-fasttrack": {
+      "type": "product-icons-fasttrack",
+      "blocks": {
+        "origin": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/CountryOrigin_506a98eb-e31b-4996-955a-dc318122010b.png",
+            "title": "farbic origin",
+            "description": "France"
+          }
+        },
+        "compression": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Compression.png",
+            "title": "medium compression",
+            "description": "Tight interlock construction and spandex fibers for compression."
+          }
+        },
+        "stretch": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Stretch_Recovery_664e5145-67ef-4f27-a8f1-39ea3f155b41.png",
+            "title": "stretch + recovery",
+            "description": "Incredible four-way stretch and high recovery."
+          }
+        },
+        "drying": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/USA_414a18e5-0ee6-4a63-8940-921214f406a4.png",
+            "title": "fast-drying",
+            "description": "Contains polyamide, a fast-drying fiber that dries faster than cotton."
+          }
+        },
+        "raw": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Finish-01_d34e715f-0b0d-4bd3-829d-a8750e631bc4.png",
+            "title": "raw-cut",
+            "description": "Raw-cut edges and no elastic, trim, or taping."
+          }
+        },
+        "usa": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/USA_414a18e5-0ee6-4a63-8940-921214f406a4.png",
+            "title": "USA made",
+            "description": "Cut + sewn in the USA."
+          }
+        },
+        "wellness": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Wellness.png",
+            "title": "wellness properties",
+            "description": "Compression lessens muscle microvibrations, reducing fatigue and boosting recovery."
+          }
+        },
+        "breathability": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Breathability_45049be7-6ad2-4f0f-a6dc-587bc411a936.png",
+            "title": "high breathability",
+            "description": "Patented honeycomb construction allows for high fabric breathability."
+          }
+        },
+        "eco": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Eco-Certification.png",
+            "title": "eco-certified",
+            "description": "Oeko Tex 100 certified."
+          }
+        },
+        "washable": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Breathability_45049be7-6ad2-4f0f-a6dc-587bc411a936.png",
+            "title": "machine washable",
+            "description": ""
+          }
+        }
+      },
+      "block_order": [
+        "origin",
+        "compression",
+        "stretch",
+        "drying",
+        "raw",
+        "usa",
+        "wellness",
+        "breathability",
+        "eco",
+        "washable"
+      ],
+      "settings": {
+        "show_section": true,
+        "product_tags": "icon-grid-fasttrack",
+        "title": "Fasttrack Details",
+        "description": "",
+        "show_dots": true,
+        "show_arrows_desktop": true,
+        "slides_to_show_mobile": 2,
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll": 1,
+        "scroll_loops": true
+      }
+    },
+    "icons-fauxleather": {
+      "type": "product-icons-fauxleather",
+      "blocks": {
+        "origin": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/CountryOrigin_506a98eb-e31b-4996-955a-dc318122010b.png",
+            "title": "farbic origin",
+            "description": "China"
+          }
+        },
+        "smoothing": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Smoothing.png",
+            "title": "smoothing",
+            "description": "Firming fabric with light compression."
+          }
+        },
+        "raw": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Finish-01_d34e715f-0b0d-4bd3-829d-a8750e631bc4.png",
+            "title": "raw-cut",
+            "description": "Ability for raw-cut finishes."
+          }
+        },
+        "washable": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Breathability_45049be7-6ad2-4f0f-a6dc-587bc411a936.png",
+            "title": "machine washable",
+            "description": "Machine wash cold, drip dry."
+          }
+        },
+        "hand": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/USA_414a18e5-0ee6-4a63-8940-921214f406a4.png",
+            "title": "hand feel",
+            "description": "Real leather look and feel."
+          }
+        },
+        "stretch": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Stretch_Recovery_664e5145-67ef-4f27-a8f1-39ea3f155b41.png",
+            "title": "stretch + recovery",
+            "description": "Incredible four-way stretch and high recovery."
+          }
+        },
+        "pilling": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Pilling2-01_5a93ee51-7219-45c2-af0a-c57cc0f2e402.png",
+            "title": "pilling-resistant",
+            "description": "High resistance to pilling."
+          }
+        }
+      },
+      "block_order": [
+        "origin",
+        "smoothing",
+        "raw",
+        "washable",
+        "hand",
+        "stretch",
+        "pilling"
+      ],
+      "settings": {
+        "show_section": true,
+        "product_tags": "icon-grid-fauxleather, icon-grid-FL",
+        "title": "Faux Leather Details",
+        "description": "",
+        "show_dots": true,
+        "show_arrows_desktop": true,
+        "slides_to_show_mobile": 2,
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll": 1,
+        "scroll_loops": false
+      }
+    },
+    "icons-minimalist": {
+      "type": "product-icons-minimalist",
+      "blocks": {
+        "origin": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/CountryOrigin_506a98eb-e31b-4996-955a-dc318122010b.png",
+            "title": "farbic origin",
+            "description": "USA"
+          }
+        },
+        "hand": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/USA_414a18e5-0ee6-4a63-8940-921214f406a4.png",
+            "title": "hand feel",
+            "description": "Ultra-soft hand feel"
+          }
+        },
+        "stretch": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Stretch_Recovery_664e5145-67ef-4f27-a8f1-39ea3f155b41.png",
+            "title": "stretch + recovery",
+            "description": "Incredible four-way stretch and high recovery."
+          }
+        },
+        "usa": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/USA_414a18e5-0ee6-4a63-8940-921214f406a4.png",
+            "title": "USA made",
+            "description": "Knit in the USA."
+          }
+        },
+        "seamless": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Seamless.png",
+            "title": "seamless construction",
+            "description": "Knit on a seamless machine allowing for optimum body contouring."
+          }
+        },
+        "smoothing": {
+          "type": "value_prop",
+          "settings": {
+            "icon_image": "shopify:\/\/shop_images\/Smoothing.png",
+            "title": "smoothing",
+            "description": "Light smoothing properties"
+          }
+        }
+      },
+      "block_order": [
+        "origin",
+        "hand",
+        "stretch",
+        "usa",
+        "seamless",
+        "smoothing"
+      ],
+      "settings": {
+        "show_section": true,
+        "product_tags": "icon-grid-minimalist",
+        "title": "Minimalist Details",
+        "description": "",
+        "show_dots": true,
+        "show_arrows_desktop": true,
+        "slides_to_show_mobile": 2,
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll": 1,
+        "scroll_loops": true
+      }
+    },
+    "icons-openfabric1": {
+      "type": "product-icons-openfabric1",
+      "settings": {
+        "show_section": true,
+        "product_tags": "icon-grid-openfabric1",
+        "title": "All in the Details",
+        "description": "",
+        "show_dots": true,
+        "show_arrows_desktop": true,
+        "slides_to_show_mobile": 2,
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll": 1,
+        "scroll_loops": true
+      }
+    },
+    "icons-openfabric2": {
+      "type": "product-icons-openfabric2",
+      "settings": {
+        "show_section": true,
+        "product_tags": "icon-grid-openfabric2",
+        "title": "All in the Details",
+        "description": "",
+        "show_dots": true,
+        "show_arrows_desktop": true,
+        "slides_to_show_mobile": 2,
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll": 1,
+        "scroll_loops": true
+      }
+    },
+    "icons-openfabric3": {
+      "type": "product-icons-openfabric3",
+      "settings": {
+        "show_section": true,
+        "product_tags": "icon-grid-openfabric3",
+        "title": "All in the Details",
+        "description": "",
+        "show_dots": true,
+        "show_arrows_desktop": true,
+        "slides_to_show_mobile": 2,
+        "slides_to_show_desktop": 5,
+        "slides_to_scroll": 1,
+        "scroll_loops": true
+      }
+    },
+    "product-fifty-fifty": {
+      "type": "product-fifty-fifty",
+      "blocks": {
+        "butter": {
+          "type": "fifty-fifty-section",
+          "settings": {
+            "product_handles": "butter-long-sleeve-bodysuit,butter-bralette,butter-soft-support-bralette,butter-tank,butter-comfy-bralette,butter-tank-bodysuit,butter-hipster,sale-butter-oversized-tee,copy-of-sale-butter-hipster,butter-soft-support-bodysuit,butter-muscle-romper,butter-high-rise-jogger,butter-relaxed-tee-jumpsuit,butter-high-rise-panty,butter-flare-loung-pant,butter-tank-lounge-jumpsuit,butter-yoga-bralette,butter-wrap-top-with-thumb-holes,puff-sleeve-tee,butter-mid-rise-thong,copy-of-butter-muscle-tee-1,copy-of-butter-puff-sleeve-tee,sale-butter-comfy-bralette,butter-crew-bodysuit,butter-soft-support-racerback-bralette,butter-long-sleeve-cropped-turtleneck,new-arrival-sale-butter-oversized-tee-black,copy-of-sale-butter-mid-rise-thong-1,butter-soft-support-tank,butter-crop-muscle-tee,copy-of-butter-short-sleeve-crewneck-bodysuit,sale-butter-high-rise-jogger,womens-butter-jogger,sale-lifted-butter-racerback-tank-with-shelf-bra,butter-skinnies,copy-of-butter-tank-bodysuit,butter-cropped-tee,sale-butter-shorts,butter-muscle-wide-leg-jumpsuit,sale-butter-yoga-bralette,copy-of-sale-butter-cami,copy-of-butter-bralette-1,copy-of-butter-mid-rise-thong,butter-turtleneck-bodysuit,copy-of-sale-butter-mid-rise-thong,butter-muscle-tee,sale-butter-hipster-1,butter-wide-leg-lounge-pant,butter-comfy-curvy-bralette,butter-short-sleeve-crewneck-bodysuit,copy-of-butter-tank-lounge-jumpsuit-1,butter-balloon-sleeve-bodysuit,butter-cami,copy-of-butter-balloon-sleeve-bodysuit",
+            "desktop_image": "shopify:\/\/shop_images\/Butter_PDP_Fabric_0821_DT2_224c390f-2f8c-47ac-8534-c837bed3418b.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Butter_PDP_Fabric_0821_Mobile2_04246f9e-911f-45d5-afc8-1b60b3631310.jpg",
+            "pre_heading": "SUSTAINABLY MADE",
+            "heading": "Butter™ Fabric",
+            "body": "Butter™ is one of our best-selling, most-loved fabrics. It's an ultra-soft, high-gauge Austrian modal that is sustainably made using beech trees. It has unique technical properties that lend it well to intimates, loungewear & bodysuits."
+          }
+        },
+        "microfiber": {
+          "type": "fifty-fifty-section",
+          "settings": {
+            "product_handles": "tiny-thong,thong,high-rise-panty,bikini,mini-cami-slip,tailored,debutante-slip,classic-bodysuit-thong,girl-short,classic-bikini-2-pack,classic-solid-thong-2-pack",
+            "desktop_image": "shopify:\/\/shop_images\/Microfiber_PDP_Fabric_0821_DT.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Microfiber_PDP_Fabric_0821_Mobile.jpg",
+            "pre_heading": "Our Signature",
+            "heading": "Microfiber Fabric",
+            "body": "This patented, highly-technical fabric has a honeycomb construction, four-way stretch, high breathability and can be raw cut, allowing for an elastic-free construction. It’s what makes our classic line-free bottoms best-in-class and keeps our patented classic slips smooth and static-free."
+          }
+        },
+        "fauxleather": {
+          "type": "fifty-fifty-section",
+          "settings": {
+            "product_handles": "womens-faux-leather-legging-with-perfect-control,faux-leather-crop-top,faux-leather-animal-flared-legging-with-perfect-control-1,faux-leather-paperbag-short,faux-leather-paper-bag-pants,womens-faux-leather-midi-skirt,perfect-faux-patent-legging,faux-patent-leather-legging-with-perfect-control,faux-leather-crop-flare-1,copy-of-faux-leather-animal-legging-with-perfect-control,copy-of-7-8-faux-leather-animal-legging,faux-leather-wide-leg-pant,faux-patent-leather-midi-skirt,faux-leather-crop-flare,7-8th-faux-leather-legging-with-perfect-control,perfect-faux-leather-midi-skirt,faux-leather-rockstar-legging,faux-leather-side-slit-midi-skirt,faux-leather-pocket-legging,faux-leather-deep-v-bodysuit,copy-of-sale-faux-leather-animal,faux-leather-long-line-bralette,faux-leather-moto-legging,faux-leather-jogger,copy-of-sale-faux-leather-animal-legging,faux-leather-animal-legging,faux-leather-bike-shorts-with-perfect-control,7-8-faux-leather-animal-legging-with-perfect-control,copy-of-faux-leather-animal-midi-skirt,web-exclusive-faux-patent-leather-mini-skort,perfect-faux-patent-leather-midi-skirt,faux-leather-tapered-pant,faux-leather-perfect-pencil-skirt,faux-leather-relaxed-short,faux-leather-animal-v-neck-bodysuit,7-8-faux-patent-leather-legging-with-perfect-control,faux-leather-mini-skort,faux-leather-tee-bodysuit,copy-of-faux-leather-animal-signature-bodysuit-1,copy-of-faux-leather-animal-mini-skort,faux-leather-feather-bralette,sale-faux-leather-capri-legging-with-perfect-control,faux-leather-signature-dress,faux-leather-jogger-2,faux-leather-bodysuit,copy-of-sale-faux-leather-animal-signature-bodysuit-1,copy-of-faux-patent-leather-legging-with-perfect-control-1,sale-7-8-faux-leather-legging,faux-leather-animal-tee-bodysuit",
+            "desktop_image": "shopify:\/\/shop_images\/FL_PDP_Fabric_0821_DT.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Fl_PDP_Fabric_0821_Mobile.jpg",
+            "pre_heading": "Ultra-Chic",
+            "heading": "Faux Leather Fabric",
+            "body": "Commando’s faux leather fabric looks like real leather, but has amazing technical properties including incredible four-way stretch, high-recovery, and the ability for raw-cut finishes. Best of all, it’s machine-washable and retains its look wash after wash."
+          }
+        },
+        "neoprene": {
+          "type": "fifty-fifty-section",
+          "settings": {
+            "product_handles": "neoprene-bike-short,neoprene-flared-legging-with-perfect-control,neoprene-wideleg-pant,neoprene-9-5-legging,neoprene-legging-with-perfect-control,neoprene-square-neck-bralette-1,neoprene-split-front-pants,neoprene-zip-long-sleeve-bodysuit",
+            "desktop_image": "shopify:\/\/shop_images\/Neoprene_PDP_Fabric_0821_DT.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Neoprene_PDP_Fabric_0821_Mobile.jpg",
+            "pre_heading": "Scuba Sleek",
+            "heading": "Neoprene Fabric",
+            "body": "Our Neoprene fabric has incredibly high stretch and recovery. Combined with a cushiony fabric weight, these pieces can truly mold to the body, for a form-fitting and ultra-flattering look. As a high-gauge fabric, our Neoprene boasts raw-cut edges that lay perfectly flat against the body."
+          }
+        },
+        "fasttrack": {
+          "type": "fifty-fifty-section",
+          "settings": {
+            "product_handles": "fast-track-legging",
+            "desktop_image": "shopify:\/\/shop_images\/FastTrack_PDP_Fabric_0821_DT.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/FastTrack_PDP_Fabric_0821_Mobile.jpg",
+            "pre_heading": "Luxury-Technical",
+            "heading": "Fast Track Fabric",
+            "body": "Known for its performance-enhancing properties, this soft, compressive fabric reduces muscle fatigue and boosts recovery. With high breathability, fast drying properties and high stretch and recovery, this miracle fabric lends itself to performance-wear and travel."
+          }
+        },
+        "minimalist": {
+          "type": "fifty-fifty-section",
+          "settings": {
+            "product_handles": "minimalist-thong,minimalist-racerback-bra,minimalist-tank-bralette,minimalist-french-cut-panty,sale-minimalist-french-cut-panty,minimalist-v-bralette",
+            "desktop_image": "shopify:\/\/shop_images\/Minimalist_PDP_Fabric_0821_DT.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Minimalist_PDP_Fabric_0821_Mobile.jpg",
+            "pre_heading": "Soft, Stretchy, Sleek",
+            "heading": "Minimalist Fabric",
+            "body": "Our minimalist fabric is a soft, seamless knit superfine fiber. The seamless construction gives these pieces incredible stretch and recovery, and the ability to mold to the body for a second-skin fit."
+          }
+        }
+      },
+      "block_order": [
+        "butter",
+        "microfiber",
+        "fauxleather",
+        "neoprene",
+        "fasttrack",
+        "minimalist"
+      ],
+      "settings": {}
+    },
+    "instashop-pdp": {
+      "type": "instashop-pdp",
+      "settings": {
+        "headline": "See it Styled on Instagram",
+        "social_link_text": "Shop Our Feed",
+        "social_link_url": "",
+        "extra_top_padding": false,
+        "use_instafeed_app": true
+      }
+    },
+    "bazaarvoice-reviews": {
+      "type": "bazaarvoice-reviews",
+      "settings": {
+        "title": "Reviews"
+      }
+    },
+    "product-findify-related": {
+      "type": "product-findify-related",
+      "settings": {
+        "enabled": true
+      }
+    },
+    "product-findify-recent": {
+      "type": "product-findify-recent",
+      "settings": {
+        "enabled": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "icons-microfiber",
+    "icons-butter",
+    "icons-cotton",
+    "icons-fasttrack",
+    "icons-fauxleather",
+    "icons-minimalist",
+    "icons-openfabric1",
+    "icons-openfabric2",
+    "icons-openfabric3",
+    "product-fifty-fifty",
+    "instashop-pdp",
+    "bazaarvoice-reviews",
+    "product-findify-related",
+    "product-findify-recent"
+  ]
+}

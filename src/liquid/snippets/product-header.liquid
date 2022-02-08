@@ -1,0 +1,44 @@
+{%- capture product_data -%}
+  {%- render 'json--product' product: product -%}
+{%- endcapture -%}
+{%- if product.metafields.product_info and product.metafields.product_info.styled_with -%}
+  {%- capture styled_with -%}
+    {%- render 'json--product' product: all_products[product.metafields.product_info.styled_with] -%}
+  {%- endcapture -%}
+{% else %}
+  {% assign styled_with = '{}' %}
+{%- endif -%}
+{% comment %}
+  Assign "Womens Intimates" to top level category, split by spaces.
+{% endcomment %}
+{% assign categoryTitleArray = collection.title | split: '|' %}
+{% assign highLevelCategory = categoryTitleArray[1] | remove: "'" %}
+{% assign highLevelCategoryHandle = highLevelCategory | downcase | handleize %}
+{% comment %}
+  Assign category to name after pipe.
+{% endcomment %}
+{% assign category = categoryTitleArray[2] %}
+
+<product-display
+  :product="{{ product_data | escape | strip }}"
+  :collection="{{ collection | json | escape | strip }}"
+  :styled-with="{{ styled_with | escape | strip }}"
+  :background-color="'{{ settings.product_image_background_color | escape }}'"
+  rating-system="{{ settings.reviews_type }}"
+  final-sale-text="{{ settings.final_sale_text | escape }}"
+  :enable-notifiy-me={{ settings.enable_notfiy_me | default: true }}
+  notifiy-me-heading="{{ settings.notify_me_heading | escape }}"
+  notifiy-me-text="{{ settings.notify_me_text | escape }}"
+  customer-email="{%- if customer and customer.email -%}{{ customer.email }}{%- else -%}{%- endif -%}"
+  :sticky={{ section.settings.sticky }}
+>
+  <template slot="display-afterpay">
+    {%- render 'scripts--afterpay' -%}
+  </template>
+  <template slot="size-chart">
+    {%- render 'modal-size-chart' -%}
+  </template>
+  <template slot="care-and-returns">
+    {%- render 'care-and-returns' -%}
+  </template>
+</product-display>

@@ -1,0 +1,31 @@
+<div class="article__header-wrapper">
+  <div class="article__header text-align--center">
+    {%- if section.settings.show_return_link == true -%}
+      <a class="article__return-link" href="{{- blog.url -}}">{{ blog.title }}</a>
+    {%- endif -%}
+    <div class="article__header-title">
+      <h1 class="heading--5">{{- article.title -}}</h1>
+      <p class="article__header-date heading heading--6" >{{ article.created_at | date: '%B %d, %Y' }}</p>
+    </div>
+  </div>
+  {% render 'article-banner' %}
+</div>
+
+{% schema %}
+  {
+    "name": "Article Header",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_return_link",
+        "label": "Show Blog Link",
+        "info": "Shows the blog link so users can return to the blog list.",
+        "default": true
+      }
+    ],
+    "templates": ["article"]
+  }
+{% endschema %}
+
+

@@ -1,0 +1,11 @@
+{
+  "name": "Login Page",
+  "sections": {
+    "page-account": {
+      "type": "template-login"
+    }
+  },
+  "order": [
+    "page-account"
+  ]
+}

@@ -1,0 +1,32 @@
+.product-form__size-chart {
+  .modal__content {
+    overflow: hidden;
+    overflow-y: scroll;
+    max-width: 100vw;
+    max-height: calc(100vh - 106px);
+    min-height: 50vh;
+  }
+
+  .product-form__modal-content-inner {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .product-form__modal-content-inner {
+    flex-wrap: wrap;
+
+    table {
+      max-width: 100%;
+      min-width: 100%;
+      border-collapse: collapse;
+    }
+
+    td {
+      border: 1px solid $color-grey-300;
+    }
+  }
+  
+  .hidden {
+    @extend %u-hidden;
+  }
+}

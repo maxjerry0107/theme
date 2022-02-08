@@ -1,0 +1,230 @@
+<script>
+  (function () {
+
+    /* DATALAYER: Log State */
+
+    {% assign _dataLayer_isCustomer = false %}
+    {% if customer %}
+      {% assign _dataLayer_isCustomer = true %}
+    {% endif %}
+
+    {% assign _dataLayer_logState = 'Logged Out' %}
+    {% if customer %}
+      {% assign _dataLayer_logState = 'Logged In' %}
+    {% endif %}
+
+    {% assign _dataLayer_customerType = 'New' %}
+    {% if customer and customer.orders_count > 2 %}
+      {% assign _dataLayer_customerType = 'Returning' %}
+    {% endif %}
+
+    var logState = {
+      {% assign customer_address = customer.default_address %}
+        'isCustomer'    : {{ _dataLayer_isCustomer }},
+        'logState'      : {{ _dataLayer_logState | json }},
+        'customerType'  : {{ _dataLayer_customerType | json }},
+        'userId'        : {{ customer.id | downcase | json }},
+        'checkoutEmail' : {{ checkout.email | json }},
+        'currency'      : {{ shop.currency | json }},
+        'totalOrders'   : {{ customer.orders_count | downcase | json }},
+        'totalSpent'    : {{ customer.total_spent | divided_by: 100 }},
+        'checkoutEmail' : {{checkout.email | json }},
+        'customerEmail': {{customer.email | json }},
+        'customerEmailHash' : '{{customer.email | sha256}}',
+        'customerInfo' : {
+            'firstName'   : {{ customer_address.first_name | json }},
+            'lastName'    : {{ customer_address.last_name | json }},
+            'address1'    : {{ customer_address.address1 | json }},
+            'address2'    : {{ customer_address.address2 | json }},
+            'street'      : {{ customer_address.street | json }},
+            'city'        : {{ customer_address.city | json }},
+            'province'    : {{ customer_address.province | json }},
+            'zip'         : {{ customer_address.zip | json }},
+            'country'     : {{ customer_address.country | json }},
+            'phone'       : {{ customer_address.phone | json }},
+        },
+        'customerInfoHashed' : {
+            'fullName'  : '{{ customer_address.name | sha256}}',
+            'firstName' : '{{ customer_address.first_name | sha256}}',
+            'lastName'  : '{{ customer_address.last_name | sha256}}',
+            'address1'  : '{{ customer_address.address1 | sha256}}',
+            'address2'  : '{{ customer_address.address2 | sha256}}',
+            'street'    : '{{ customer_address.street | sha256}}',
+            'city'      : '{{ customer_address.city | sha256}}',
+            'province'  : '{{ customer_address.province | sha256}}',
+            'zip'       : '{{ customer_address.zip | sha256}}',
+            'country'   : '{{ customer_address.country | sha256}}',
+            'phone'     : '{{ customer_address.phone | sha256}}'
+        },{% if checkout %}
+        'checkoutInfoHashed' : {
+            'email'       : '{{ checkout.email | sha256 }}',
+            'fullName'    : '{{ checkout.billing_address.name | sha256}}',
+            'firstName'   : '{{ checkout.billing_address.first_name | sha256}}',
+            'lastName'    : '{{ checkout.billing_address.last_name | sha256}}',
+            'address1'    : '{{ checkout.billing_address.address1 | sha256}}',
+            'address2'    : '{{ checkout.billing_address.address2 | sha256}}',
+            'street'      : '{{ checkout.billing_address.street | sha256}}',
+            'city'        : '{{ checkout.billing_address.city | sha256}}',
+            'province'    : '{{ checkout.billing_address.province | sha256}}',
+            'zip'         : '{{ checkout.billing_address.zip | sha256}}',
+            'country'     : '{{ checkout.billing_address.country | sha256}}',
+            'phone'       : '{{ checkout.billing_address.phone | sha256}}'
+        },{% endif %}
+        'event'       : 'Customer Details',
+      };
+
+    /* DATALAYER: Base Event */
+        
+    {% assign _dataLayer_pageType = template.name | json %}
+    {% assign _dataLayer_pageEvent = template.name | json %}
+
+    var url = window.location.href;
+
+    var baseEvent = {
+      'pageType': {{ _dataLayer_pageType }},
+      'event': {{ _dataLayer_pageEvent }},
+    };
+
+    /* DATALAYER: Collections */
+
+    {% if template.name == 'collection' %}
+    {% comment %}
+      var products = [{%- for product in collection.products -%}{
+        'name'            : {{ product.title | json }},
+        'id'              : {{ product.id | json }},
+        'sku'             : {{ product.selected_or_first_available_variant.sku | json }},
+        'variantId'       : {{ product.selected_or_first_available_variant.id | json }},
+        'productType'     : {{ product.type | downcase | json }},
+        'price'           : {{ product.price |  money_without_currency | remove: ',' }},
+        'currentCategory' : {{ collection.title | json }},
+      }{%- unless forloop.last -%},{%- endunless -%}{% endfor %}];
+  
+      baseEvent.products = products;
+    {% endcomment %}
+      baseEvent.productList = {{ collection.title | json }};
+
+    {% endif %}
+    
+    
+   /* DATALAYER: Product Detail Page  */
+
+    {% if template.name == 'product' %}
+
+      var product = [{
+        'id'              : {{ product.id | json }},
+        'sku'             : {{ product.selected_or_first_available_variant.sku | json }},
+        'variantId'       : {{ product.selected_or_first_available_variant.id | json }},
+        'productType'     : {{ product.type | downcase | json}},
+        'name'            : {{ product.title | json }},
+        'price'           : {{ product.price | money_without_currency | remove: ',' }},
+        'comparePrice'    : {{ product.compare_at_price_max | money_without_currency | remove: ',' }},
+        'currentCategory' : {{ collection.title | json }},
+        'variantTitle'    : {{ product.selected_or_first_available_variant.title | json }},
+        'variantOption1'  : {{ product.selected_or_first_available_variant.option1 | json }},
+        'variantOption2'  : {{ product.selected_or_first_available_variant.option2 | json }},
+        'inventory'       : {{ product.selected_or_first_available_variant.inventory_quantity | json }},
+      }];
+
+      baseEvent.products = product;
+
+    {% endif %}
+      
+    
+    /* DATALAYER: Cart View */
+
+    {% if template.name == 'cart' %}
+
+      var product = [{% for line_item in cart.items %}{
+        'id'              : {{ line_item.product_id | json }},
+        'sku'             : {{ line_item.sku | json }},
+        'variantId'       : {{ line_item.variant_id | json }},
+        'name'            : {{ line_item.product.title | json }},
+        'variantTitle'    : {{ line_item.variant.title | json }},
+        'price'           : {{ line_item.price | money_without_currency | remove: ',' }},
+        'comparePrice'    : Number({{ line_item.compare_at_price_max | money_without_currency | remove: ',' }}),
+        'quantity'        : {{ line_item.quantity | downcase | json }},
+      }{% unless forloop.last %},{% endunless %}{% endfor %}];
+
+      baseEvent.products = product;
+
+    {% endif %}
+    
+    /* DATALAYER: Checkout & Transaction Data */
+
+    if (url.indexOf('checkouts') > -1 || url.indexOf('order') > -1) {
+      __bva__products = [];
+
+      {% for line_item in checkout.line_items %}
+
+        __bva__products.push({
+          'id'           : {{ line_item.product_id | json }},
+          'sku'          : {{ line_item.sku | json }},
+          'variantId'    : {{ line_item.variant_id | json }},
+          'productType'  : {{ line_item.product.type | downcase | json}},
+          'name'         : {{ line_item.product.title | json }},
+          'variantTitle' : {{ line_item.variant.title | json }},          
+          'price'        : {{ line_item.price | money_without_currency | remove: ',' }},
+          'comparePrice' : Number({{ line_item.compare_at_price_max | money_without_currency | remove: ',' }}),
+          'quantity'     : {{ line_item.quantity | downcase | json }},
+        });
+
+      {% endfor %}
+
+      var transactionData = {
+        'transactionNumber'      : {{ checkout.order_number | json }},
+        'transactionId'          : {{ checkout.order_id | json }},
+        'transactionAffiliation' : {{ shop.name | json }},
+        'transactionCurrency'    : {{ shop.currency | json }},
+        'transactionTotal'       : Number({{ checkout.total_price | money_without_currency | remove: ',' }}),
+        'transactionTax'         : Number({{ checkout.tax_price | money_without_currency | remove: ',' }}),
+        'transactionShipping'    : Number({{ checkout.shipping_price | money_without_currency | remove: ',' }}),
+        'transactionSubtotal'    : Number({{ checkout.subtotal_price | money_without_currency | remove: ',' }}),
+        {% for discount in checkout.discounts %}
+        'promoCode' : {{ discount.code | json }},
+        'discount'  : {{ discount.amount | divided_by: 100 | json }},
+        {% endfor %}
+        'products': __bva__products,
+      };
+
+      if (url.indexOf('thank_you') > -1) {
+        baseEvent = transactionData;
+        baseEvent.pageType = 'Transaction';
+        baseEvent.event = 'Transaction';
+      }
+
+      if (url.indexOf('order') > -1) {
+        baseEvent = transactionData;
+        baseEvent.pageType = 'Order Status';
+        baseEvent.event = 'Order Status';
+      }
+    }
+    /* DATALAYER: Checkout */
+    {% if checkout %}
+    {% if page_title contains "Information" %}
+      baseEvent = transactionData;
+      baseEvent.pageType = 'Customer Information';
+      baseEvent.event = 'Customer Information';
+    {% elsif page_title contains "Shipping" %}
+      baseEvent = transactionData;
+      baseEvent.pageType = 'Shipping Information';
+      baseEvent.event = 'Shipping Information';
+    {% elsif page_title contains "Payment" %}
+      baseEvent = transactionData;
+      baseEvent.pageType = 'Add Payment Info';
+      baseEvent.event = 'Add Payment Info';
+    {% endif %}
+    {% endif %}
+    
+    
+     /* DATALAYER: Template-Specific Events */
+    dataLayer.push(logState);
+    dataLayer.push(baseEvent);
+
+
+    /* DATALAYER: All Pages */
+
+    dataLayer.push({
+      'event': 'DataLayer Loaded'
+      });
+}());
+</script>

@@ -1,0 +1,11 @@
+{
+  "name": "Addresses Page",
+  "sections": {
+    "page-account": {
+      "type": "template-addresses"
+    }
+  },
+  "order": [
+    "page-account"
+  ]
+}

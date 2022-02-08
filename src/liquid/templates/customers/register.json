@@ -1,0 +1,11 @@
+{
+  "name": "Register Page",
+  "sections": {
+    "page-account": {
+      "type": "template-register"
+    }
+  },
+  "order": [
+    "page-account"
+  ]
+}

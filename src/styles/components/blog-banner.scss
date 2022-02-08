@@ -1,0 +1,23 @@
+.blog-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 86px;
+
+  @include tablet-up {
+    height: 153px;
+  }
+}
+
+.blog-banner__title {
+  font-size: rem(24);
+  font-family: $font-headings;
+  font-weight: 400;
+  line-height: rem(33);
+  letter-spacing: 0.015em;
+
+  @include tablet-up {
+    font-size: rem(36);
+    line-height: rem(50);
+  }
+}

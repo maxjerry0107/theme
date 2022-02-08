@@ -1,0 +1,43 @@
+// ---------------------------------
+//   Typography
+// ---------------------------------
+
+$font-mrs-eaves: 'mrs-eaves', serif;
+$font-mr-eaves-sans: 'mr-eaves-sans', sans-serif;
+
+$font-primary: $font-mrs-eaves;
+$font-secondary: $font-mr-eaves-sans;
+$font-headings: $font-primary;
+$font-body: $font-secondary;
+
+$letter-spacing-global: 0.5px;
+
+$font-weight-light: 100;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+$font-size-heading-1:         px-to-rem(48px);
+$font-size-heading-1-desktop: px-to-rem(70px);
+
+$font-size-heading-2:         px-to-rem(44px);
+$font-size-heading-2-desktop: px-to-rem(54px);
+
+$font-size-heading-3:         px-to-rem(36px);
+$font-size-heading-3-desktop: px-to-rem(40px);
+
+$font-size-heading-4:         px-to-rem(28px);
+$font-size-heading-4-desktop: px-to-rem(30px);
+
+$font-size-heading-5:         px-to-rem(24px);
+$font-size-heading-5-desktop: px-to-rem(26px);
+
+$font-size-heading-6:         px-to-rem(18px);
+$font-size-heading-6-desktop: px-to-rem(20px);
+
+$font-size-body-xs: px-to-rem(12px);
+$font-size-body-small: px-to-rem(12px);
+$font-size-body-small-desktop: px-to-rem(14px);
+$font-size-body: px-to-rem(16px);
+$font-size-body-desktop: px-to-rem(18px);
+$font-size-body-large: px-to-rem(20px);
+$font-size-body-large-desktop: px-to-rem(24px);

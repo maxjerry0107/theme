@@ -1,0 +1,21 @@
+<cart
+  promo-message="{{ settings.cart_promo_message }}"
+  empty-cart-cta-text="{{ settings.empty_cart_cta_text | escape }}"
+  empty-cart-cta-url="{{ settings.empty_cart_cta_url | escape }}"
+  empty-cart-secondary-cta-text="{{ settings.empty_cart_secondary_cta_text | escape }}"
+  empty-cart-secondary-cta-url="{{ settings.empty_cart_secondary_cta_url | escape }}"
+  heading="{{ 'cart.general.title' | t }}"
+  empty-text="{{ 'cart.general.empty' | t }}"
+  product-column-label="{{ 'cart.label.product' | t }}"
+  price-column-label="{{ 'cart.label.price' | t }}"
+  quantity-column-label="{{ 'cart.label.quantity' | t }}"
+  total-column-label="{{ 'cart.label.total' | t }}"
+  {% if customer %}
+    customer-id="{{ customer.id }}"
+    customer-email="{{ customer.email }}"
+  {% endif %}
+  permanent-domain="{{ shop.permanent_domain }}"
+  free-shipping-threshold="{{ settings.free_shipping_threshold }}"
+  {% if localization.country.iso_code != 'US'%}disable-free-shipping {% endif %}
+>
+</cart>

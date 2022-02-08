@@ -1,0 +1,32 @@
+{%- if settings.reviews_type == 'bazaarvoice' -%}
+<div class="bazaarvoice-reviews container container--wide">
+  <h2 class="bazaarvoice-reviews__title">Reviews</h2>
+  {% comment %} Bazzarvoice reviews widget {% endcomment %}
+  <div class="bazaarvoice bazaarvoice-main-widget" data-bv-show="reviews" data-bv-product-id="{{ product.id }}">
+    {% if product.metafields.bazaarvoice.reviews %} {{ product.metafields.bazaarvoice.reviews }}{% endif %}
+  </div>
+</div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "BazaarVoice Reviews",
+    "class": "section--reviews",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Reviews"
+      }
+    ],
+    "templates": ["product"],
+    "presets": [
+      {
+        "name": "BazaarVoice Reviews",
+        "category": "Reviews"
+      }
+    ]
+  }
+{% endschema %}

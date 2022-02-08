@@ -1,0 +1,18 @@
+// ---------------------------------
+//   Breakpoints
+// ---------------------------------
+
+$breakpoint-tablet: 650px;
+$breakpoint-desktop: 992px;
+$breakpoint-hd: 1280px;
+$breakpoint-max: 1400px;
+$breakpoint-full-width: 2560px;
+
+
+:export {
+  breakpointTablet: $breakpoint-tablet;
+  breakpointDesktop: $breakpoint-desktop;
+  breakpointHd: $breakpoint-hd;
+  breakpointMax: $breakpoint-max;
+  breakpointFullWidth: $breakpoint-full-width;
+}

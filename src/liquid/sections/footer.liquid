@@ -1,0 +1,174 @@
+{%- capture copyright_text -%}
+  &copy; {{ 'now' | date: "%Y" }} {{ shop.name }}
+{%- endcapture -%}
+
+<site-footer
+  klaviyo-headline="{{ section.settings.klaviyo_headline }}"
+  klaviyo-description="{{ section.settings.klaviyo_description }}"
+  klaviyo-list-id="{{ section.settings.klaviyo_list_id | default: settings.klaviyo_list_id }}"
+  klaviyo-success-message="{{ section.settings.klaviyo_success_message | escape | default: settings.klaviyo_success_message }}"
+  copyright="{{ copyright_text }}"
+>
+  <div class="footer__bottom row collapse" slot="footer-bottom">
+    <div class="footer__bottom-left column small-12 large-10 large-up--no-gutters">
+      {% if section.settings.copyright_linklist %}
+        <div class="u-list-inline footer__bottom-links">
+          {%- render 'footer-linklist', list: section.settings.copyright_linklist -%}
+        </div>
+
+        <span class="footer__bottom-copyright">{{ copyright_text }}</span>
+      {% endif %}
+    </div>
+
+    <div class="column small-12 large-2">
+      <a class="footer__bottom-btt" href="#" v-scroll-to="'#top'">
+        <icon name="arrow-long-up" size="34px"></icon>
+
+        <span>{{ 'layout.footer.back_to_top' | t }}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer__social" slot="footer-social">
+    <ul class="u-list-inline footer__social-links">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'social' %}
+        <li class="footer__social-links-link">
+            {%- assign socialLinkSetting = block.settings.social_account | prepend: 'social_' | append: '_link' -%}
+            <button-component
+              class="button--icon-background button--icon-bordered button--round"
+              href="{{ settings[socialLinkSetting] }}"
+              target="_blank"
+              rel="noopener"
+              title="{{ block.settings.social_account }}"
+              icon="{{ block.settings.social_account | downcase }}"
+              icon-size="32px"
+            ></button-component>
+        </li>
+        {%- endif -%}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="footer__slot-right" slot="footer-content">
+    <accordion-group v-if="$mq === 'mobile'" class="footer__accordions">
+      {%- for i in (1..4) -%}
+        {%- assign linklist_id = 'linklist_' | append: i -%}
+        {%- if section.settings[linklist_id] != blank -%}
+          <accordion
+            theme="footer"
+            heading="{{ linklists[section.settings[linklist_id]].title | replace_first: "Footer ", "" | replace_first: " | BVA", "" }}"
+            active-icon="minus"
+            inactive-icon="plus"
+            >
+              {%- render 'footer-linklist', list: section.settings[linklist_id] -%}
+          </accordion>
+        {%- endif -%}
+      {%- endfor -%}
+    </accordion-group>
+
+    <div class="footer__links row collapse" v-else>
+      {%- for i in (1..4) -%}
+        {%- assign linklist_id = 'linklist_' | append: i -%}
+        {%- if section.settings[linklist_id] != blank -%}
+          <div class="footer__links-section column medium-4 large-3 large-up--no-gutters">
+            <h6 class="footer__links-header">
+              {{ linklists[section.settings[linklist_id]].title | replace_first: "Footer ", "" | replace_first: " | BVA", "" }}
+            </h6>
+
+            {%- render 'footer-linklist', list: section.settings[linklist_id] -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</site-footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Klaviyo Signup"
+      },
+      {
+        "type": "text",
+        "id": "klaviyo_headline",
+        "label": "Headline",
+        "default": "Stay in touch"
+      },
+      {
+        "type": "text",
+        "id": "klaviyo_description",
+        "label": "Description",
+        "default": "Want 10% off? Sign up for our \n Love in Faith newsletter!"
+      },
+      {
+        "type": "text",
+        "id": "klaviyo_list_id",
+        "label": "Klaviyo List ID",
+        "info": "Navigate to your Klaviyo dashboard, select the desired list from 'Lists & Segments', click 'Settings'."
+      },
+      {
+        "type": "text",
+        "id": "klaviyo_success_message",
+        "label": "Success Message",
+        "default": "Thank you for signing up for our newsletter!"
+      },
+      {
+        "type": "header",
+        "content": "Links"
+      },
+      {
+        "type": "link_list",
+        "id": "linklist_1",
+        "label": "Linklist 1"
+      },
+      {
+        "type": "link_list",
+        "id": "linklist_2",
+        "label": "Linklist 2"
+      },
+      {
+        "type": "link_list",
+        "id": "linklist_3",
+        "label": "Linklist 3"
+      },
+      {
+        "type": "header",
+        "content": "Footer Copyright"
+      },
+      {
+        "type": "link_list",
+        "id": "copyright_linklist",
+        "label": "Copyright linklist"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "social",
+        "name": "Social Link",
+        "settings": [
+          {
+            "type": "select",
+            "id": "social_account",
+            "label": "Social Account",
+            "options": [
+              { "value": "twitter", "label": "Twitter" },
+              { "value": "facebook", "label": "Facebook" },
+              { "value": "pinterest", "label": "Pinterest" },
+              { "value": "instagram", "label": "Instagram" },
+              { "value": "snapchat", "label": "Snapchat" },
+              { "value": "tumblr", "label": "Tumblr" },
+              { "value": "youtube", "label": "YouTube" },
+              { "value": "vimeo", "label": "Vimeo" },
+              { "value": "tiktok", "label": "TikTok" }
+            ],
+            "info": "To configure the social link, click the back arrow above and use the 'Social Media' section under the 'Theme Settings' tab."
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

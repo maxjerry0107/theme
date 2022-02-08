@@ -1,0 +1,20 @@
+{
+  "name": "Default Blog",
+  "wrapper": "div.blog",
+  "sections": {
+    "blog-banner": {
+      "type": "blog-banner"
+    },
+    "featured-article": {
+      "type": "featured-blog-post"
+    },
+    "blog-article-list": {
+      "type": "blog-article-list"
+    }
+  },
+  "order": [
+    "blog-banner",
+    "featured-article",
+    "blog-article-list"
+  ]
+}

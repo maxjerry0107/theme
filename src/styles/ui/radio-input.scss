@@ -1,0 +1,125 @@
+$radio-input-size: px-to-rem(16px);
+
+.radio-input {
+  display: inline-block;
+  position: relative;
+  margin: 0 ($spacing-unit * 2) ($spacing-unit * 2) 0;
+  padding-left: $radio-input-size + $spacing-unit;
+}
+
+.radio-input--full-width {
+  display: block;
+}
+
+.radio-input--disabled {}
+
+.radio-input__input {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.radio-input__radio-input {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: $radio-input-size;
+  height: $radio-input-size;
+  background-color: $color-white;
+  border: 1px solid $color-blue-900;
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $color-mauve-900;
+  }
+
+  .klaviyo-form & {
+    background-color: $color-black;
+    border-color: $color-white;
+  }
+
+  .klaviyo-form--light-bg & {
+    background-color: $color-white;
+    border-color: $color-black;
+  }
+
+  .radio-input__input:checked + & {
+    background-color: $color-white;
+    border-color: $color-mauve-900;
+    border-width: 4px;
+
+    .klaviyo-form & {
+      border-color: $color-white;
+    }
+
+    .klaviyo-form--light-bg & {
+      box-shadow: 0 0 0 1px $color-black;
+    }
+  }
+
+  .radio-input__input[disabled] + & {
+    color: $color-teal-900;
+    background-color: $color-grey-900;
+    border-color: $color-grey-900;
+    box-shadow: none;
+  }
+
+  .radio-input__input[disabled]:checked + & {
+    color: $color-mauve-900;
+    border-color: $color-grey-900;
+  }
+
+  .radio-input__input:focus + & {
+    color: $color-mauve-900;
+    border-color: $color-mauve-900;
+    outline-offset: 2px;
+    outline: solid 1.5px $color-gold-500;
+  }
+}
+
+.radio-input__label-text {
+  color: $color-blue-900;
+  font-size: px-to-rem(16px);
+  line-height: px-to-rem(24px);
+
+  &:hover {
+    color: $color-mauve-900;
+  }
+
+  .radio-input__input:checked + & {
+    color: $color-mauve-900;
+  }
+
+  .klaviyo-form & {
+    padding: 4px;
+    color: $color-white;
+  }
+
+  .klaviyo-form--light-bg & {
+    color: $color-black;
+  }
+}
+
+.klaviyo-form__radios-label {
+  margin: 0 0 $spacing-unit * 5 0;
+  font-size: rem(13);
+  line-height: rem(15);
+  text-align: center;
+
+  @include desktop-up {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    padding-right: $spacing-unit * 2;
+    max-width: 425px;
+    min-height: 30px;
+    float: left;
+    text-align: left;
+  }
+}

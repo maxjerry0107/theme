@@ -1,0 +1,23 @@
+.utility-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+}
+
+.utility-nav__link {
+  margin-left: $spacing-unit * 4;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &,
+  & > * {
+    display: inline-flex;
+    margin-bottom: 0;
+  }
+}

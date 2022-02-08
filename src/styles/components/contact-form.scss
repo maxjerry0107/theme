@@ -1,0 +1,30 @@
+.contact-form {
+  display: flex;
+  margin: 0 auto;
+  padding-right: $spacing-unit * 4;
+  padding-left: $spacing-unit * 4;
+  max-width: $spacing-unit * 200;
+  flex-direction: column;
+
+  @include desktop-up {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+
+.contact-form__container {
+  padding-bottom: $spacing-unit * 20;
+}
+
+.contact-form__input {
+  margin: 0 auto;
+  width: 100%;
+  max-width: unset !important; // overiding .text-input
+}
+
+.contact-form__success {
+  .fifty-fifty__text-wrapper & {
+    font-size: rem(24);
+    line-height: rem(32);
+  }
+}

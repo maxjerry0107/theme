@@ -1,0 +1,25 @@
+<div class="container container--wide container--accounts">
+  {% render 'account-nav' %}
+  <section class="account__content">
+    <div class="account__content-header">
+      <h1 class="account__content-heading">Address Book</h1>
+      <a class="account__logout" href="/account/logout">Logout</a>
+    </div>
+    {%- render 'account-saved-addresses' -%}
+    {%- render 'account-new-address' -%}
+  </section>
+</div>
+
+{% schema %}
+  {
+    "name": "Account Addresses",
+    "class": "account--addresses",
+    "tag": "div",
+    "templates": [
+      "customers/addresses"
+    ],
+    "presets": [{
+      "name": "Account Addresses"
+    }]
+  }
+{% endschema %}

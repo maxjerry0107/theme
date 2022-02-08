@@ -1,0 +1,193 @@
+<banner
+  title="{{ section.settings.title | strip_html }}"
+  pre-heading="{{ section.settings.pre_heading | strip_html }}"
+  body-text="{{ section.settings.body_text | replace_first: '<p>', '' | replace_first: '</p>', '' | escape }}"
+  text-alignment="{{ section.settings.text_alignment }}"
+  cta-label="{{ section.settings.cta_label | strip_html }}"
+  cta-link="{{ section.settings.cta_link | escape }}"
+  cta-type="{{ section.settings.cta_type }}"
+  desktop-image="{%- if section.settings.desktop_image != nil %}{{ section.settings.desktop_image.src | img_url: '2000x', format: 'pjpg' }}{% else %}{{ 'placeholder.png' | asset_img_url: '2000x' }}{% endif -%}"
+  mobile-image="{%- if section.settings.mobile_image != nil %}{{ section.settings.mobile_image.src | img_url: '992x', format: 'pjpg' }}{% else %}{{ 'placeholder.png' | asset_img_url: 'x860' }}{% endif -%}"
+  desktop-image-alt="{%- if section.settings.desktop_image != nil %}{{ section.settings.desktop_image.alt }}{% endif -%}"
+  mobile-image-alt="{%- if section.settings.mobile_image != nil %}{{ section.settings.mobile_image.alt }}{% endif -%}"
+  :desktop-sizes="{%- if section.settings.desktop_image != nil %}[{{ section.settings.desktop_image.width }}, {{ section.settings.desktop_image.height }}]{% endif -%}"
+  :mobile-sizes="{%- if section.settings.mobile_image != nil %}[{{ section.settings.mobile_image.width }}, {{ section.settings.mobile_image.height }}]{% endif -%}"
+  desktop-image-position="{{ section.settings.desktop_image_position }}"
+  :src-set="[{%- if section.settings.desktop_image != nil and section.settings.mobile_image != nil %}'{{ section.settings.mobile_image.src | img_url: '496x', format: 'pjpg' }} 1w', '{{ section.settings.mobile_image.src | img_url: '992x', format: 'pjpg' }} 992w', '{{ section.settings.desktop_image.src | img_url: '2000x', format: 'pjpg' }} 1000w'{% endif -%}]"
+  page-template="{{ template.name }}"
+  {%- if section.settings.num_columns != "2" -%}:two-columns="false"{%- endif -%}
+>
+  <template v-slot:default>
+    <div class="banner row collapse medium-up--reverse">
+      <div class="column no-gutters small-12 medium-8 large-8 hd-7">
+        {%- if section.settings.mobile_image != nil %}
+        <div class="image__wrapper animation--fade-in">
+          <img
+            alt="{{ section.settings.mobile_image.alt | escape }}"
+            width="{{ section.settings.mobile_image.width }}"
+            height="{{ section.settings.mobile_image.height }}"
+            class="banner__image"
+            data-src="{{ section.settings.mobile_image.src | img_url: '496x', format: 'pjpg' }}"
+            src="{{ section.settings.mobile_image.src | img_url: '496x', format: 'pjpg' }}"
+            srcset="{{ section.settings.mobile_image.src | img_url: '496x', format: 'pjpg' }} 1w, {{ section.settings.mobile_image.src | img_url: '992x', format: 'pjpg' }} 500w"
+            lazy="loaded">
+        </div>
+        {%- endif %}
+      </div>
+      <div class="column no-gutters small-12 medium-4 large-4 hd-5">
+        <div class="banner__text text-align--left">
+          <p class="heading--7">{{- section.settings.pre_heading -}}</p>
+          <h2 class="heading--1">{{- section.settings.title -}}</h2>
+          <p class="banner__body-text">{{ section.settings.body_text | replace_first: '<p>', '' | replace_first: '</p>', '' }}</p>
+          <a data-v-18a6a256="" href="{{- section.settings.cta_link -}}" class="button banner__cta--desktop button--{{- section.settings.cta_type -}}">
+            <div class="button__content">{{- section.settings.cta_label -}}</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </template>
+</banner>
+
+{% schema %}
+  {
+    "name": "Banner with Columns",
+    "class": "homepage-banner-section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Image Fields"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "Desktop Image"
+      },
+      {
+        "type": "header",
+        "content": "Content Fields"
+      },
+      {
+        "type": "text",
+        "id": "pre_heading",
+        "label": "Pre-Heading"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "body_text",
+        "label": "Body Text"
+      },
+      {
+        "type": "header",
+        "content": "CTA"
+      },
+      {
+        "type": "text",
+        "id": "cta_label",
+        "label": "Label",
+        "default": "Learn More"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "Link"
+      },
+      {
+        "type": "select",
+        "id": "cta_type",
+        "label": "Choose CTA Style",
+        "options": [
+          {
+            "value": "primary",
+            "label": "Primary"
+          },
+          {
+            "value": "secondary",
+            "label": "Secondary"
+          },
+          {
+            "value": "link",
+            "label": "Link"
+          }
+        ],
+        "default": "primary"
+      },
+      {
+        "type": "header",
+        "content": "Positioning and Alignment"
+      },
+      {
+        "type": "select",
+        "id": "desktop_image_position",
+        "label": "Desktop Image Position",
+        "info": "Mobile image will always be above the text content.",
+        "options": [
+          {
+            "value": "1",
+            "label": "Right"
+          },
+          {
+            "value": "2",
+            "label": "Left"
+          }
+        ],
+        "default": "1"
+      },
+      {
+        "type": "select",
+        "id": "text_alignment",
+        "label": "Text Align",
+        "info": "Applies to both desktop and mobile.",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ],
+        "default": "left"
+      },
+      {
+        "type": "select",
+        "id": "num_columns",
+        "label": "Number of Columns",
+        "info": "Applies to both desktop and mobile.",
+        "options": [
+          {
+            "value": "1",
+            "label": "One"
+          },
+          {
+            "value": "2",
+            "label": "Two"
+          }
+        ],
+        "default": "2"
+      }
+    ],
+    "templates": ["article", "blog", "index", "page"],
+    "presets": [
+      {
+        "name": "Banner with Columns",
+        "category": "Banner"
+      }
+    ]
+  }
+{% endschema %}

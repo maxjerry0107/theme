@@ -1,0 +1,11 @@
+{
+  "name": "Homepage",
+  "sections": {
+    "hero": {
+      "type": "homepage-hero"
+    }
+  },
+  "order": [
+    "hero"
+  ]
+}

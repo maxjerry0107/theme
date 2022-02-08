@@ -1,0 +1,357 @@
+<!-- Story Blocks 2 -->
+{%- render 'story-blocks', section_blocks: section.blocks -%}
+<!-- END Story Blocks 2 -->
+
+{% schema %}
+  {
+    "name": "Fabric Detail Blocks",
+    "class": "fifty-fifty-section",
+    "max_blocks": 6,
+    "settings": [
+      {
+        "type": "header",
+        "content": "See Block Options"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "content_block",
+        "name": "Content Block",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Color Options"
+          },
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "Block Background Color",
+            "default": "#000000"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Block Text Color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "header",
+            "content": "Image Fields"
+          },
+          {
+            "type": "image_picker",
+            "id": "background_image",
+            "label": "Background Image (Optional)",
+            "info": "Full coverage background image, depending on the screen size the image may appear cropped."
+          },
+          {
+            "type": "image_picker",
+            "id": "inline_image",
+            "label": "Inline Image",
+            "info": "Small inline image / icon above the heading, prefferably below 100x100px"
+          },
+          {
+            "type": "header",
+            "content": "Content Fields"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Block Heading",
+            "default": "Thoughtfully Sourced"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Body",
+            "default": "<p>Nearly all of the fabric used for our intimate apparely is Oeko Tex and REACH Certified, and knitted in plants with energy efficient infrastrusture, equipment, and process.<br>At Commando our approach to design begins with fabric. Founder, designer and CEO Kerry O’Brien sources world-class, luxury-technical fabrics. Choosing highly technical, and luxurious fabrics goes hand in hand with choosing fabrics that are made in an ethicaly and environmentally concious way.</p>"
+          },
+          {
+            "type": "text",
+            "id": "content_width",
+            "label": "Content Width",
+            "info": "The width for the hero's content on desktop sized devices. You can use any unit valid in CSS (px, %, vw). Mobile will always display the content as full width. If no value is provided then the width will be 100%",
+            "default": "100%"
+          },
+          {
+            "type": "header",
+            "content": "CTA Button Fields"
+          },
+          {
+            "type": "url",
+            "id": "cta_url",
+            "label": "URL"
+          },
+          {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA Text",
+            "default": "Read More"
+          },
+          {
+            "type": "select",
+            "id": "cta_type",
+            "label": "Choose CTA Style",
+            "options": [
+              {
+                "value": "primary",
+                "label": "Primary"
+              },
+              {
+                "value": "secondary",
+                "label": "Secondary"
+              },
+              {
+                "value": "link",
+                "label": "Link"
+              }
+            ],
+            "default": "secondary"
+          },
+          {
+            "type": "header",
+            "content": "Alignment"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "Text Align",
+            "info": "Applies to both desktop and mobile.",
+            "default": "center",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "text_position_vertical",
+            "label": "Text Vertical Position",
+            "options": [
+              {
+                "value": "flex-start",
+                "label": "Top"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "flex-end",
+                "label": "Bottom"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "header",
+            "content": "Mobile Only Options"
+          },
+          {
+            "type": "range",
+            "id": "mobile_order",
+            "label": "Mobile Sort Order",
+            "default": 1,
+            "min": 1,
+            "max": 6,
+            "info": "Select the mobile order sort number. If all numbers are the same, order will be the same as seen in the admin (top to bottom)."
+          }
+        ]
+      },
+      {
+        "type": "video_block",
+        "name": "Video Block",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Color Options"
+          },
+          {
+            "type": "color",
+            "id": "background_color",
+            "label": "Block Background Color",
+            "default": "#000000"
+          },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Block Text Color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "header",
+            "content": "Content Fields"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Block Heading (Optional)",
+            "default": "Ask For More™"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "Body (Optional)"
+          },
+          {
+            "type": "text",
+            "id": "content_width",
+            "label": "Content Width",
+            "info": "The width for the hero's content on desktop sized devices. You can use any unit valid in CSS (px, %, vw). Mobile will always display the content as full width. If no value is provided then the width will be 100%",
+            "default": "100%"
+          },
+          {
+            "type": "header",
+            "content": "Video Fields"
+          },
+          {
+            "type": "video_url",
+            "id": "video",
+            "label": "Video URL",
+            "accept": [
+              "youtube",
+              "vimeo"
+            ],
+            "placeholder": "https://youtu.be/Ov6hUQ6-IPE"
+          },
+          {
+            "type": "url",
+            "id": "transcript_link",
+            "label": "Video Transcript link"
+          },
+          {
+            "type": "header",
+            "content": "CTA Button Fields"
+          },
+          {
+            "type": "url",
+            "id": "cta_url",
+            "label": "URL"
+          },
+          {
+            "type": "text",
+            "id": "cta_text",
+            "label": "CTA Text",
+            "default": "Learn More"
+          },
+          {
+            "type": "select",
+            "id": "cta_type",
+            "label": "Choose CTA Style",
+            "options": [
+              {
+                "value": "primary",
+                "label": "Primary"
+              },
+              {
+                "value": "secondary",
+                "label": "Secondary"
+              },
+              {
+                "value": "link",
+                "label": "Link"
+              }
+            ],
+            "default": "secondary"
+          },
+          {
+            "type": "header",
+            "content": "Alignment"
+          },
+          {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "Text Align",
+            "info": "Applies to both desktop and mobile.",
+            "default": "center",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "select",
+            "id": "text_position_vertical",
+            "label": "Text Vertical Position",
+            "options": [
+              {
+                "value": "flex-start",
+                "label": "Top"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "flex-end",
+                "label": "Bottom"
+              }
+            ],
+            "default": "center"
+          },
+          {
+            "type": "header",
+            "content": "Mobile Only Options"
+          },
+          {
+            "type": "range",
+            "id": "mobile_order",
+            "label": "Mobile Sort Order",
+            "default": 1,
+            "min": 1,
+            "max": 6,
+            "info": "Select the mobile order sort number. If all numbers are the same, order will be the same as in the admin (top to bottom)."
+          }
+        ]
+      }
+    ],
+    "templates": ["page"],
+    "presets": [
+      {
+        "name": "Fabric Detail Blocks",
+        "category": "Block Content",
+        "blocks": [
+          { 
+            "type": "content_block"
+          },
+          {
+            "type": "content_block"
+          },
+          {
+            "type": "content_block"
+          },
+          {
+            "type": "content_block"
+          },
+          {
+            "type": "content_block"
+          },
+          {
+            "type": "content_block"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+

@@ -1,0 +1,15 @@
+{
+  "name": "404 Page",
+  "sections": {
+    "page-content": {
+      "type": "template-404"
+    },
+    "findify-404": {
+      "type": "findify-404"
+    }
+  },
+  "order": [
+    "page-content",
+    "findify-404"
+  ]
+}

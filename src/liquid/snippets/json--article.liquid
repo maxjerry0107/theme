@@ -1,0 +1,33 @@
+{
+  "title": "{{ article.title | replace: '"', '\"' }}",
+  "handle": "{{ article.handle }}",
+  "id": {{ article.id | default: 0 }},
+  "url": "{{ article.url }}",
+  "published_at": "{{ article.published_at | date: '%B %d, %Y' }}",
+  "created_at": "{{ article.created_at | date: '%B %d, %Y' }}",
+  "updated_at": "{{ article.updated_at | date: '%B %d, %Y' }}",
+  {%- if article.image -%}
+  "image": {
+    "id": {{  article.image.id | default: 0 }},
+    "src": "{{ article.image.src | img_url: 'master' }}",
+    "alt": "{{ article.image.alt | replace: '"', '\"' | escape }}",
+    "width": {{ article.image.width | default: 0 }},
+    "height": {{ article.image.height | default: 0 }},
+    "aspect_ratio": "{{ article.image.aspect_ratio }}"
+  },
+  {%- endif -%}
+  "user": "{{ article.user.first_name }} {{ article.user.last_name }}",
+  "content": "{{ article.content | replace: '"', '\"' | escape | strip_newlines }}",
+  "tags": [
+    {%- for tag in article.tags -%}
+      {%- if tag contains '__search-terms:' -%}
+        {%- assign keywords = tag | replace: '__search-terms:', '' -%}
+      {%- endif -%}
+      "{{ tag }}"{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ],
+  {%- if keywords != blank -%}
+    "keywords": "{{ keywords }}",
+  {%- endif -%}
+  "customFields": {{ article.metafields.custom_fields | json }}
+}

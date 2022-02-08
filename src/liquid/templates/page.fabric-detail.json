@@ -1,0 +1,27 @@
+{
+  "name": "Fabric Detail",
+  "sections": {
+    "back-to-button": {
+      "type": "back-to-button"
+    },
+    "page-hero": {
+      "type": "page-hero"
+    },
+    "fabric-detail-blocks": {
+      "type": "fabric-detail-blocks"
+    },
+    "fabric-value-props": {
+      "type": "fabric-value-props"
+    },
+    "page-footer-hero": {
+      "type": "page-footer-hero"
+    }
+  },
+  "order": [
+    "back-to-button",
+    "page-hero",
+    "fabric-detail-blocks",
+    "fabric-value-props",
+    "page-footer-hero"
+  ]
+}

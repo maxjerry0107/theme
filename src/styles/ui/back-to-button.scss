@@ -1,0 +1,7 @@
+.back-to-button {
+  padding: ($spacing-unit * 4) ($spacing-unit * 6) 0;
+
+  @include desktop-up {
+    padding: ($spacing-unit * 4) ($spacing-unit * 11) 0;
+  }
+}

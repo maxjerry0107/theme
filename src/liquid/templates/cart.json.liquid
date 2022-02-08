@@ -1,0 +1,6 @@
+{%- layout none -%}
+[
+  {%- for item in cart.items -%}
+    {%- render 'json--product', product: item.product -%}{%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+]

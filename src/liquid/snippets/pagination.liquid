@@ -1,0 +1,46 @@
+
+<div class="pagination">
+  <ul class="pagination-inner u-list-inline">
+    <li class="pagination__item pagination__item--first">
+      <icon-link
+        label="Previous Page"
+        href="{{ blog.url | append: '?page=1' }}"
+        icon="arrow-first"
+        size="10px"
+        {% unless paginate.previous %}:disabled="true"{% endunless %}>
+      </icon-link>
+    </li>
+    <li class="pagination__item pagination__item--prev">
+      <icon-link
+        label="Previous Page"
+        href="{{ paginate.previous.url }}"
+        icon="caret-left"
+        size="10px"
+        {% unless paginate.previous %}:disabled="true"{% endunless %}>
+      </icon-link>
+    </li>
+
+    <span class="pagination__info">
+      {{ paginate.current_page }} of {{ paginate.pages }}
+    </span>
+
+    <li class="pagination__item pagination__item--next">
+      <icon-link
+        label="Previous Page"
+        href="{{ paginate.next.url }}"
+        icon="caret-right"
+        size="10px"
+        {% if paginate.current_page == paginate.pages %}:disabled="true"{% endif %}>
+      </icon-link>
+    </li>
+    <li class="pagination__item pagination__item--last">
+      <icon-link
+        label="Previous Page"
+        href="{{ blog.url | append: '?page=' | append: paginate.pages }}"
+        icon="arrow-last"
+        size="10px"
+        {% if paginate.current_page == paginate.pages %}:disabled="true"{% endif %}>
+      </icon-link>
+    </li>
+  </ul>
+</div>

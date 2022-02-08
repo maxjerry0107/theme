@@ -1,0 +1,31 @@
+.option-select--dropdown {
+  position: relative;
+  padding: 0 0 ($spacing-unit * 7);
+  flex-grow: 1;
+}
+
+.option-select__size-guide-link {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  color: $color-blue-900;
+  font-size: rem(12);
+  line-height: rem(16);
+  text-decoration: underline;
+}
+
+.select-input__icon {
+  stroke: $color-blue-900;
+}
+
+.select-input__label-note {
+  display: none;
+}
+
+.option-select__out-of-stock .select-input__select {
+  opacity: 0.8;
+}
+
+.option-select__disabled .select-input__select {
+  text-decoration: line-through;
+}

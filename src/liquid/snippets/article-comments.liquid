@@ -1,0 +1,104 @@
+{%- if blog.comments_enabled? -%}
+  <section class="article__comments-section">
+    <div class="container container--tiny">
+      <h3 class="heading--5">{{ 'blogs.comments.with_count' | t: count: number_of_comments }}</h3>
+
+      {%- paginate article.comments by 5 -%}
+        <div id="comments" class="article__comments">
+          {%- if comment and comment.status and comment.id != blank and paginate.current_page == 1 -%}
+            <p class="article__form-success">
+              {%- if blog.moderated? and comment.status != 'published' -%}
+                {{ 'blogs.comments.success_moderated' | t }}
+              {%- else -%}
+                {{ 'blogs.comments.success' | t }}
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+
+          {%- if number_of_comments > 0 -%}
+            <ul>
+              {% comment %}
+                Display comment from URL parameters if it is waiting moderation
+                We added "comment.id" check to make sure we don't display markup if there are form errors
+              {% endcomment %}
+              {%- if comment and comment.status != 'published' and comment.id != blank -%}
+                <li id="{{ comment.id }}" class="article__comment">
+                  <div class="rte article__comment__content">{{ comment.content }}</div>
+                  <p class="article__comment__footer">
+                    <strong>{{ comment.author }}</strong>
+                    {% if comment.created_at != blank %}
+                    <span class="article__comment__date">{{ comment.created_at | time_tag: format: 'month_day_year' }}</span>
+                    {% endif %}
+                  </p>
+                </li>
+              {%- endif -%}
+
+              {%- for comment in article.comments -%}
+                <li id="{{ comment.id }}" class="article__comment">
+                  <div class="rte article__comment__content">{{ comment.content }}</div>
+                  <p class="article__comment__footer">
+                    <strong class="article__comment__author">{{ comment.author }}</strong>
+                    {% if comment.created_at != blank %}
+                    <span class="article__comment__date">{{ comment.created_at | time_tag: format: 'month_day_year' }}</span>
+                    {% endif %}
+                  </p>
+                </li>
+              {%- endfor -%}
+            </ul>
+
+            {%- if paginate.pages > 1 -%}
+              {%- render 'pagination' -%}
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+      {%- endpaginate -%}
+
+      {%- form 'new_comment', article -%}
+        <h3>{{ 'blogs.comments.title' | t }}</h3>
+
+        {{ form.errors | default_errors }}
+
+        <div class="input input--text">
+          <label for="CommentAuthor" class="label-hidden">{{ 'blogs.comments.name' | t }}</label>
+          <input type="text"
+            name="comment[author]"
+            id="CommentAuthor"
+            class="{% if form.errors contains 'author' %}input-error{% endif %}"
+            placeholder="{{ 'blogs.comments.name' | t }}"
+            value="{{ form.author }}"
+            autocapitalize="words" />
+        </div>
+
+        <div class="input input--text">
+          <label for="CommentEmail" class="label-hidden">{{ 'blogs.comments.email' | t }}</label>
+          <input type="email"
+            name="comment[email]"
+            id="CommentEmail"
+            class="{% if form.errors contains 'email' %}input-error{% endif %}"
+            placeholder="{{ 'blogs.comments.email' | t }}"
+            value="{{ form.email }}"
+            spellcheck="false"
+            autocomplete="off"
+            autocapitalize="off" />
+        </div>
+
+        <div class="input input--text">
+          <label for="CommentBody" class="label-hidden">{{ 'blogs.comments.message' | t }}</label>
+          <textarea
+            name="comment[body]"
+            id="CommentBody"
+            class="{% if form.errors contains 'body' %}input-error{% endif %}"
+            placeholder="{{ 'blogs.comments.message' | t }}">
+            {{- form.body -}}
+          </textarea>
+        </div>
+
+        {%- if blog.moderated? -%}
+          <p>{{ 'blogs.comments.moderated' | t }}</p>
+        {%- endif -%}
+
+        <submit-button label="{{ 'blogs.comments.post' | t }}"></submit-button>
+      {%- endform -%}
+    </div>
+  </section>
+{%- endif -%}

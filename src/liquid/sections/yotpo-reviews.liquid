@@ -1,0 +1,34 @@
+{%- if settings.reviews_type == 'yotpo' -%}
+<div class="yotpo-reviews">
+  <h2 class="yotpo-reviews__title">{{- section.settings.title -}}</h2>
+  {% comment %} Yotpo reviews widget {% endcomment %}
+  <div class="yotpo yotpo-main-widget container" data-product-id="{{ product.id }}"
+    data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}"
+    data-image-url="{{ product.featured_image | product_img_url: " large" | replace: '?' , '%3F' | replace: '&'
+    ,'%26'}}" data-description="{{ product.description | escape }}">
+  </div>
+</div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Yotpo Reviews",
+    "class": "section--reviews",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Reviews"
+      }
+    ],
+    "templates": ["product"],
+    "presets": [
+      {
+        "name": "Yotpo Reviews",
+        "category": "Reviews"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,159 @@
+.collection-quick__shop-modal {}
+
+.collection-quick__shop-modal .modal__content {
+  bottom: 0;
+  margin-bottom: 0;
+  padding: rem(40) 0 0;
+  min-height: 75vh;
+}
+
+.collection-quick__shop-modal .modal__close {
+  top: 0;
+  right: 0;
+  margin: 0;
+}
+
+// Quick Shop Content
+.quick-shop__drawer-wrapper {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.quick-shop__drawer-media {
+  display: block;
+  padding: 0 1rem;
+  width: 100%;
+  height: auto;
+}
+
+.quick-shop__drawer-media-wrapper {
+  position: relative;
+}
+
+.quick-shop__drawer-arrows {
+  display: inline-block;
+  position: absolute;
+  right: rem(8);
+  bottom: rem(8);
+}
+
+.quick-shop__arrow-left,
+.quick-shop__arrow-right {
+  padding: 0;
+  width: 38px;
+  height: 32px;
+  background: none;
+  border: 0;
+
+  & > .icon {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  & > .icon:first-child {
+    margin-right: rem(6);
+  }
+}
+
+.quick-shop__drawer-image {
+  width: 100%;
+  height: 345px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.quick-shop__drawer-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.quick-shop__swatch {
+  display: inline-block;
+  position: relative;
+  margin: 0 ($spacing-unit * 2) 0;
+  padding: 0;
+  width: rem(40);
+  height: rem(40);
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: solid 1px transparent;
+  border-radius: rem(4);
+
+  &:nth-child(1) {
+    margin-left: 0;
+  }
+}
+
+.quick-shop__swatch--selected {
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: solid 1px $color--primary;
+  }
+}
+
+.quick-shop__drawer-size-wrapper {
+  display: flex;
+  padding: 1rem 1rem rem(22);
+  width: 100%;
+  background: $color-grey-900;
+  flex-direction: column;
+}
+
+.quick-shop__drawer-header {
+  margin-bottom: $spacing-unit * 4;
+  color: $color--primary;
+  font-style: rem(18);
+  font-family: $font-body;
+  line-height: rem(24);
+}
+
+.quick-shop__drawer-sizes {
+  display: flex;
+  padding: 0 0 $spacing-unit * 6;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.quick-shop__size-select-btn {
+  display: inline-block;
+  padding: 0;
+  width: rem(40);
+  height: rem(40);
+  font-weight: $font-weight-regular;
+  border: solid 1px $color-teal-800;
+  border-radius: rem(4);
+
+  &:not(:last-child) {
+    margin-right: rem(12);
+  }
+
+  &:disabled {
+    background: $color-disabled;
+    border-color: $color-disabled;
+  }
+}
+
+.quick-shop__size-select-btn.active {
+  font-weight: $font-weight-bold;
+  border: solid 2px $color--primary;
+}
+
+.quick-shop__drawer-atc {
+  margin: 0;
+  height: rem(44);
+}

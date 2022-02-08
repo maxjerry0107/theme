@@ -1,0 +1,258 @@
+{%- unless section.settings.use_findify -%}
+  {%- capture _products -%}
+    {%- for block in section.blocks -%}
+      {%- assign _product = all_products[block.settings.product] -%}
+      {
+        {{- 'title' -}}: "{%- if block.settings.alternative_title != blank -%}{{ block.settings.alternative_title | strip_html | escape }}{%- else -%}{{ _product.title }}{%- endif -%}",
+        {{- 'images' -}}: [
+          {%- if block.settings.alternative_image != blank -%}
+            {%- assign block_image_src = block.settings.alternative_image.src | img_url: 'master' -%}
+            {%- assign block_image_alt = block.settings.alternative_image.alt | replace: '"', '\"' -%}
+            {
+              "src": "{{ block_image_src }}",
+              "alt": "{{ block_image_alt }}",
+              "width": {{ block.settings.alternative_image.width | default: product.image.width }},
+              "height": {{ block.settings.alternative_image.height | default: product.image.width }}
+            },
+          {%- endif -%}
+          {%- for image in _product.images -%}
+            {
+              "id": {{ image.id | default: forloop.index0 }},
+              "src": "{{ image.src | img_url: 'master' }}",
+              "alt": "{{ image.alt | escape }}",
+              "width": {{ image.width }},
+              "height": {{ image.height }}
+            }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ],
+        {{- 'media' -}}: [
+          {%- if block.settings.alternative_image != blank -%}
+            {%- assign block_image_src = block.settings.alternative_image.src | img_url: 'master' -%}
+            {%- assign block_image_alt = block.settings.alternative_image.alt | replace: '"', '\"' -%}
+            {
+              "src": "{{ block_image_src }}",
+              "alt": "{{ block_image_alt }}",
+              "width": {{ block.settings.alternative_image.width | default: product.image.width }},
+              "height": {{ block.settings.alternative_image.height | default: product.image.width }}
+            },
+          {%- endif -%}
+          {%- for image in _product.images -%}
+            {
+              "id": {{ image.id | default: forloop.index0 }},
+              "src": "{{ image.src | img_url: 'master' }}",
+              "alt": "{{ image.alt | escape }}",
+              "width": {{ image.width }},
+              "height": {{ image.height }}
+            }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ],
+        {{- 'available' -}}: {{ _product.available | default: true }},
+        {{- 'handle' -}}: "{{ block.settings.product }}",
+        {{- 'has_only_default_variant' -}}: {{ _product.has_only_default_variant | default: false }},
+        {{- 'id' -}}: {{ _product.id }},
+        {{- 'url' -}}: "{{ _product.url }}",
+        {{- 'tags' -}}: [
+          {%- for tag in _product.tags -%}
+            "{{ tag }}"{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ],
+        {{- 'options' -}}: {{ _product.options | json }},
+        {{- 'variants' -}}: [
+          {%- for _variant in _product._variants -%}
+            {
+              "title": "{{ _variant.title | escape }}",
+              "id": {{ _variant.id }},
+              "url": "{{ _variant.url }}",
+              "remaining_quantity": {{ _variant.inventory_quantity }},
+              "price": {{ _variant.price }},
+              "compare_at_price": "{{ _variant.compare_at_price }}",
+              "image": {
+                "id":   {{ _variant.image.id | default: forloop.index0  }},
+                "src": "{{ _variant.image.src | img_url: 'master' }}",
+                "alt": "{{ _variant.image.alt | escape }}"
+              },
+              "option1": "{{ _variant.option1 }}",
+              "option2": "{{ _variant.option2 }}",
+              "option3": "{{ _variant.option3 }}",
+              "inventory_management": "{{ _variant.inventory_management }}",
+              "inventory_policy": "{{ _variant.inventory_policy }}"
+            }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ],
+        {{- 'price' -}}: {% if section.settings.show_price %}{{ _product.price | default: 0 }}{%- else -%}null{%- endif -%},
+        {{- 'customFields' -}}: {},
+      }{% unless forloop.last %}|,*|{%- endunless -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- assign product_blocks = _products | strip_newlines | strip | split: '|,*|' -%}
+{%- endunless -%}
+<div class="featured-collection__wrapper cv--auto animation--fade-in" style="background-color: {{ section.settings.background_color -}};">
+  {%- if section.settings.use_findify -%}
+    <div class="findify-element" id="home-findify-rec-1"></div>
+  {%- else -%}
+    <div class="row collapse">
+      <div class="column no-gutters small-12">
+        {%- if section.settings.heading != blank -%}
+          <h1 class="heading--2 featured-collection__title">{{ section.settings.heading | escape }}</h1>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="row collapse">
+      <div class="column no-gutters small-12 medium-9">
+        {%- if section.settings.sub_heading != blank -%}
+          <p class="featured-collection__sub-title">{{ section.settings.sub_heading | escape }}</p>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.show_cta -%}
+        <div class="column small-no-gutters small-12 medium-3" :class="['desktop', 'hd'].includes($mq) ? 'text-align--right' : '' ">
+          <button-component
+            class="button--link featured-collection__button"
+            href="{{- section.settings.cta_url -}}"
+          >{{- section.settings.cta_text -}}</button-component>
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="featured-collection__slider">
+      <carousel ref="productCarousel"
+        :arrows="$mq !== 'mobile'"
+        :infinite="$mq === 'mobile'"
+        :slides-to-show="featuredProductSlidesToShow">
+        {%- for product_data in product_blocks -%}
+          <slide>
+            <product-tile
+              :product='{{- product_data -}}'
+              product-image-size="x400"
+              tile-color="{{ settings.product_image_background_color }}"
+              :show-price={{ show_price | default: true }}
+              :disable-hover="$mq === 'mobile' ? true : false"
+            >
+            </product-tile>
+          </slide>
+        {%- endfor -%}
+      </carousel>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+  {
+    "name": "Featured Product(s)",
+    "class": "featured-collection",
+    "tag": "section",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "use_findify",
+        "label": "Use Findify",
+        "info": "Choose to use findify or manually add products to this section with blocks."
+      },
+      {
+        "type": "header",
+        "content": "Styles"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Section Background Color",
+        "default": "#f8f8f9"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Section Heading",
+        "info": "Heading text for this Featured Collection (Optional)"
+      },
+      {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Sub-Heading",
+        "info": "Smaller Sub-Heading text for this Featured Collection(Optional)"
+      },
+      {
+        "type": "header",
+        "content": "CTA Options"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cta",
+        "label": "Show CTA",
+        "default": true
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA URL",
+        "info": "Select a page, product, or collection to link to."
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "info": "Button text to show"
+      },
+      {
+        "type": "header",
+        "content": "Product Tile Options"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_price",
+        "label": "Show Price",
+        "default": true
+      }
+    ],
+    "blocks": [
+      {
+        "type": "product_block",
+        "name": "Product Block",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Select product"
+          },
+          {
+            "type": "image_picker",
+            "id": "alternative_image",
+            "label": "Alternative Image for Product (Optional)",
+            "info": "The default product image will show on hover"
+          },
+          {
+            "type": "text",
+            "id": "alternative_title",
+            "label": "Alternative Product Title",
+            "info": "Product Title Override (Optional)"
+          }
+        ]
+      }
+    ],
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "collection",
+      "customers/account",
+      "customers/activate_account",
+      "customers/addresses",
+      "customers/login",
+      "customers/order",
+      "customers/register",
+      "customers/reset_password",
+      "index",
+      "page",
+      "password",
+      "search"
+    ],
+    "presets": [
+      {
+        "name": "Featured Product(s)",
+        "category": "Products"
+      }
+    ]
+  }
+{% endschema %}

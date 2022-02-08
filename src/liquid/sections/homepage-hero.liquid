@@ -1,0 +1,105 @@
+<hero
+  background-color='{{- section.settings.background_color -}}'
+  image= "{%- if section.settings.image != nil %}{{ section.settings.image.src | img_url: '550x', format: 'pjpg' }}{% endif -%}"
+  image-alt= "{%- if section.settings.image != nil %}{{ section.settings.image.alt }}{% endif -%}"
+  body-text= "{{ section.settings.body_text | replace_first: '<p>', '' | replace_first: '</p>', '' | escape }}"
+  body-text-color= "{{ section.settings.body_text_color }}"
+  cta-label= "{{ section.settings.cta_label | strip_html | escape }}"
+  cta-link= "{{ section.settings.cta_link }}"
+  cta-type= "{{ section.settings.cta_type }}"
+  title= "{{ section.settings.title | strip_html | escape }}"
+  title-color= "{{ section.settings.title_color }}"
+>
+</hero>
+
+{% schema %}
+  {
+    "name": "Hero",
+    "class": "homepage-hero-section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Images"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#EDD8BC"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "color",
+        "id": "title_color",
+        "label": "Title Color",
+        "default": "#000000"
+      },
+      {
+        "type": "richtext",
+        "id": "body_text",
+        "label": "Body Text"
+      },
+      {
+        "type": "color",
+        "id": "body_text_color",
+        "label": "Body Text Color",
+        "default": "#494949"
+      },
+      {
+        "type": "header",
+        "content": "CTA"
+      },
+      {
+        "type": "text",
+        "id": "cta_label",
+        "label": "Label"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "Link"
+      },
+      {
+        "type": "select",
+        "id": "cta_type",
+        "label": "Choose CTA Style",
+        "options": [
+          {
+            "value": "primary",
+            "label": "Primary"
+          },
+          {
+            "value": "secondary",
+            "label": "Secondary"
+          },
+          {
+            "value": "link",
+            "label": "Link"
+          }
+        ],
+        "default": "primary"
+      }
+    ],
+    "templates": ["index"],
+    "presets": [
+      {
+        "name": "Hero Banner",
+        "category": "Hero"
+      }
+    ]
+  }
+{% endschema %}

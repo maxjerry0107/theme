@@ -1,0 +1,104 @@
+<div class="statement" style="background-color: {{ section.settings.background_color }}">
+  <div class="statement__container">
+    <div class="statement__content">
+      <div class="statement__content-inner">
+        {% if section.settings.title %}
+          <h3 class="statement-title headding--3">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {% if section.settings.content %}
+          <p class="statement-body body--large">{{ section.settings.content }}</p>
+        {% endif %}
+
+        {% if section.settings.cta_url and section.settings.cta_text %}
+          <a href="{{ section.settings.cta_url }}" class="statement-cta button button--{{ section.settings.cta_type }}">
+            {{ section.settings.cta_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="statement__image-wrapper">
+      {% if section.settings.image %}
+        <img class="statement-image" src="{{ section.settings.image | img_url: '800x' | format: 'pjpg'}}" alt="{{ section.settings.desktop_image.alt }}" >
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Statement",
+  "class": "statement-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#EDD8BC"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Make A Statement."
+    },
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Content",
+      "default": "Shop our newest collection of faith based apparel that celebrates your love for Jesus."
+    },
+    {
+      "type": "header",
+      "content": "CTA Button Fields"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "URL"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "select",
+      "id": "cta_type",
+      "label": "Choose CTA Style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Statement",
+      "category": "Block Content"
+    }
+  ]
+}
+{% endschema %}

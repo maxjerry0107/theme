@@ -1,0 +1,295 @@
+.follow-us {
+  padding: ($spacing-unit * 9) ($spacing-unit * 5);
+
+  @include desktop-up {
+    padding: ($spacing-unit * 19) 0;
+  }
+}
+
+.follow-us--pdp {
+  background-color: $color-grey-100;
+}
+
+.follow-us__headline {
+  position: relative;
+  margin: 0 auto $spacing-unit * 6;
+  max-width: 575px;
+  color: $color-black;
+  text-align: center;
+
+  @include desktop-up {
+    z-index: index($layout, 'floating-booking-link');
+    margin-bottom: -($spacing-unit * 6);
+  }
+
+  .follow-us--pdp & {
+    margin-bottom: ($spacing-unit * 5);
+    font-size: rem(24);
+    line-height: rem(34);
+
+    @include desktop-up {
+      font-size: rem(34);
+      line-height: rem(44);
+    }
+  }
+}
+
+.follow-us__instafeed {
+  position: relative;
+  z-index: index($layout, 'page-layout-content');
+  margin-top: $spacing-unit * 11;
+  margin-bottom: $spacing-unit * 6;
+
+  .follow-us--pdp & {
+    @include mobile-only {
+      margin: $spacing-unit * 6;
+    }
+  }
+}
+
+.follow-us__manual-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: $spacing-unit / 2;
+  justify-content: center;
+
+  @include desktop-up {
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 $spacing-unit * 30;
+    grid-gap: $spacing-unit * 5;
+  }
+
+  .follow-us--pdp & {
+    @include desktop-up {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+}
+
+.follow-us__manual-image {
+  @include desktop-up {
+    &:first-child {
+      .responsive-image__img--contain {
+        object-position: right top;
+      }
+    }
+
+    &:nth-child(2) {
+      margin-top: $spacing-unit * 15;
+    }
+
+    &:nth-child(3) {
+      .responsive-image__img--contain {
+        object-position: left top;
+      }
+    }
+
+    &:nth-child(n+4) {
+      display: none;
+    }
+
+    .follow-us--pdp &:nth-child(n+4) {
+      display: block;
+    }
+
+    .follow-us--pdp &:nth-child(n+2) {
+      margin-top: 0
+    }
+  }
+
+  .follow-us--pdp & {
+    position: relative;
+  }
+}
+
+.follow-us__overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  .follow-us__manual-image:hover & {
+    opacity: 1;
+  }
+}
+
+.follow-us__overlay-icon {
+  position: relative;
+  margin-bottom: $spacing-unit * 6;
+  line-height: 1;
+
+  .icon {
+    fill: $color-white;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 50%;
+  }
+}
+
+.follow-us__hover-link { }
+
+.follow-us__userhandle {
+  display: none;
+  padding-top: $spacing-unit;
+  padding-bottom: $spacing-unit;
+  color: $color-black-500;
+  font-family: $font-primary;
+  text-transform: none;
+
+  @include desktop-up {
+    display: inline-flex;
+  }
+}
+
+.follow-us__navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.follow-us__navigation-left {
+  left: -30px;
+}
+
+.follow-us__navigation-right {
+  right: -30px;
+}
+
+/**
+  * The following styles are to style the Shoppable Instagram & UGC App.
+  * The classes are not BEM and often need to be more specific to override the default styles coming from the app.
+  */
+
+.fs-wrapper {
+  display: none;
+
+  .follow-us &,
+  .page-content-four-sixty &,
+  &.fs-prepended-detail {
+    display: block;
+  }
+}
+
+.fs-has-links {
+  &::after {
+    content: 'Shop the Look';
+
+    @extend %button;
+  }
+
+  .follow-us--pdp & {
+    display: none;
+  }
+}
+
+.follow-us {
+  .fs-timeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $spacing-unit / 2;
+    justify-content: center;
+
+    @include desktop-up {
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 0 $spacing-unit * 30;
+      grid-gap: $spacing-unit * 5;
+    }
+  }
+
+  &.follow-us--pdp .fs-timeline {
+    @include desktop-up {
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+  }
+  
+  .fs-entry-container {
+    padding-top: 100%;
+    width: 100%;
+
+    @include desktop-up {
+      padding-top: (3 / 2) * 100%;
+      max-width: 375px;
+      max-height: 540px;
+
+      &:nth-child(2) {
+        margin-top: $spacing-unit * 15;
+      }
+
+      &:nth-child(n+4) {
+        display: none;
+      }
+    }
+  }
+
+  &.follow-us--pdp .fs-entry-container {
+    padding-top: 100%;
+  }
+
+  &.follow-us--pdp .fs-entry-container:nth-child(n+4) {
+    display: block;
+  }
+
+  &.follow-us--pdp .fs-entry-container:nth-child(n+2) {
+    margin-top: 0
+  }
+}
+
+.fs-entry-title,
+.fs-detail-title {
+  font-size: $font-size-body-small;
+  font-family: 'Sofia Pro', sans-serif;
+}
+
+.fs-text-container .fs-entry-date,
+.fs-detail-container .fs-post-info,
+.fs-wrapper .fs-has-links::after,
+.fs-text-product,
+.fs-overlink-text {
+  font-size: $font-size-body-small;
+  font-family: 'Playfair Display', serif;
+}
+
+.fs-wrapper .fs-text-container * {
+  color: $color-black;
+}
+
+.fs-wrapper .fs-text-container {
+  margin: 0;
+  background-color: transparent;
+}
+
+.fs-entry-date {
+  display: none;
+}
+
+.fs-entry-title {
+  display: none;
+}
+
+.fs-wrapper .fs-timeline-entry {
+  background-size: cover;
+  background-position: center center;
+}
+
+.fs-service-icon {
+  .follow-us--pdp & .fs-icon {
+    color: $color-white;
+  }
+}

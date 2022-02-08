@@ -1,0 +1,11 @@
+{
+  "name": "Account Rewards",
+  "sections": {
+    "page-account": {
+      "type": "template-rewards"
+    }
+  },
+  "order": [
+    "page-account"
+  ]
+}

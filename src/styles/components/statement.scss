@@ -1,0 +1,109 @@
+.statement {
+  position: relative;
+  margin: px-to-rem(32px) 0;
+
+  @include tablet-up {
+    margin: px-to-rem(90px) 0;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 60px;
+      background: white;
+    }
+  }
+}
+
+.statement__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding: px-to-rem(20px) px-to-rem(15px) px-to-rem(20px) 0;
+
+  @include tablet-up {
+    padding-right: px-to-rem(30px);
+  }
+}
+
+.statement-title {
+  margin-bottom: px-to-rem(37px);
+
+  @include tablet-down {
+    margin-bottom: px-to-rem(8px);
+    font-size: $font-size-heading-6;
+    font-weight: $font-weight-bold;
+    line-height: px-to-rem(20px);
+    letter-spacing: px-to-rem(1px);
+  }
+}
+
+.statement-body {
+  margin-bottom: px-to-rem(40px);
+
+  @include tablet-down {
+    margin-bottom: px-to-rem(16px);
+    font-size: $font-size-body-small;
+    line-height: px-to-rem(14px);
+  }
+}
+
+.statement__content {
+  position: relative;
+  top: 44px;
+  left: -15px;
+  padding: px-to-rem(50px) px-to-rem(43px) px-to-rem(64px);
+  background-color: $color-grey-900;
+  border-radius: 370.5px 370.5px 0px 0px;
+
+  @include tablet-up {
+    padding: px-to-rem(240px) px-to-rem(180px) px-to-rem(130px);
+  }
+}
+
+.statement__content-inner {
+  max-width: 164px;
+  text-align: center;
+
+  @include tablet-up {
+    max-width: 370px;
+  }
+}
+
+.statement__image-wrapper {
+  position: relative;
+  z-index: 1;
+  margin-left: -40px;
+
+  @include tablet-up {
+    top: 60px;
+    margin-left: -130px;
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    top: 11px;
+    left: 11px;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: 3px solid $color-gold-500;
+
+    @include tablet-up {
+      top: 20px;
+      left: 20px;
+    }
+  }
+}
+
+.statement-image {
+  position: relative;
+  z-index: 2;
+}

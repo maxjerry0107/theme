@@ -1,0 +1,100 @@
+.value-props {
+  margin: $spacing-unit * 4 0;
+  text-align: center;
+
+  @include desktop-up {
+    margin: $spacing-unit * 21 0 $spacing-unit * 32 0;
+  }
+
+  &.value-props--full-width {
+    margin: 0;
+    padding: ($spacing-unit * 12) 0;
+    background-color: $color-grey-300;
+  }
+
+  .template-product & {
+    margin: 0;
+    padding: ($spacing-unit * 12) 0;
+    background-color: $color-grey-300;
+  }
+}
+
+.value-prop__header {
+  padding: 0 $spacing-unit * 8;
+}
+
+.value-props__title {
+  margin: 0 0 $spacing-unit * 10 0;
+  color: $color-black;
+  font-size: rem(32);
+  font-family: $font-headings;
+  font-weight: $font-weight-regular;
+  line-height: rem(39);
+
+  @include desktop-up {
+    margin: 0 0 $spacing-unit * 5 0;
+    font-size: rem(44);
+    line-height: rem(50);
+  }
+
+  .template-product &,
+  .value-props--fabric & {
+    margin-top: 0;
+    margin-bottom: $spacing-unit * 12;
+    font-size: rem(26);
+    line-height: rem(32);
+  }
+}
+
+.value-props__description {
+  margin: 0 auto $spacing-unit * 7 auto;
+  font-size: rem(16);
+  line-height: rem(24);
+
+  @include desktop-up {
+    max-width: 630px;
+  }
+}
+
+.value-props__prop-image {
+  .template-product & {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+  }
+}
+
+.value-props__prop-title {
+  margin-top: $spacing-unit / 2;
+  margin-bottom: $spacing-unit * 3;
+  color: $color-black;
+  font-size: rem(14);
+  font-family: $font-sofia-pro;
+  line-height: rem(24);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+
+  @include desktop-up {
+    margin-top: $spacing-unit * 2;
+    margin-bottom: $spacing-unit * 2;
+    max-width: none;
+    font-size: rem(16);
+  }
+
+  .template-product & {
+    font-size: rem(14);
+    line-height: rem(22);
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+}
+
+.value-props__prop-description {
+  color: $color-grey-700;
+  font-size: rem(16);
+  line-height: rem(22);
+
+  @include desktop-up {
+    font-size: rem(14);
+  }
+}

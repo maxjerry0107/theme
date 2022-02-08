@@ -1,0 +1,58 @@
+<div class="featured-collection__wrapper cv--auto animation--fade-in">
+  <div class="container container--wide">
+    <div class="featured-collection__container">
+      <div class="row collapse">
+        <div class="column no-gutters small-12">
+          {%- if section.settings.heading != blank -%}
+            <h3 class="heading--3 featured-collection__title">{{ section.settings.heading | escape }}</h1>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="featured-collection__slider">
+        {%- render 'product-carousel', collection_handle: section.settings.collection -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Featured Collection",
+    "class": "featured-collection",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Section Heading",
+        "info": "Heading text for this Featured Collection (Optional)"
+      },
+      {
+        "type": "text",
+        "id": "sub_heading",
+        "label": "Sub-Heading",
+        "info": "Smaller Sub-Heading text for this Featured Collection(Optional)"
+      },
+      {
+        "type": "header",
+        "content": "Collection Products"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      }
+    ],
+    "templates": ["article", "blog", "index", "page", "product", "search"],
+    "presets": [
+      {
+        "name": "Featured Collection",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}

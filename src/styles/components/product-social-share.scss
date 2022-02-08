@@ -1,0 +1,33 @@
+.social-sharing--wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.heading--7 {
+  margin-bottom: 0;
+  padding: 0 $spacing-unit * 4 0 0;
+  font-size: $font-size-body-small;
+  text-transform: uppercase;
+}
+
+.social-sharing {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-sharing__item {
+  padding: 0 $spacing-unit * 4 0 0;
+}
+
+.button--share {
+  margin-bottom: 0;
+  border-color: $color-grey-500;
+
+  svg.icon {
+    stroke: none;
+    fill: $color-grey-500;
+  }
+}

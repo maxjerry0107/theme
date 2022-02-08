@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    #BODY
+\*------------------------------------*/
+
+body {
+  height: 100%;
+  color: $color-black;
+  font-size: $font-size-body;
+  -webkit-font-smoothing: antialiased;
+  line-height: px-to-rem(20px);
+  text-size-adjust: 100%;
+
+  @include tablet-up {
+    padding-top: 0;
+  }
+
+  @include desktop-up {
+    line-height: px-to-rem(24px);
+  }
+}

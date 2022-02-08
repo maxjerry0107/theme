@@ -1,0 +1,24 @@
+.featured-collection__wrapper {
+  margin: px-to-rem(32px) 0;
+
+  @include tablet-up {
+    margin: px-to-rem(120px) 0;
+  }
+}
+
+.featured-collection__container {
+  position: relative;
+}
+
+.featured-collection__title {
+  margin-bottom: px-to-rem(24px);
+
+  @include tablet-down {
+    margin-bottom: px-to-rem(15px);
+    font-size: $font-size-heading-5;
+    font-weight: $font-weight-bold;
+    line-height: px-to-rem(25px);
+    letter-spacing: initial;
+    text-transform: initial;
+  }
+}

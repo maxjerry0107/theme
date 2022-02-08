@@ -1,0 +1,217 @@
+.login-template,
+.register-template {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.login-template .label-hidden,
+.register-template .label-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+}
+
+.login-splash {
+  width: 100%;
+  height: 320px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include tablet-up {
+    width: 50%;
+    height: auto;
+    min-height: 100vh;
+  }
+}
+
+.reset__heading,
+.login__heading {
+  margin: 0;
+  font-size: rem(36);
+  font-family: $font-playfair-display;
+  font-weight: 400;
+  line-height: rem(50);
+  letter-spacing: rem(1.5);
+
+  @include tablet-up() {
+    font-size: rem(34);
+    line-height: 1.36;
+  }
+}
+
+.reset__text,
+.login__text {
+  margin: $grid-gutter / 2 0 $grid-gutter 0;
+  color: $color-black-500;
+  font-size: rem(14);
+  font-family: $font-primary;
+  line-height: rem(21);
+  letter-spacing: rem(0.3);
+}
+
+.reset__text {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 354px;
+}
+
+.reset-form,
+.login-form {
+  margin: 0 auto;
+  padding-top: $grid-gutter;
+  max-width: 354px;
+  text-align: center;
+
+  @include tablet-up {
+    padding-top: $grid-gutter * 3.5;
+  }
+}
+
+.reset-form {
+  max-width: 445px;
+}
+
+.form-state-tabs > .tab {
+  position: relative;
+  color: $color-black;
+  font-size: rem(16);
+  font-family: $font-sofia-pro;
+  font-weight: 400;
+  line-height: rem(24);
+  letter-spacing: rem(0.1);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 3px solid $color-grey-medium;
+
+  &:first-of-type {
+    margin-right: $grid-gutter;
+  }
+
+  &:hover {
+    color: initial;
+
+    &:before {
+      transform: scaleX(1);
+    }
+  }
+
+  &:before {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: $color-black;
+    content: '';
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+  }
+
+  &.active:before {
+    transform: scaleX(1);
+  }
+}
+
+.form-container {
+  margin: $grid-gutter 0;
+}
+
+.form-container--reset {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 354px;
+}
+
+.form-container.register .button-container {
+  max-width: none;
+}
+
+.form-container.register .button-container .button {
+  width: 100%;
+}
+
+.login-buttons {
+  margin: $grid-gutter auto 0;
+  text-align: center;
+}
+
+.login-buttons .button {
+  margin: 0 0 $grid-gutter 0;
+  width: 100%;
+}
+
+.login-buttons .login-recover {
+  display: inline-block;
+  margin-bottom: $grid-gutter;
+  color: $color-black;
+  font-size: rem(12);
+  font-family: $font-primary;
+  line-height: rem(12);
+  letter-spacing: rem(0.4);
+}
+
+.login-recovery-modal {
+  display: flex;
+  position: relative;
+  z-index: 99999;
+  max-width: 400px;
+  flex-direction: column;
+  cursor: default;
+}
+
+.recovery-form__heading {
+  font-size: rem(20);
+  text-align: center;
+}
+
+.recovery-form__text {
+  margin-bottom: 41px;
+  font-size: rem(14);
+  font-family: $font-primary;
+  text-align: center;
+}
+
+.recovery-form__button {
+  width: 100%;
+}
+
+.login-recovery-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 17px;
+  height: 17px;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 17px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.validation-message {
+  text-align: left;
+}
+
+.account__label {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: rem(16);
+  font-family: $font-sofia-pro;
+  line-height: rem(22);
+  letter-spacing: rem(0.1);
+}
+
+.login-template .modal__content input[type='email'] {
+  margin-bottom: 5px;
+}
+
+.login-template .recovery-form__text {
+  margin-bottom: 15px;
+}

@@ -1,0 +1,98 @@
+{%- capture promo_bar_messages -%}
+  [
+    {%- for block in section.blocks -%}
+      {
+        "message": {{ block.settings.promo_bar_message | json }}
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+{%- endcapture -%}
+
+{%- if section.settings.enable_promo_bar and section.blocks.size > 0 -%}
+<header-promo-bar
+  :promo-bar-messages="{{ promo_bar_messages | escape }}"
+  promo-bar-background-color="{{ section.settings.promo_bar_background_color }}"
+  promo-bar-text-color="{{ section.settings.promo_bar_text_color }}"
+  promo-bar-link-hover-color="{{ section.settings.promo_bar_link_hover_color }}"
+  :promo-bar-speed="{{ section.settings.promo_bar_speed }}"
+>
+  <template slot="default">
+    <div class="header-promo-bar header-promo-bar--active"
+      style="--link-hover-color: {{ section.settings.promo_bar_link_hover_color }}; background-color: {{ section.settings.promo_bar_background_color }}; color: {{ section.settings.promo_bar_text_color }}; min-height: 48px;">
+      <div class="container header-promo-bar__container">
+        <div class="row">
+          <div arrows="true" autoplay="false" fade="true" autoplayspeed="{{ section.settings.promo_bar_speed }}" slidestoshow="1" slidestoscroll="1"
+            class="header-promo-bar__promo-content column small-8 medium-6">
+            {%- for block in section.blocks -%}
+              <div class="header-promo-bar__promo">{{- block.settings.promo_bar_message -}}</div>
+              {%- break -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+      <button class="button button--icon header-promo-bar__close-button" title="Close" role="button">
+        <svg class="button__icon icon icon--close" style="height: 12px; width: 12px;">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#close"></use>
+        </svg>
+      </button>
+    </div>
+  </template>
+</header-promo-bar>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Header Promo Bar",
+    "class": "header-promo-bar-wrapper",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_promo_bar",
+        "label": "Enable Promo Bar",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "promo_bar_speed",
+        "label": "Promo Bar Speed",
+        "info": "Set the speed (in seconds) of the slider if there is more than one promo message",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 5
+      },
+      {
+        "id": "promo_bar_background_color",
+        "type": "color",
+        "label": "Promo Bar Background Color",
+        "default": "#9FB8DA"
+      },
+      {
+        "id": "promo_bar_text_color",
+        "type": "color",
+        "label": "Promo Bar Text Color",
+        "default": "#333133"
+      },
+      {
+        "id": "promo_bar_link_hover_color",
+        "type": "color",
+        "label": "Promo Bar Link Hover Color",
+        "default": "#706E70"
+      }
+    ],
+    "blocks":[
+      {
+        "type": "promo_messages",
+        "name": "Promo Messages",
+        "settings":[
+          {
+            "id": "promo_bar_message",
+            "type": "richtext",
+            "label": "Promo Bar Message",
+            "default": "<p>Promotion Banner Text Here <a href='#'>Optional Link</a></p>"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

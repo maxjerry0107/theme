@@ -1,0 +1,195 @@
+// container for each saved address along with its form
+.address-saved {
+  margin-bottom: $spacing-unit * 3;
+  padding: $spacing-unit * 5 $spacing-unit * 3 $spacing-unit * 2;
+  min-height: 143px;
+  background-color: $color-grey-900;
+
+  @include desktop-up {
+    margin-bottom: $spacing-unit * 4;
+    padding: $spacing-unit * 9 $spacing-unit * 8 $spacing-unit * 5 $spacing-unit * 10;
+    min-height: 170px;
+  }
+}
+
+// container for new address button & form
+.address-add {
+  margin-top: $spacing-unit * 6;
+  margin-bottom: $spacing-unit * 21;
+  background-color: $color-white;
+
+  @include desktop-up {
+    margin-top: $spacing-unit * 4;
+    margin-bottom: 0;
+  }
+}
+
+.address-add__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-unit * 4;
+  width: 100%;
+  font-size: rem(14);
+  font-weight: normal;
+  line-height: rem(24);
+  text-align: center;
+  cursor: pointer;
+}
+
+.address-add__button-text {
+  margin-left: $spacing-unit * 2;
+}
+
+// wraps address summary paragraph
+.address-info {
+  position: relative;
+}
+
+.address-info .address-info__edit,
+.address-info .address-info__delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  color: $color-black;
+  font-size: rem(14);
+  line-height: rem(22);
+}
+
+.address-info .address-info__delete {
+  top: 28px;
+}
+
+.address-info__summary-name {
+  margin: 0 0 $spacing-unit * 3 0;
+  font-size: rem(16);
+  font-family: $font-primary;
+  line-height: rem(24);
+
+  @include desktop-up {
+    margin: 0 0 $spacing-unit * 2 0;
+    font-size: rem(20);
+    line-height: rem(24);
+  }
+}
+
+.address-info__summary-address {
+  margin: 0 0 $spacing-unit * 3 0;
+  color: $color-black-500;
+  font-size: rem(14);
+  line-height: rem(22);
+  letter-spacing: 0.03em;
+}
+
+.address-info__summary-default {
+  margin: 0;
+  font-size: rem(14);
+  line-height: rem(22);
+}
+
+// wraps edit/add forms
+.address-form {
+  position: relative;
+  padding: $spacing-unit * 6 $spacing-unit * 3 $spacing-unit * 4 $spacing-unit * 3;
+  background-color: $color-grey-900;
+
+  @include desktop-up {
+    padding: $spacing-unit * 8 $spacing-unit * 8 $spacing-unit * 8 $spacing-unit * 10;
+  }
+
+  .address-saved & {
+    @include desktop-up {
+      padding: 0;
+    }
+  }
+}
+
+.address-form__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-unit * 5;
+
+  @include desktop-up {
+    margin-bottom: $spacing-unit * 7;
+  }
+}
+
+.address-form__title {
+  margin: 0;
+  color: $color-black;
+  font-size: rem(20);
+  font-family: $font-primary;
+  line-height: rem(24);
+}
+
+.address-form__row {
+  display: flex;
+  flex-direction: column;
+
+  @include desktop-up {
+    flex-direction: row;
+    max-width: 675px;
+  }
+
+  // make sure each element in the form row is evenly spaced
+  >* {
+    flex: 1;
+
+    @include desktop-up {
+      &:not(:first-child) {
+        margin-left: $spacing-unit * 3;
+      }
+
+      &:not(:last-child) {
+        margin-right: $spacing-unit * 3;
+      }
+    }
+  }
+}
+
+.address-form__default.checkbox {
+  margin-bottom: $spacing-unit * 8;
+
+  @include desktop-up {
+    margin-bottom: $grid-gutter * 0.75;
+  }
+}
+
+.address-form__input-container {
+  position: relative;
+  margin-bottom: $spacing-unit * 5;
+  width: 100%;
+}
+
+.address-form__input-label {
+  display: inline-block;
+  margin-bottom: $spacing-unit * 4;
+  font-size: rem(12);
+  line-height: rem(16);
+}
+
+.address-form__input {
+  appearance: none;
+  padding: $spacing-unit * 2 $spacing-unit * 3;
+  width: 100%;
+  height: 50px;
+  color: $color-grey-900;
+  font-size: rem(16);
+  line-height: rem(20);
+  border: 1px solid $color-grey-900;
+  border-radius: 0;
+}
+
+.address-form__input-arrow {
+  position: absolute;
+  top: 60px;
+  right: 15px;
+}
+
+.address-form__submit-button {
+  @include desktop-up {
+    max-width: calc(50% - #{$spacing-unit * 3});
+  }
+}

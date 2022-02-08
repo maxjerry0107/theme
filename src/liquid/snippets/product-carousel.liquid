@@ -1,0 +1,14 @@
+{%- assign collection = collections[collection_handle] -%}
+{%- if collection -%}
+  <carousel ref="productCarousel"
+    :arrows="$mq !== 'mobile'"
+    :infinite="$mq === 'mobile'"
+    :slides-to-show="featuredProductSlidesToShow"
+    prev-icon="arrow-long-right"
+    next-icon="arrow-long-right"
+    >
+    {%- for product in collection.products limit: 12 -%}
+      <slide>{%- render 'product-tile', product: product -%}</slide>
+    {%- endfor -%}
+  </carousel>
+{%- endif -%}

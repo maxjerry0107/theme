@@ -1,0 +1,20 @@
+{
+  "name": "Default Article",
+  "wrapper": "div.article[role=\"article\"]",
+  "sections": {
+    "article-header": {
+      "type": "article-header"
+    },
+    "article-content": {
+      "type": "article-content"
+    },
+    "article-footer": {
+      "type": "article-footer"
+    }
+  },
+  "order": [
+    "article-header",
+    "article-content",
+    "article-footer"
+  ]
+}

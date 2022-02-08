@@ -1,0 +1,12 @@
+{
+  "name": "Default Page",
+  "wrapper": "div.page-layout",
+  "sections": {
+    "page-content": {
+      "type": "page-content"
+    }
+  },
+  "order": [
+    "page-content"
+  ]
+}

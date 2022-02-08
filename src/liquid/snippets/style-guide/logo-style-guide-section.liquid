@@ -1,0 +1,19 @@
+<div class="page-layout__section page-layout__section--style-guide">
+  <div class="container">
+    <h2 class="heading heading--divider">Logo</h2>
+    <div class="row">
+      <div class="column small-12 medium-4">
+        <div style="padding: 16px">
+          <h4>As an img tag:</h4>
+          {{ 'logo.png' | asset_url | img_tag }}
+        </div>
+      </div>
+      <div class="column small-12 medium-4">
+        <div style="padding: 16px">
+          <h4>As an inline SVG included as a snippet</h4>
+          {%- render 'logo', fill_color: '#d0006f' -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

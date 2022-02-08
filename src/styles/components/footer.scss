@@ -1,0 +1,258 @@
+.footer {
+  padding: $spacing-unit * 8 0;
+  background-color: $color-grey-900;
+
+  @include desktop-up {
+    padding: $spacing-unit * 11 0 $spacing-unit * 8;
+  }
+}
+
+.footer * {
+  color: $color-blue-900;
+  font-family: $font-primary;
+}
+
+.footer__content {
+  @include desktop-up {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.footer__content-left {
+  @include desktop-up {
+    padding-right: 0;
+  }
+
+  @include tablet-down {
+    order: 2;
+    margin-top: rem(32);
+  }
+}
+
+.footer__content-right {
+  @include desktop-up {
+    padding-left: 0;
+  }
+
+  @include tablet-down {
+    text-align: center;
+  }
+}
+
+.footer__social-links {
+  display: flex;
+  padding: 0;
+  width: 100%;
+  align-items: center;
+  list-style: none;
+
+  @include tablet-down {
+    justify-content: center;
+  }
+}
+
+.footer__social-links-link .button {
+  padding: 0;
+}
+
+.footer__social-links-link svg.icon {
+  stroke: none;
+}
+
+.footer__social-links-link {
+  margin-right: rem(18);
+
+  @include desktop-up {
+    margin-right: rem(10);
+  }
+}
+
+.footer__accordions {
+  width: 100%;
+}
+
+.footer__links-section {
+  @include desktop-up {
+    padding: 0 $spacing-unit;
+  }
+}
+
+.footer__links-header {
+  display: none;
+  margin-bottom: rem(16);
+  font-size: $font-size-body-desktop;
+  font-family: $font-mr-eaves-sans;
+  font-weight: $font-weight-bold;
+  line-height: rem(22);
+  letter-spacing: rem(2);
+  outline: 0;
+  text-transform: uppercase;
+
+  @include tablet-up {
+    display: block;
+  }
+}
+
+.footer__linklist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include mobile-only {
+    padding: 0 rem(11);
+  }
+}
+
+.footer__linklist-link {
+  display: inline-block;
+  margin-bottom: rem(16);
+  font-size: rem(20);
+  font-weight: $font-weight-regular;
+  line-height: rem(22);
+  text-decoration: none;
+
+  @include tablet-down {
+    margin-bottom: rem(24);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .footer__bottom-links & {
+    margin-bottom: 0;
+    padding: 0 rem(8);
+    font-size: rem(16);
+    line-height: rem(20);
+  }
+}
+
+.footer__content-right__headline {
+  margin-bottom: rem(16);
+  font-size: rem(18);
+  font-family: $font-mr-eaves-sans;
+  font-weight: $font-weight-bold;
+  line-height: rem(18);
+  letter-spacing: rem(2);
+  text-transform: uppercase;
+}
+
+.footer__content-right__message {
+  font-size: rem(20);
+  line-height: rem(22);
+  white-space: break-spaces;
+}
+
+.footer__copyright {
+  margin: 0;
+  font-size: rem(15);
+  line-height: 1;
+
+  a {
+    display: block;
+    margin-top: $spacing-unit * 4;
+
+    @include desktop-up {
+      display: inline;
+      margin-top: 0;
+      margin-left: $spacing-unit * 4;
+    }
+  }
+}
+
+.footer__footer {
+  margin-top: rem(40);
+
+  @include desktop-up {
+    margin-top: rem(100);
+  }
+}
+
+.footer__social {
+  margin-top: rem(24);
+}
+
+.footer__bottom-btt {
+  display: flex;
+  margin-top: rem(5);
+  font-size: rem(18);
+  font-weight: $font-weight-bold;
+  line-height: rem(18);
+  letter-spacing: rem(2);
+  text-transform: uppercase;
+  text-decoration: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  svg.icon {
+    margin-bottom: rem(5);
+  }
+}
+
+.footer__bottom-left {
+  display: flex;
+  align-items: center;
+
+  @include tablet-down {
+    order: 2;
+    margin-top: rem(48);
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.footer__bottom-links {
+  @include desktop-up {
+    margin-right: rem(11);
+  }
+
+  @include tablet-down {
+    margin-bottom: rem(13);
+  }
+}
+
+.footer__bottom-links .footer__linklist li {
+  .footer__linklist-link {
+    border-right: 1px solid $color-blue-900;
+  }
+
+  &:last-child {
+    .footer__linklist-link {
+      border-right: 0;
+    }
+  }
+}
+
+.footer__news-letter__form .contact-form__success {
+  margin-top: rem(24);
+}
+
+.footer__bottom {
+  @include tablet-down {
+  }
+}
+
+.footer__logo {
+  margin-bottom: rem(11);
+  text-align: center;
+}
+
+.footer__logo-mini {
+  display: inline-block;
+
+  @include desktop-up {
+    display: none;
+  }
+}
+
+.footer__bottom-copyright {
+  font-size: rem(18);
+  line-height: rem(24);
+}
+
+.button--icon-background {
+  width: auto;
+  height: auto;
+}

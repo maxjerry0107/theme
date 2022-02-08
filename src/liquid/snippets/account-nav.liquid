@@ -1,0 +1,13 @@
+{%- capture options -%}
+[
+  { label: "Order History", value: "/account" },
+  { label: "Addresses", value: "/account/addresses" },
+  { label: "Rewards", value: "/account?view=rewards" },
+  {%- if customer.metafields.subscriptions.customer_string -%}
+    {%- assign subscription_path = '/tools/recurring/customer/' | append: customer.metafields.subscriptions.customer_string | append: '/subscriptions/' -%}
+    { label: "Subscriptions", value: "{{ subscription_path }}" }
+  {%- endif -%}
+]
+{%- endcapture -%}
+
+<account-nav :options="{{ options | escape }}" customer-name="{{ customer.first_name }}" customer-email="{{ customer.email }}"></account-nav>

@@ -1,0 +1,93 @@
+.orders {
+  padding: $spacing-unit * 4 $spacing-unit * 2;
+  background-color: $color-grey-900;
+
+  @include desktop-up {
+    padding: $spacing-unit * 6;
+    min-height: 400px;
+  }
+}
+
+.orders-list {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+
+  @include desktop-up {
+    margin-top: 0;
+  }
+}
+
+.orders-list__heading {
+  padding: 0 $spacing-unit * 4 $spacing-unit;
+  color: $color-grey-900;
+  font-size: rem(14);
+  font-weight: normal;
+  line-height: rem(22);
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid $color-black;
+
+  @include desktop-up {
+    padding: 0 0 $spacing-unit * 4 $spacing-unit * 9;
+  }
+
+  &:first-child {
+    padding-left: $spacing-unit;
+
+    @include desktop-up {
+      padding-left: $spacing-unit * 7;
+    }
+  }
+
+  &:nth-child(4) {
+    padding-right: $spacing-unit;
+  }
+
+  &:last-child {
+    padding: 0;
+  }
+}
+
+.orders-list__cell {
+  padding: $spacing-unit * 5 $spacing-unit $spacing-unit * 3;
+  color: $color-black-500;
+  font-size: rem(14);
+  line-height: rem(22);
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid $color-black;
+
+  @include desktop-up {
+    padding: 18px 0 $spacing-unit * 4 $spacing-unit * 9;
+    font-size: rem(15);
+  }
+
+  tr:last-child & {
+    @include desktop-up {
+      border-bottom: 0;
+    }
+  }
+}
+
+.orders-list__cell--action {
+  display: none;
+  font-size: rem(20);
+
+  @include desktop-up {
+    display: table-cell;
+  }
+}
+
+.orders-list__no-orders-message {
+  margin: $spacing-unit * 12 auto $spacing-unit * 6 auto;
+  color: $color-black;
+  font-size: rem(26);
+  line-height: rem(32);
+  text-align: center;
+}
+
+.orders-list__cta {
+  display: block;
+  margin: 0 auto $spacing-unit * 42 auto;
+  padding: $spacing-unit * 3 $spacing-unit * 4;
+  width: 180px;
+}

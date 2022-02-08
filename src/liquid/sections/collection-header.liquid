@@ -1,0 +1,58 @@
+{%- assign enabled = section.settings.enable -%}
+{%- assign metafields_breadcrumbs = collection.metafields.breadcrumbs -%}
+{%- assign metafields_images = collection.metafields.images -%}
+{%- assign image_format = 'jpg' -%}
+{%- capture _settings -%}
+{
+  heading: "{{ collection.title }}",
+  handle: "{{ collection.handle }}",
+  url: "{{ collection.url }}",
+  breadcrumbs: [
+    {%- if metafields_breadcrumbs and metafields_breadcrumbs.parent_collection -%}
+    {%- assign parent_collection = metafields_breadcrumbs.parent_collection -%}
+    {
+      handle: "/collections/{{ parent_collection.handle }}",
+      title: "{{ parent_collection.title | strip_html }}"
+    },
+    {%- endif -%}
+    {
+      handle: "/collections/{{ collection.handle }}",
+      title: "{{ collection.title | strip_html }}"
+    }
+  ],
+  desktopImage: "{%- if metafields_images != nil and metafields_images.desktop_image != nil %}{{ metafields_images.desktop_image | img_url: '992x' }}{%- elsif collection.image != nil %}{{ collection.image.src | img_url }}{% endif -%}",
+  mobileImage: "{%- if metafields_images != nil and metafields_images.mobile_image != nil %}{{ metafields_images.mobile_image | img_url: '600x' }}{%- elsif collection.image != nil %}{{ collection.image.src | img_url }}{% endif -%}",
+  imageAlt: "{%- if metafields_images != nil and metafields_images.image_alt_text != nil %}{{ metafields_images.image_alt_text }}{%- elsif collection.image != nil %}{{ collection.image.alt }}{% else %}{{ collection.title | escape }}{% endif -%}",
+  imageRatio: "{%- if metafields_images != nil and metafields_images.aspect_ratio != blank %}{{ metafields_images.aspect_ratio }}{%- elsif collection.image != nil %}{{ collection.image.aspect_ratio | default: "16:9" }}{% else %}16:9{% endif -%}",
+  mobileRatio: "{%- if metafields_images != nil and metafields_images.mobile_ratio != blank %}{{ metafields_images.mobile_ratio }}{%- elsif collection.image != nil %}{{ collection.image.aspect_ratio | default: "5:2" }}{% else %}5:2{% endif -%}",
+  description: "{{ collection.description | replace: '"', '\"' | strip_newlines }}"
+}
+{%- endcapture -%}
+
+{% if enabled %}
+  <collection-header :settings='{{ _settings | escape }}'></collection-header>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Collection Header",
+    "class": "section--collection-header",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable",
+        "label": "Enable or disable the Collection Header",
+        "info": "This applies to all collections.",
+        "default": true
+      }
+    ],
+    "templates": ["collection"],
+    "presets": [
+      {
+        "name": "Collection Header",
+        "category": "Banner"
+      }
+    ]
+  }
+{% endschema %}

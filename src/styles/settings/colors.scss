@@ -1,0 +1,111 @@
+// ---------------------------------
+//   colors
+// ---------------------------------
+
+$color-white: #fff;
+$color-off-white: #f8f8f8;
+$color-black: #000;
+$color-transparent-black: rgba($color-black, 0.6);
+
+// Primary Blue
+$color-blue-900: #1C2938;
+$color-blue-800: #273D56;
+$color-blue-700: #3A5676;
+$color-blue-600: #476E9A;
+$color-blue-500: #517CAE;
+$color-blue-400: #6397CA;
+$color-blue-300: #8FBFEE;
+$color-blue-200: #AED6FD;
+$color-blue-100: #D7EBFF;
+
+// Color Secondary Mauve
+$color-mauve-900: #9B4A48;
+$color-mauve-800: #B15754;
+$color-mauve-700: #BF5C60;
+$color-mauve-600: #D1696D;
+$color-mauve-500: #E07478;
+$color-mauve-400: #EE7F83;
+$color-mauve-300: #F69197;
+$color-mauve-200: #FFA6AB;
+$color-mauve-100: #FFC5C8;
+
+// Color Grey
+$color-grey-900: #F6F5F2;
+
+// Color Teal
+$color-teal-900: #334754;
+$color-teal-800: #446073;
+$color-teal-700: #547990;
+$color-teal-600: #6994AF;
+$color-teal-500: #82AECB;
+$color-teal-400: #98C6E3;
+$color-teal-300: #A9DCFC;
+$color-teal-200: #C3E4FF;
+$color-teal-100: #E1F2FF;
+
+// Color Gold
+$color-gold-500: #DB9D71;
+$color-gold-400: #ECAA7C;
+$color-gold-300: #FAB585;
+$color-gold-200: #FFC297;
+$color-gold-100: #FFD0AF;
+
+// Color Believer Beige
+$color-beige-500: #EDD8BC;
+
+// ---------------------------------
+//   color usage
+// ---------------------------------
+
+$color--primary: $color-blue-900;
+$color--primary--hover: darken($color--primary, 5%);
+$color--secondary: $color-mauve-900;
+$color--secondary--hover: darken($color--secondary, 5%);
+
+// Utility
+$color-util-red: #D93025;
+$color-util-green: #5B813B;
+$color-disabled: #E3E1DB;
+$color-mobile-menu: #272527;
+
+$color--accent: $color-gold-500;
+$color--link: $color--primary;
+$color--disabled: $color-teal-600;
+$color--error: $color-util-red;
+//$color--warning: $color-gold;
+//$color--success: $color-green;
+
+// background colors
+$bg--main: $color-white;
+$bg--alt: $color-grey-900;
+$bg--light: $color-off-white;
+$bg--dark: $color-black;
+$bg--overlay: $color-transparent-black;
+
+// borders
+$border--main: $color--primary;
+$border--light: $color-teal-700;
+$border--accent: $color-mauve-900;
+$border--focus: $color-mauve-900;
+$border--dark: rgba($color-black, 0.15);
+$border--input: $color-teal-700;
+$border--input--focus: $color-gold-500;
+$border-grey: #DFDFDF;
+$border-grey-800: $color-disabled;
+
+// shadows
+$drop-shadow: 0 3px 8px rgba($color-black, 0.1);
+$drop-shadow--light: 0 3px 8px rgba($color-black, 0.05);
+
+// forms
+$form-field--error: #EA454D;
+$form-field--error-border: #C60A0A;
+$form-field--focus: $color-gold-500;
+$form-field--input-label: $color-blue-900;
+$form-select--input-label: $color-blue-900;
+
+
+
+// typography
+$text--main: $color--primary;
+$text--light: $color-grey-900;

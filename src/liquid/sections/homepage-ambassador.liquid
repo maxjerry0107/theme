@@ -1,0 +1,111 @@
+<div class="ambassador">
+  <div class="ambassador__container">
+    <div class="ambassador__image-wrapper">
+      <div class="ambassador__image-container">
+        <picture class="ambassador-image">
+          <source media="(max-width:768px)" srcset="{{ section.settings.mobile_image | img_url: '800x' | format: 'pjpg' }}"/>
+          <img src="{{ section.settings.desktop_image | img_url: '1200x' | format: 'pjpg'}}" alt="{{ section.settings.desktop_image.alt }}" >
+        </picture>
+      </div>
+    </div>
+
+    <div class="ambassador__content">
+      <div class="ambassador__content-inner">
+        {% if section.settings.title %}
+          <h2 class="ambassador-title headding--2">{{ section.settings.title }}</h2>
+        {% endif %}
+
+        {% if section.settings.content %}
+          <p class="ambassador-body body--large">{{ section.settings.content }}</p>
+        {% endif %}
+
+        {% if section.settings.cta_url and section.settings.cta_text %}
+          <a href="{{ section.settings.cta_url }}" class="ambassador-cta button button--{{ section.settings.cta_type }}">
+            {{ section.settings.cta_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ambassador",
+  "class": "ambassador-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Become an Ambassador."
+    },
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Content",
+      "default": "Earn commission by partnering with Love in Faith to share his word through our affordable Christian clothing with your friends, family and followers."
+    },
+    {
+      "type": "header",
+      "content": "CTA Button Fields"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "URL"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "select",
+      "id": "cta_type",
+      "label": "Choose CTA Style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "Primary"
+        },
+        {
+          "value": "secondary",
+          "label": "Secondary"
+        },
+        {
+          "value": "link",
+          "label": "Link"
+        }
+      ],
+      "default": "primary"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ambassador",
+      "category": "Block Content"
+    }
+  ]
+}
+{% endschema %}

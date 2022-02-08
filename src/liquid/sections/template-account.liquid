@@ -1,0 +1,24 @@
+<div class="container container--wide container--accounts">
+  {% render 'account-nav' %}
+  <section class="account__content">
+    <div class="account__content-header">
+      <h1 class="account__content-heading">Order History</h1>
+      <a class="account__logout" href="/account/logout">Logout</a>
+    </div>
+    {%- render 'account-orders' -%}
+  </section>
+</div>
+
+{% schema %}
+  {
+    "name": "Account Orders",
+    "class": "account--orders",
+    "tag": "div",
+    "templates": [
+      "customers/account"
+    ],
+    "presets": [{
+      "name": "Account Orders"
+    }]
+  }
+{% endschema %}

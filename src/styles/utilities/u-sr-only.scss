@@ -1,0 +1,14 @@
+.u-sr-only {
+  position: absolute !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  color: $color-black;
+  white-space: nowrap !important; /* 3 */
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; /* 2 */
+  overflow: hidden !important;
+}

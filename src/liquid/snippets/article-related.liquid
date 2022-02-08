@@ -1,0 +1,18 @@
+{% if article.metafields.related != nil %}
+  {%- assign related_article_handles = article.metafields.related.articles | split: ',' -%}
+  {%- capture related_articles -%}
+    [{%- if related_article_handles.size > 0 -%}
+      {%- for article_handle in related_article_handles limit: 3 -%}
+        {%- assign article_handle_stripped = article_handle | strip -%}
+        {%- assign related_article = articles[article_handle_stripped] -%}
+        {%- if related_article != nil -%}
+          {% render 'json--article', article: related_article %}{%- unless forloop.last -%},{%- endunless -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}]
+  {%- endcapture -%}
+  <article-footer
+    heading="Related Articles"
+    :related-articles="{{- related_articles | escape | strip -}}"
+  ></article-footer>
+{% endif %}

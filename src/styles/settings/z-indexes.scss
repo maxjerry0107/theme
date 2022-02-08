@@ -1,0 +1,87 @@
+/*------------------------------------*\
+    #Z-INDEXES
+\*------------------------------------*/
+
+/**
+ * z-index values ordered pertaining to their container.
+ *
+ * $layout is the base level. Other containers require a position
+ * other than 'static'
+ *
+ * Based upon this article in Smashing Magazine
+ * https://www.smashingmagazine.com/2014/06/sassy-z-index-management-for-complex-layouts/
+ *
+ * Every new stacking context should also be placed within the '$layout' stacking
+ * context. The 'page-layout-content' layer can be used for contexts that exist
+ * in normal page content area.
+ */
+
+$z-index-behind-parent: -1;
+
+$layout: (
+  'page-layout-content',
+  'product-display',
+  'floating-booking-link',
+  'product-images-carousel',
+  'back-to-top',
+  'site-header',
+  'sidecart-overlay',
+  'sidecart-drawer',
+  'modal',
+  'zoom',
+  'toast',
+);
+
+$site-header: (
+  'overlay',
+  'subnav',
+);
+
+$mobile-site-header: (
+  'mobile-navigation',
+  'logo',
+  'mobile-navigation-2',
+);
+
+$hero: (
+  'video',
+  'overlay',
+  'content',
+);
+
+$modal: (
+  'overlay',
+  'loading-indicator',
+  'content',
+);
+
+$product-images-carousel: (
+  'tag',
+  'badge',
+);
+
+$featured-collection: (
+  'slider',
+  'carousel__nav',
+);
+
+$featured-collections: (
+  'background',
+  'content',
+  'nav-button'
+);
+
+$product-display: (
+  'content',
+);
+
+$zoom: (
+  'zoom-default',
+  'zoom-active',
+  'zoom-button',
+);
+
+$checkbox: (
+  'custom-checkbox',
+  'input',
+)

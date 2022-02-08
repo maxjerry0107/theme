@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js supports-no-cookies" lang="{{ shop.locale }}">
+  <head>
+    {%- render 'template-head' -%}
+    {{ content_for_header }}
+  </head>
+
+  <body class="template-{{ template.name | handle }} layout--default">
+    {%- render 'icon-store' -%}
+
+    <div id="app" v-cloak>
+      <span id="top"></span>
+      <div class="site-header-wrapper">
+        {%- section 'header-promo-bar' -%}
+        {%- section 'header' -%}
+      </div>
+
+      <main role="main" id="MainContent" class="page-layout">
+        {{ content_for_layout }}
+      </main>
+
+      {%- section 'footer' -%}
+      <toast></toast>
+      <sidecart
+        {% if settings.cart_promo_message != blank %}promo-message="{{ settings.cart_promo_message }}"{% endif %}
+        heading="{{ 'cart.general.title' | t }}"
+        empty-text="{{ 'cart.general.empty' | t }}"
+        empty-image="{{ 'sidecart-empty-image.jpg' | asset_url }}"
+        empty-cart-cta-text="{{ settings.empty_cart_cta_text | escape }}"
+        empty-cart-cta-url="{{ settings.empty_cart_cta_url | escape }}"
+        empty-cart-secondary-cta-text="{{ settings.empty_cart_secondary_cta_text | escape }}"
+        empty-cart-secondary-cta-url="{{ settings.empty_cart_secondary_cta_url | escape }}"
+        header-background-image="{{ 'sidecart-header-background.svg' | asset_url }}"
+        {% if localization.country.iso_code != 'US'%}disable-free-shipping {% endif %}
+
+        {% if customer %}
+          customer-id="{{ customer.id }}"
+          customer-email="{{ customer.email }}"
+        {% endif %}
+        permanent-domain="{{ shop.permanent_domain }}"
+        free-shipping-threshold="{{ settings.free_shipping_threshold }}"
+      >
+      </sidecart>
+    </div>
+
+    {%- render 'template-scripts' -%}
+    {%- render 'bva-datalayer-body' -%}
+  </body>
+</html>

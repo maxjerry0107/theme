@@ -1,0 +1,12 @@
+// slide-vertical
+// NOTE: max-height must be defined on the element for this to work
+.slide-vertical-enter-active,
+.slide-vertical-leave-active {
+  transition: 0.3s ease-out all;
+  overflow: hidden;
+}
+
+.slide-vertical-enter,
+.slide-vertical-leave-active {
+  max-height: 0 !important; // min-height os often set via style tag, !important overrides that
+}

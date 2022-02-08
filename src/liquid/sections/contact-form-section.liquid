@@ -1,0 +1,109 @@
+<div class="contact-form-section">
+  <contact-informations
+    heading="{{ section.settings.customer_service_heading | escape }}"
+    phone="{{ section.settings.customer_service_phone | escape }}"
+    paragraph="{{ section.settings.customer_service_paragraph | escape }}"
+    email="{{ section.settings.customer_service_email_text | escape }}"
+    link="{{ section.settings.customer_service_email_link | escape }}"
+    ></contact-informations>
+    <div class="contact-form__container">
+    {%- form 'contact' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="form-success">{{ 'contact.form.post_success' | t }}</p>
+      {%- endif -%}
+      {{ form.errors | default_errors }}
+      <div class="text-input contact-form__input">
+        <label class="u-sr-only" for="ContactFormName">{{ 'contact.form.name' | t }}</label>
+        <input
+          class="text-input__input"
+          type="text"
+          name="contact[name]"
+          id="ContactFormName"
+          placeholder="{{ 'contact.form.name' | t }}"
+          value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+      </div>
+      <div class="text-input contact-form__input">
+        <label class="u-sr-only" for="ContactFormEmail">{{ 'contact.form.email' | t }}</label>
+        <input
+          class="text-input__input"
+          type="email"
+          name="contact[email]"
+          id="ContactFormEmail"
+          placeholder="{{ 'contact.form.email' | t }}"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+          spellcheck="false"
+          autocomplete="off"
+          autocapitalize="off">
+      </div>
+      <div class="text-input contact-form__input">
+        <label class="u-sr-only" for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
+        <input
+          class="text-input__input"
+          type="tel"
+          name="contact[phone]"
+          id="ContactFormPhone"
+          placeholder="{{ 'contact.form.phone' | t }}"
+          value="{% if form[phone] != blank %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+          pattern="[0-9\-]*">
+      </div>
+      <div class="text-input contact-form__input">
+        <label class="u-sr-only" for="ContactFormMessage">{{ 'contact.form.message' | t }}</label>
+        <textarea rows="10"
+          name="contact[body]"
+          id="ContactFormMessage"
+          class="text-input__input"
+          placeholder="{{ 'contact.form.message' | t }}">
+          {%- if form.body -%}
+            {{- form.body -}}
+          {%- endif -%}
+        </textarea>
+      </div>
+      <submit-button label="{{ 'contact.form.send' | t }}" full></submit-button>
+    {%- endform -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "settings": [
+    {
+      "type": "text",
+      "id": "customer_service_heading",
+      "label": "Customer service Heading",
+      "default": "Customer Service",
+      "info": "Default is 'Customer Service'"
+    },
+    {
+      "type": "text",
+      "id": "customer_service_phone",
+      "label": "Customer service number",
+      "default": "+1 (646) 558-9846",
+      "info": "Default is '+1 (646) 558-9846'"
+    },
+    {
+      "type": "text",
+      "id": "customer_service_paragraph",
+      "label": "Heading Contact paragraph"
+    },
+    {
+      "type": "text",
+      "id": "customer_service_email_text",
+      "label": "Customer service email",
+      "default": "hi@wthn.com",
+      "info": "Default is 'hi@wthn.com'"
+    },
+    {
+      "type": "url",
+      "id": "customer_service_email_link",
+      "label": "Customer service email link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form",
+      "category": "Forms"
+    }
+  ]
+}
+{% endschema %}

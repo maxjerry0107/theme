@@ -1,0 +1,111 @@
+.testimonial {
+  margin: px-to-rem(32px) 0;
+
+  @include tablet-up {
+    margin: px-to-rem(90px) 0;
+  }
+}
+
+.testimonial__container {
+  position: relative;
+  padding: 0 px-to-rem(8px) px-to-rem(22px);
+
+  @include tablet-up {
+    padding: 0 px-to-rem(68px) px-to-rem(75px);
+  }
+}
+
+.testimonial__inner {
+  position: relative;
+  z-index: 1;
+  padding: px-to-rem(24px) px-to-rem(12px);
+  color: $color-blue-900;
+  text-align: center;
+  background-color: $color-grey-900;
+
+  @include tablet-up {
+    padding: px-to-rem(77px) 0;
+  }
+}
+
+.testimonial__heading {
+  margin-bottom: px-to-rem(50px);
+
+  @include tablet-down {
+    margin-bottom: px-to-rem(8px);
+    font-size: $font-size-heading-4;
+    font-weight: $font-weight-bold;
+    line-height: px-to-rem(32px);
+    letter-spacing: initial;
+    text-transform: initial;
+  }
+}
+
+.testimonial__title {
+  @include tablet-down {
+    margin-bottom: px-to-rem(16px);
+    font-size: $font-size-heading-6;
+    font-weight: $font-weight-bold;
+    line-height: px-to-rem(20px);
+    letter-spacing: px-to-rem(1px);
+  }
+}
+
+.testimonial__content {
+  margin-bottom: px-to-rem(8px);
+
+  @include tablet-up {
+    margin: 0 auto px-to-rem(18px);
+    max-width: 560px;
+  }
+}
+
+.testimonial__name {
+  margin-bottom: px-to-rem(20px);
+
+  @include tablet-up {
+    margin-bottom: px-to-rem(78px);
+  }
+}
+
+.testimonial__review-label {
+  margin-bottom: px-to-rem(28px);
+
+  @include tablet-down {
+    margin-bottom: px-to-rem(16px);
+    font-size: px-to-rem(18px);
+    font-weight: $font-weight-bold;
+    line-height: px-to-rem(17px);
+  }
+}
+
+.testimonial__reviews {
+  @include tablet-up {
+    .icon {
+      margin-right: px-to-rem(20px);
+      width: 27px !important;
+      height: 27px !important;
+
+      &:last-child {
+        margin-right: 0
+      }
+    }
+  }
+
+  .icon {
+    margin-right: px-to-rem(14px);
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.testimonial__border {
+  position: absolute;
+  top: 56px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 3px solid $color-gold-500;
+}

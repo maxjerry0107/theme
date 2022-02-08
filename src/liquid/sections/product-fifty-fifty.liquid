@@ -1,0 +1,85 @@
+<section class="product-fift-fifty">
+{% for block in section.blocks %}
+  {% assign block_handles = block.settings.product_handles | split: ',' %}
+  {% if block_handles contains product.handle %}
+      <div class="fifty-fifty fifty-fifty--product">
+        <picture class="fifty-fifty__image">
+          <source media="(max-width:649px)" srcset="{{ block.settings.mobile_image | img_url: '500x' | format: 'pjpg' }}"/>
+          <img src="{{ block.settings.desktop_image | img_url: '800x' | format: 'pjpg'}}" alt="block.settings.desktop_image.alt" >
+        </picture>
+        <div class="fifty-fifty__text-wrapper">
+          <p class="fifty-fifty__pre-heading">{{ block.settings.pre_heading }}</p>
+          <h3 class="fifty-fifty__heading">{{ block.settings.heading }}</h3>
+          <p class="fifty-fifty__body">{{ block.settings.body }}</p>
+        </div>
+      </div>
+  {% endif %}
+{% endfor %}
+</section>
+
+
+{% schema %}
+{
+  "name": "PDP Fifty Fifty Section",
+  "class": "fifty-fifty-section",
+  "blocks":[
+    {
+      "name": "Product Page Fifty Fifty",
+      "type": "fifty-fifty-section",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "product_handles",
+          "label": "Product Handles",
+          "info": "List the product handles of each product page that should include this fifty fifty block. Seperate by comma"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop Image",
+          "info": "Recommended Minium Dimensions: 720px by 460px"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image",
+          "info": "Recommended Minium Dimensions: 720px by 460px"
+        },
+        {
+          "type": "text",
+          "id": "pre_heading",
+          "label": "Pre Heading",
+          "default": "Pre Heading"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "This is a Heading"
+        },
+        {
+          "type": "text",
+          "id": "body",
+          "label": "Body",
+          "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem"
+        }
+      ]
+    }
+  ],
+  "templates": ["product"],
+  "presets": [
+    {
+      "name": "Product 50/50 Blocks",
+      "category": "Block Content",
+      "blocks": [
+        { 
+          "type": "fifty-fifty-section"
+        },
+        {
+          "type": "fifty-fifty-section"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

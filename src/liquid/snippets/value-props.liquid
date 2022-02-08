@@ -1,0 +1,35 @@
+{% if section.settings.show_section %}
+  {%- assign slidesToShowDesktop = section.settings.slides_to_show_desktop | default: 5 -%}
+  {%- assign slidesToShowMobile = section.settings.slides_to_show_mobile | default: 1.9 -%}
+  {%- assign showDots = section.settings.show_dots | default: "['mobile', 'tablet'].includes($mq)" -%}
+  {%- assign showArrowsDesktop = section.settings.show_arrows_desktop | default: false -%}
+  {%- assign slidesToScroll = section.settings.slides_to_scroll | default: 1 -%}
+  {%- assign infiniteScroll = section.settings.scroll_loops | default: false -%}
+  {%- if wrapperClass == nil -%}
+    {%- assign wrapperClass = '' -%}
+  {%- endif -%} 
+
+  <div class="value-props {{ wrapperClass -}}">
+    <div class="value-prop__header">
+      {%- if section.settings.title != blank -%}<h1 class="value-props__title">{{ section.settings.title | escape }}</h1>{%- endif -%}
+      {%- if section.settings.description != blank -%}<p class="value-props__description">{{ section.settings.description | escape }}</p>{%- endif -%}
+    </div>
+    <carousel
+      class="carousel--value-props"
+      :slides-to-scroll="['mobile', 'tablet'].includes($mq) ? 1 : {{ slidesToScroll }}"
+      :slides-to-show="['mobile', 'tablet'].includes($mq) ? {{ slidesToShowMobile }} : {{ slidesToShowDesktop }}"
+      :dots="{{ showDots }}"
+      :center-mode="['mobile', 'tablet'].includes($mq)"
+      :arrows="['mobile', 'tablet'].includes($mq) ? false : {{ showArrowsDesktop }}"
+      :infinite="{{ infiniteScroll }}"
+    >
+      {%- for block in section.blocks -%}
+        <slide class="slide--value-props">
+          <img class="value-props__prop-image" loading="lazy" src="{{ block.settings.icon_image | img_url: 'x70' }}" alt="{{ block.settings.icon_image.alt }}" width="70" height="70" />
+          <h2 class="value-props__prop-title">{{ block.settings.title | escape }}</h2>
+          <p class="value-props__prop-description">{{ block.settings.description | escape }}</p>
+        </slide>
+      {%- endfor -%}
+    </carousel>
+  </div>
+{% endif %}

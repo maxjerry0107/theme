@@ -1,0 +1,112 @@
+.option-select {
+  display: flex;
+  padding: 0 0 ($spacing-unit * 7);
+  border-width: 0;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  column-gap: ($spacing-unit * 3);
+  row-gap: ($spacing-unit * 3);
+}
+
+.option-select__legend {
+  display: flex;
+  padding-bottom: ($spacing-unit * 2);
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  &--title {
+    margin-right: ($spacing-unit * 2);
+    color: $color-blue-900;
+    font-size: rem(14);
+    line-height: rem(24);
+    text-transform: uppercase;
+  }
+
+  &--selection {
+    font-size: rem(11);
+    font-style: italic;
+    font-family: $font-body;
+    line-height: rem(14);
+  }
+
+  &--size-guide-link {
+    position: relative;
+    z-index: 2;
+    float: right;
+    color: $color-blue-900;
+    font-size: rem(12);
+    line-height: rem(16);
+    text-decoration: underline;
+  }
+}
+
+.option-select__label {
+  display: inline-flex;
+  padding: ($spacing-unit * 4) ($spacing-unit * 2);
+  width: 55px;
+  font-size: rem(12);
+  line-height: rem(16);
+  text-align: center;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 1px solid $color-teal-700;
+  box-shadow: 0 0 0 0.5px transparent;
+  cursor: pointer;
+  transition: 0.3s border-color ease-in-out, 0.3s box-shadow ease-in-out;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: $bg--main;
+    border-color: $color-black;
+  }
+}
+
+.option-select--is-selected {
+  background-color: $bg--main;
+  border-color: $color-black;
+  box-shadow: 0 0 0 0.5px $color-black;
+}
+
+.option-select__out-of-stock:not(.product-option__swatch-wrapper) {
+  color: $color-grey-900;
+  background-color: $color-grey-900;
+  border-color: transparent;
+}
+
+.option-select__out-of-stock:not(.product-option__swatch-wrapper),
+.option-select__disabled:not(.product-option__swatch-wrapper) {
+  &:after {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    width: 43px;
+    border-top: 1px solid $color-disabled;
+    content: '';
+    transform: translate(6px, 16px) rotateZ(-45deg);
+    transform-origin: 0% 0%;
+  }
+}
+
+.product-option__swatch-wrapper {
+  padding: $spacing-unit;
+  width: 34px;
+  height: 34px;
+  border-color: transparent;
+  box-shadow: none;
+
+  &.option-select--is-selected {
+    border-color: $color-black;
+    box-shadow: none;
+  }
+}
+
+.product-option__swatch {
+  position: relative;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  border: 1px solid $color-grey-900;
+}

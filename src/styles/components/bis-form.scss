@@ -1,0 +1,22 @@
+.notify-me-form {
+  position: relative;
+  margin: 0;
+  max-width: 100%;
+}
+
+.notify-me-form__input {
+  display: inline-flex;
+  margin-top: $spacing-unit * 3;
+  width: 100%;
+  max-width: 100%;
+}
+
+.notify-me-form__input::v-deep {
+  .text-input__input {
+    padding: $spacing-unit * 3;
+  }
+
+  & svg.icon {
+    stroke: $color-white;
+  }
+}

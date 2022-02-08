@@ -1,0 +1,105 @@
+<div class="customers login-template">
+  <div class="login-splash" style="background-image: url({{ settings.login_image | img_url: '1440x' }});"></div>
+  <div class="login-form">
+    <h1 class="login__heading">{{ settings.login_heading }}</h1>
+    <p class="login__text">{{ settings.login_blurb }}</p>
+    <div class="form-state-tabs">
+      <a href="/account/login" class="log-in-tab tab active">{{ 'customer.login.title' | t }}</a>
+      <a href="/account/register" class="create-account-tab tab">{{ 'customer.register.title' | t }}</a>
+    </div>
+
+    <div data-login-form>
+      <div class="form-container">
+        {% form 'customer_login' %}
+        <div class="login-fields">
+          <div class="input input--text-align-left">
+            <label for="CustomerEmail" class="account__label">{{ 'customer.login.email' | t }}</label>
+            <input type="email" name="customer[email]" id="CustomerEmail"
+              class="{% if form.errors contains 'email' %}input-error{% endif %} text-input__input text-input__input-grey"
+              placeholder="{{ 'customer.login.email' | t }}" spellcheck="false" autocomplete="off" autocapitalize="off"
+              autofocus>
+          </div>
+          <div class="input input--text-align-left">
+            <label for="CustomerPassword" class="account__label">{{ 'customer.login.password' | t }}</label>
+            <input type="password" name="customer[password]" id="CustomerPassword"
+              class="{% if form.errors contains 'password' %}input-error{% endif %}  text-input__input text-input__input-grey"
+              placeholder="{{ 'customer.login.password' | t }}">
+          </div>
+          <p>{{ form.errors | default_errors }}</p>
+        </div>
+
+        <div class="login-buttons">
+          <input type="submit" class="button" value="{{ 'customer.login.sign_in' | t }}">
+
+          <a class="login-recover" href="#recover" @click.prevent="$refs.recoveryModal.open()" data-recover-toggle>{{
+            'customer.login.forgot_password' | t }}</a>
+        </div>
+        {% endform %}
+        <div class="one-click-social-login"></div>
+      </div>
+    </div>
+  </div>
+
+    {% form 'recover_customer_password' %}
+    <modal class="modal--forgot-password" ref="recoveryModal" {% if form.posted_successfully? or form.errors
+      %}:auto-open="true" {% endif %}>
+      <template v-slot:content>
+        <div class="login-recovery-modal" data-recover-form>
+          <div class="login-recovery-form {% if form.posted_successfully? %}u-hidden{% endif %}">
+            <h2 data-modal-title class="recovery-form__heading">{{ 'customer.recover_password.title' | t }}</h2>
+            <p data-modal-content class="recovery-form__text">
+              {%- if form.posted_successfully? -%}
+              {{ 'customer.recover_password.subtext_sucess' | t }}
+              {%- else -%}
+              {{ 'customer.recover_password.subtext' | t }}
+              {%- endif -%}
+            </p>
+
+            <div class="input input input--text-align-left">
+              <label for="RecoverEmail" class="account__label">
+                {{ 'customer.recover_password.email' | t }}
+              </label>
+              <input type="email" name="email" id="RecoverEmail" class="text-input__input text-input__input-grey"
+                placeholder="{{ 'customer.recover_password.email' | t }}" spellcheck="false" autocomplete="off"
+                autocapitalize="off">
+            </div>
+
+            <p class="recovery-form__text" data-error-text>{{ form.errors | default_errors }}</p>
+
+            <div class="button-container">
+              <submit-button class="button--modal-full-width" label="Send It"></submit-button>
+            </div>
+          </div>
+
+          <div class="recovery-sent {% if form.posted_successfully? %}{% else %}u-hidden{% endif %}">
+            <h2>{{ 'customer.recover_password.success_title' | t }}</h2>
+            <div class="form-success" data-reset-success>
+              <p id="confirm_text">{{ 'customer.recover_password.success' | t }}</p>
+            </div>
+          </div>
+        </div>
+      </template>
+    </modal>
+    {% endform %}
+
+  {% if shop.checkout.guest_login %}
+    <h2>{{ 'customer.login.guest_title' | t }}</h2>
+    {% form 'guest_login' %}
+    <input type="submit" class="button" value="Login">
+    {% endform %}
+  {% endif %}
+</div>
+
+{% schema %}
+  {
+    "name": "Account Login",
+    "class": "account--login",
+    "tag": "div",
+    "templates": [
+      "customers/login"
+    ],
+    "presets": [{
+      "name": "Account Login"
+    }]
+  }
+{% endschema %}

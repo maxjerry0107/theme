@@ -1,0 +1,47 @@
+<div class="container activate_account">
+  <h1 class="activate_account__header">{{ 'customer.activate_account.title' | t }}</h1>
+  <p class="activate_account__text">{{ 'customer.activate_account.subtext' | t }}</p>
+
+  {%- form 'activate_customer_password' -%}
+    {{ form.errors | default_errors }}
+
+    <p class="activate_account__input">
+      <label for="CustomerPassword" class="label-hidden">
+        {{ 'customer.activate_account.password' | t }}
+      </label>
+      <input class="input input--text"
+        type="password"
+        name="customer[password]"
+        id="CustomerPassword"
+        placeholder="{{ 'customer.activate_account.password' | t }}">
+    </p>
+
+    <p class="activate_account__input">
+      <label for="CustomerPasswordConfirmation" class="label-hidden">
+        {{ 'customer.activate_account.password_confirm' | t }}
+      </label>
+      <input class="input input--text"
+        type="password"
+        name="customer[password_confirmation]"
+        id="CustomerPasswordConfirmation"
+        placeholder="{{ 'customer.activate_account.password_confirm' | t }}">
+    </p>
+
+    <input type="submit" class="button" value="{{ 'customer.activate_account.submit' | t }}">
+    <input type="submit" class="button button--secondary" name="decline" value="{{ 'customer.activate_account.cancel' | t }}">
+  {%- endform -%}
+</div>
+
+{% schema %}
+  {
+    "name": "Activate Account",
+    "class": "account--activate",
+    "tag": "div",
+    "templates": [
+      "customers/activate_account"
+    ],
+    "presets": [{
+      "name": "Activate Account"
+    }]
+  }
+{% endschema %}

@@ -1,0 +1,68 @@
+<div class="blog-featured-article">
+  <picture class="blog-featured-article__image">
+    <source media="(max-width:649px)" srcset="{{ section.settings.mobile_image | img_url: '500x' | format: 'pjpg' }}"/>
+    <img src="{{ section.settings.desktop_image | img_url: '800x' | format: 'pjpg'}}" alt="section.settings.desktop_image.alt" >
+  </picture>
+  <div class="blog-featured-article__text-wrapper">
+    <p class="blog-featured-article__pre-heading">{{ section.settings.pre_heading }}</p>
+    <h3 class="blog-featured-article__heading">{{ section.settings.heading }}</h3>
+    <p class="blog-featured-article__body">{{ section.settings.body }}</p>
+    <button-component class="button--secondary button--secondary-arrow blog-featured-article__cta" href="{{ section.settings.cta_url }}">
+    {{ section.settings.cta_text }}
+    <icon name="long-arrow-right" size="18px" class="button__icon"></icon>
+    </button-component>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Blog Featured Article",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "Desktop Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "text",
+        "id": "pre_heading",
+        "label": "Pre Heading",
+        "default": "Pre Heading"
+      },
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "This is a Heading"
+      },
+      {
+        "type": "text",
+        "id": "body",
+        "label": "Body",
+        "default": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "URL"
+      },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Text",
+        "default": "Shop Now"
+      }
+    ],
+    "templates": ["article", "blog", "collection", "index", "page", "product"],
+    "presets": [
+      {
+        "name": "Featured Article",
+        "category": "Blog"
+      }
+    ]
+  }
+{% endschema %}

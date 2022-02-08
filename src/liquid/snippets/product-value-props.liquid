@@ -1,0 +1,77 @@
+{% if section.settings.show_section %}
+  {%- liquid
+    assign showSection = false
+    assign sectionTags = section.settings.product_tags | split: ','
+    assign slideCount = section.blocks.size
+    
+    for tag in sectionTags
+      assign sectionTag = tag | strip
+      if product.tags contains sectionTag
+        assign showSection = true
+        break
+      endif
+    endfor
+
+    assign slidesToShowDesktop = section.settings.slides_to_show_desktop | default: 5
+    assign slidesToShowMobile = section.settings.slides_to_show_mobile | default: 2
+    assign showDots = section.settings.show_dots
+    assign showArrowsDesktop = section.settings.show_arrows_desktop | default: false
+    assign slidesToScroll = section.settings.slides_to_scroll | default: 1
+    assign infiniteScroll = section.settings.scroll_loops | default: false
+
+    if wrapperClass == nil
+      assign wrapperClass = ''
+    endif
+    if showDots == nil
+      assign showDots = false
+    endif
+
+    if slideCount <= slidesToShowMobile
+      assign showDotsMobile = false
+    else
+      assign showDotsMobile = showDots
+    endif
+  -%}
+
+  {%- if showSection and slideCount > 0 -%}
+    {%- capture _settings -%}
+    {
+      "dots": this.$mq == 'mobile' ? {{ showDotsMobile }} : {{ showDots }},
+      "infinite": {{ infiniteScroll }},
+      "slidesToShow": this.$mq == 'mobile' ? {{ slidesToShowMobile }} : {{ slidesToShowDesktop }},
+      "slidesToScroll": this.$mq == 'mobile' ? 1 : {{ slidesToScroll }},
+      "arrows": this.$mq == 'mobile' ? false : {{ showArrowsDesktop }},
+      "dotsClass": "carousel__dots u-list-simple u-list-inline",
+      "lazyLoad": "progressive",
+    }
+    {%- endcapture -%}
+
+    {%- capture slides -%}
+      {%- for block in section.blocks -%}
+        <div class="slide--value-props">
+          <img class="value-props__prop-image" loading="lazy" src="{{ block.settings.icon_image | img_url: 'x70' }}" alt="{{ block.settings.icon_image.alt }}" width="auto" height="70" />
+          <h3 class="value-props__prop-title">{{ block.settings.title | escape }}</h3>
+          <p class="value-props__prop-description">{{ block.settings.description | escape }}</p>
+        </div>
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    <div class="value-props {{ wrapperClass -}}">
+      <div class="value-prop__header">
+        {%- if section.settings.title != blank -%}<h2 class="value-props__title">{{ section.settings.title | escape }}</h2>{%- endif -%}
+        {%- if section.settings.description != blank -%}<p class="value-props__description">{{ section.settings.description | escape }}</p>{%- endif -%}
+      </div>
+      <product-value-props
+        :dots="this.$mq == 'mobile' ? {{ showDotsMobile }} : {{ showDots }}"
+        :infinite="{{ infiniteScroll }}"
+        :slides-to-show="this.$mq == 'mobile' ? {{ slidesToShowMobile }} : {{ slidesToShowDesktop }}"
+        :slides-to-scroll="this.$mq == 'mobile' ? 1 : {{ slidesToScroll }}"
+        :arrows="this.$mq == 'mobile' ? false : {{ showArrowsDesktop }}"
+        dots-class="carousel__dots u-list-simple u-list-inline"
+        lazy-load="progressive"
+      >
+        {{- slides -}}
+      </product-value-props>
+    </div>
+  {%- endif -%}
+{% endif %}

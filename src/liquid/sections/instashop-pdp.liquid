@@ -1,0 +1,111 @@
+{%- capture social_images -%}
+[
+  {%- for block in section.blocks -%}
+    {
+      "desktopImage": "{%- if block.settings.social_image != nil %}{{ block.settings.social_image.src | img_url: '1000x', format: 'pjpg' }}{% else %}{{ 'placeholder.png' | asset_img_url: '2000x' }}{% endif -%}",
+      "mobileImage": "{%- if block.settings.mobile_image != nil %}{{ block.settings.mobile_image.src | img_url: '500x', format: 'pjpg' }}{% else %}{{ 'placeholder.png' | asset_img_url: 'x860' }}{% endif -%}",
+      "desktopImageRatio": "{{ block.settings.desktop_image_ratio }}",
+      "desktopImageAlt": "{%- if block.settings.social_image != nil %}{{ block.settings.social_image.alt | escape }}{% endif -%}",
+      "mobileImageAlt": "{%- if block.settings.mobile_image != nil %}{{ block.settings.mobile_image.alt | escape }}{% endif -%}",
+      "instagramHandle": "{%- if block.settings.instagram_handle != nil %}{{ block.settings.instagram_handle | escape }}{% endif -%}",
+    },
+  {%- endfor -%}
+]
+{%- endcapture -%}
+<follow-us
+  class="follow-us--pdp"
+  is-product-page
+  headline="{{ section.settings.headline | escape }}"
+  :extra-top-padding="{{ section.settings.extra_top_padding }}"
+  social-link-text="{{ section.settings.social_link_text | escape }}"
+  social-link-url="{{ section.settings.social_link_url }}"
+  :social-images="{{ social_images | escape }}"
+  :use-instafeed-app={{ section.settings.use_instafeed_app | json }}
+>
+  {%- if section.settings.use_instafeed_app == true %}
+    <div slot="insta-feed">
+      <script src="//foursixty.com/media/scripts/fs.embed.v2.5.js" data-feed-id="commando" data-theme="showcase_v2_5" data-open-links-in-same-page="false" data-for-url="true" data-has-posts-selector="#foursixtyHideableContainer" data-page-size="5" async></script>
+    </div>
+  {% endif -%}
+</follow-us>
+
+{% schema %}
+{
+  "name": "Follow Us (PDP)",
+  "class": "follow-us-section-wrapper",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "See it Styled on Instagram"
+    },
+    {
+      "type": "text",
+      "id": "social_link_text",
+      "label": "Social Link Text",
+      "default": "Shop Our Feed"
+    },
+    {
+      "type": "url",
+      "id": "social_link_url",
+      "label": "Social Link URL"
+    },
+    {
+      "type": "checkbox",
+      "id": "extra_top_padding",
+      "label": "Extra Top Padding",
+      "default": false,
+      "info": "Use this if the section above has overlapping content."
+    },
+    {
+      "type": "checkbox",
+      "id": "use_instafeed_app",
+      "label": "Use Shoppable Instagram App",
+      "default": true,
+      "info": "Check this box to have this section pull images directly from isntagram via the Shoppable Instagram app. This will override an images you add in this section."
+    }
+  ],
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "social_image",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "text",
+          "id": "instagram_handle",
+          "label": "Instagram User's Handle",
+          "info": "Please leave off the '@' before the user's handle",
+          "default": "wearcommando"
+        },
+        {
+          "type": "text",
+          "id": "desktop_image_ratio",
+          "label": "Desktop Image Ratio",
+          "default": "1:1",
+          "info": "Make the desktop images all crop to this ratio, leave blank to disable."
+        }
+      ]
+    }
+  ],
+  "templates": ["collection", "product"],
+  "presets": [
+    {
+      "name": "Follow Us (PDP)",
+      "category": "Promotional"
+    }
+  ]
+}
+{% endschema %}

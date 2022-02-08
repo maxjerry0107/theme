@@ -1,0 +1,206 @@
+{
+  "name": "Our Story 2.0",
+  "sections": {
+    "text-header": {
+      "type": "text-header",
+      "settings": {
+        "heading": "We make your favorite everything",
+        "body": "From cutting-edge intimates to luxury-technical ready-to-wear, Commando creates the styles that make you look and feel amazing. From thoughtfully sourcing fabrics to fit testing every style on real bodies—we care about where and how our garments are made. The result: luxurious, long-lasting, well-fitting garments that make your wardrobe work harder for you.",
+        "background_color": "#FFFFFF",
+        "text_color": "#000000",
+        "text_alignment": "left"
+      }
+    },
+    "page-banner": {
+      "type": "page-banner",
+      "settings": {
+        "mobile_image": "shopify:\/\/shop_images\/our-story-mobile.jpg",
+        "desktop_image": "shopify:\/\/shop_images\/our-story-desktop.jpg",
+        "cta_label": "",
+        "num_columns": "1"
+      }
+    },
+    "text-banner": {
+      "type": "text-banner",
+      "settings": {
+        "pre_heading": "We believe that confidence is beautiful.",
+        "body": "By thoughtfully sourcing the world's best fabrics, performing rigorous fit tests, and obsessing about fit and comfort, we create innovative, luxury-technical clothing that allows you to be your best self."
+      }
+    },
+    "story-blocks": {
+      "type": "story-blocks",
+      "settings": {},
+      "blocks": {
+        "sourced": {
+          "type": "content_block",
+          "settings": {
+            "background_color": "#FFFFFF",
+            "text_color": "#000000",
+            "inline_image": "shopify:\/\/shop_images\/Eco-Certification-01_5372d841-b94f-48f2-9b14-02e37ee12b2f.png",
+            "heading": "Thoughtfully Sourced",
+            "body": "<p><strong>We ensure that the people making our products are working under proper conditions and being paid fair wages.</strong><br><br><br>At Commando our approach to design begins with fabric. Founder, designer and CEO Kerry O’Brien sources world-class, luxury-technical fabrics. Choosing highly technical, and luxurious fabrics goes hand in hand with choosing fabrics that are made in an ethical and environmentally conscious way. </p>",
+            "cta_text": "",
+            "text_position_vertical": "center"
+          }
+        },
+        "usa": {
+          "type": "content_block",
+          "settings": {
+            "background_color": "#F8F8F9",
+            "text_color": "#000000",
+            "inline_image": "shopify:\/\/shop_images\/USA-01_34628d77-48c7-467e-b172-8db1f9621d07.png",
+            "heading": "USA Constructed",
+            "body": "<p><strong>More than 95% of Commando's production is domestic, and 83% is done on the east coast within 962 miles of our head office and warehouse.</strong></p><p><br>Commando works with 7 domestic factories in the USA, and has an in-house production facility where we employ sewers and production workers. Cutting and sewing in the US allows us to have real time communication with our contractors and hands-on involvement in the production process.</p>",
+            "cta_text": "",
+            "text_position_vertical": "center"
+          }
+        },
+        "people": {
+          "type": "content_block",
+          "settings": {
+            "background_color": "#000000",
+            "text_color": "#FFFFFF",
+            "inline_image": "shopify:\/\/shop_images\/person-01_e42cbb59-bc8d-49d3-90b0-724fe9c59efc.png",
+            "heading": "People First",
+            "body": "<p><strong>Nearly all of the fabric used for our intimate apparel is Oeko Tex and REACH Certified, and knitted in plants with energy efficient infrastructure, equipment, and process.</strong></p><p>Sewing education is increasingly hard to find in schools or at home, and finding skilled sewers and people interested in working in manufacturing in the US has become more challenging. Commando offers paid training to sewers and production workers interested in developing skills to sew, cut, trim and produce.</p><p><br><br></p>",
+            "cta_text": "",
+            "text_position_vertical": "center"
+          }
+        },
+        "image": {
+          "type": "content_block",
+          "settings": {
+            "background_color": "#FFFFFF",
+            "text_color": "#000000",
+            "background_image": "shopify:\/\/shop_images\/Rectangle_130.png",
+            "heading": "",
+            "body": "",
+            "cta_text": "",
+            "text_position_vertical": "center"
+          }
+        }
+      },
+      "block_order": [
+        "sourced",
+        "usa",
+        "people",
+        "image"
+      ]
+    },
+    "story-blocks2": {
+      "type": "story-blocks",
+      "settings": {},
+      "blocks": {
+        "female": {
+          "type": "content_block",
+          "settings": {
+            "background_color": "#F8F8F9",
+            "text_color": "#000000",
+            "inline_image": "shopify:\/\/shop_images\/female-01.png",
+            "heading": "Female Founded",
+            "body": "<p><strong>Commando founder, designer, &amp; CEO Kerry O’Brien</strong><br>Commando founder, designer &amp; CEO Kerry O’Brien is the face of Commando and the embodiment of a female entrepreneur. Having no formal design background, her unique approach to the fashion industry has broken boundaries and revolutionized an industry. In 2012 Kerry was introduced into the CFDA, and Commando currently holds two patents for innovative design in hosiery and slips.</p>",
+            "cta_text": "",
+            "text_position_vertical": "center"
+          }
+        },
+        "fit": {
+          "type": "content_block",
+          "settings": {
+            "background_color": "#FFFFFF",
+            "text_color": "#000000",
+            "inline_image": "shopify:\/\/shop_images\/fit-test-01.png",
+            "heading": "The Real-Body Fit Test",
+            "body": "<p><strong>Rather than fitting a style on a model with standard proportions and simply grading the pattern up and down, we test our garments on all sizes and create unique, custom patterns to optimize fit.</strong></p><p>Commando has a rigorous multi-sized fit process that is unique to the industry. Commando founder, designer and CEO Kerry O’Brien personally fit-tests every garment, and if she doesn’t love it will not go into production. We call this the “Kerry Test”. Our wear-testing process allows us to determine the feel and performance of a garment during regular wear and on real women.</p>",
+            "cta_text": "",
+            "text_position_vertical": "center"
+          }
+        },
+        "image": {
+          "type": "content_block",
+          "settings": {
+            "background_color": "#000000",
+            "text_color": "#FFFFFF",
+            "background_image": "shopify:\/\/shop_images\/with-clothing-rack.png",
+            "heading": "",
+            "body": "",
+            "cta_text": "",
+            "text_position_vertical": "center"
+          }
+        },
+        "kit": {
+          "type": "content_block",
+          "settings": {
+            "background_color": "#000000",
+            "text_color": "#FFFFFF",
+            "inline_image": "shopify:\/\/shop_images\/staple-01.png",
+            "heading": "The Kit Staple",
+            "body": "<p><strong>Commando is the go-to brand for top runway designers and A-list stylists.<br></strong></p><p>Commando is a “kit staple” and is used on countless A-list clients. To put it simply: designers and stylists who could use any brand in the world choose to use Commando.</p>",
+            "cta_text": "",
+            "text_position_vertical": "center"
+          }
+        }
+      },
+      "block_order": [
+        "female",
+        "fit",
+        "image",
+        "kit"
+      ]
+    },
+    "story-blocks3": {
+      "type": "klaviyo-blocks",
+      "settings": {},
+      "blocks": {
+        "klaviyo": {
+          "type": "klaviyo_block",
+          "settings": {
+            "background_color": "#EFF2F4",
+            "text_color": "#000000",
+            "heading": "Stay in the loop with Commando",
+            "body": "<p>Sign up for email updates, promotions, style tips, and more!</p>",
+            "klaviyo_form_id": "email_form_story",
+            "text_position_vertical": "center"
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo"
+      ]
+    },
+    "story-blocks4": {
+      "type": "video-blocks",
+      "settings": {},
+      "blocks": {
+        "video": {
+          "type": "video_block",
+          "settings": {
+            "background_color": "#E5E5E5",
+            "text_color": "#000000",
+            "heading": "Ask For More™",
+            "body": "",
+            "content_width": "100%",
+            "video": "https:\/\/youtu.be\/Ov6hUQ6-IPE",
+            "transcript_link": "shopify:\/\/pages\/founder-kerry-obrien-video-transcript",
+            "cta_url": "",
+            "cta_text": "Learn More",
+            "cta_type": "secondary",
+            "text_alignment": "center",
+            "text_position_vertical": "center"
+          }
+        }
+      },
+      "block_order": [
+        "video"
+      ]
+    }
+  },
+  "order": [
+    "text-header",
+    "page-banner",
+    "text-banner",
+    "story-blocks",
+    "story-blocks2",
+    "story-blocks3",
+    "story-blocks4"
+  ]
+}

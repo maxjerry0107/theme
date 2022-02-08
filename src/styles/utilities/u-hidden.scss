@@ -1,0 +1,45 @@
+// ---------------------------------
+//   Visibility
+// ---------------------------------
+
+%u-hidden,
+.u-hidden,
+.hidden {
+  display: none !important;
+}
+
+.u-hidden-mobile-only {
+  @include mobile-only {
+    display: none !important;
+  }
+}
+
+.u-hidden-tablet-up {
+  @include tablet-up {
+    display: none !important;
+  }
+}
+
+.u-hidden-tablet-only {
+  @include tablet-only {
+    display: none !important;
+  }
+}
+
+.u-hidden-desktop-up {
+  @include desktop-up {
+    display: none !important;
+  }
+}
+
+.u-hidden-desktop-only {
+  @include desktop-only {
+    display: none !important;
+  }
+}
+
+.u-hidden-hd-up {
+  @include hd-up {
+    display: none !important;
+  }
+}

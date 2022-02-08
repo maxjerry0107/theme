@@ -1,0 +1,350 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "base-theme",
+    "theme_version": "1.0.0",
+    "theme_author": "BVA",
+    "theme_documentation_url": "https://stacks.bvaccel.com/books/clients/chapter/base-theme",
+    "theme_support_url": "https://stacks.bvaccel.com/books/clients/chapter/base-theme"
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social sharing image"
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Image",
+        "info": "Shown when sharing a link on social media. [Learn more](https://help.shopify.com/manual/using-themes/troubleshooting/showing-social-media-thumbnail-images/) about image thumbnails."
+      },
+      {
+        "type": "header",
+        "content": "Social sharing options"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_blog",
+        "label": "Enable sharing for blog articles",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Share on Facebook",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Tweet on Twitter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pin on Pinterest",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Social Media Links"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter link"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook link"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest link"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "Snapchat link"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "Tumblr link"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "Youtube link"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "Vimeo link"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "TikTok link"
+      }
+    ]
+  },
+  {
+    "name": "Google Tag Manager",
+    "settings": [
+      {
+        "type": "text",
+        "id": "gtm_id",
+        "label": "GTM ID",
+        "info": "Paste Google Tag Manager container ID here. Appears after 'GTM-'"
+      }
+    ]
+  },
+  {
+    "name": "Findify Script",
+    "settings": [
+      {
+        "type": "text",
+        "id": "findify_asset_url",
+        "label": "Findify Asset URL",
+        "info": "Paste the Findify Javascript URL here for this theme",
+        "default": "//assets.findify.io/commando-staging.myshopify.com.min.js"
+      }
+    ]
+  },
+  {
+    "name": "Essential Accessibility",
+    "settings": [
+      {
+        "type": "url",
+        "id": "essential_accessibility",
+        "label": "Essential Accessibility Link"
+      },
+      {
+        "type": "url",
+        "id": "favorites_url",
+        "label": "Favorites Link"
+      }
+    ]
+  },
+  {
+    "name": "Products",
+    "settings": [
+      {
+        "type": "color",
+        "id": "product_image_background_color",
+        "label": "Product Image Background Color",
+        "info": "This field should match the background color of product images so that they appear seamless with product tile content and product detail page content. This color will be applied as a background color to product tiles and the product details page."
+      },
+      {
+        "type": "number",
+        "id": "collection_pagination_count",
+        "label": "Pagination Count",
+        "default": 24,
+        "info": "Determines the number of products to show per page on collection and search."
+      },
+      {
+        "type": "select",
+        "id": "reviews_type",
+        "label": "Reviews App/Service",
+        "default": "bazaarvoice",
+        "options": [
+          {
+            "value": "bazaarvoice",
+            "label": "Bazaarvoice"
+          },
+          {
+            "value": "yotpo",
+            "label": "Yotpo"
+          }
+        ],
+        "info": "Please select the currently active reviews app."
+      },
+      {
+        "type": "text",
+        "id": "yotpo_id",
+        "label": "Yotpo APP ID",
+        "info": "Please enter your Yotpo App ID"
+      },
+      {
+        "type": "header",
+        "content": "Notify Me Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_notfiy_me",
+        "label": "Enable Notfiy Me",
+        "default": true
+      },
+      {
+        "type": "richtext",
+        "id": "final_sale_text",
+        "label": "Final Sale Message",
+        "default": "<p>FINAL SALE: This item cannot be returned or exchanged.</p>",
+        "info": "Text to show on any product tagged as final sale."
+      },
+      {
+        "type": "richtext",
+        "id": "notify_me_heading",
+        "label": "Notify Me Heading",
+        "default": "<p><strong>Notify me when this item is available.</strong></p>",
+        "info": "Text to show on any product variant that is out of stock above the email form."
+      },
+      {
+        "type": "richtext",
+        "id": "notify_me_text",
+        "label": "Notify Me: Form Submit Message",
+        "default": "<p><strong>Your email has been registered! We’ll let you know when this product arrives in stock.</strong></p>",
+        "info": "Text to when the Notify me form is submitted."
+      },
+      {
+        "type": "article",
+        "id": "returns_default",
+        "label": "Select the blog article that will show the generic returns content on PDPs"
+      }
+    ]
+  },
+  {
+    "name": "User Accounts",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Login"
+      },
+      {
+        "type": "image_picker",
+        "id": "login_image",
+        "label": "Login template background image",
+        "info": "Suggested ratio 1440 x 1660px"
+      },
+      {
+        "type": "text",
+        "id": "login_heading",
+        "label": "Login Heading",
+        "default": "My OOFOS"
+      },
+      {
+        "type": "textarea",
+        "id": "login_blurb",
+        "label": "Login Blurb",
+        "default": "Manage your orders, shipping details and more with your very own OOFOS Account."
+      },
+      {
+        "type": "header",
+        "content": "Commando Rewards"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_commando_rewards",
+        "label": "Enable Commando Rewards",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "cart_promo_message",
+        "label": "Cart Promo Messaging",
+        "info": "Displays under the cart subtotal."
+      },
+      {
+        "type": "text",
+        "id": "empty_cart_cta_text",
+        "label": "Empty Cart CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "empty_cart_cta_url",
+        "label": "Empty Cart CTA URL"
+      },
+      {
+        "type": "text",
+        "id": "empty_cart_secondary_cta_text",
+        "label": "Secondary Empty Cart CTA Text"
+      },
+      {
+        "type": "url",
+        "id": "empty_cart_secondary_cta_url",
+        "label": "Secondary Empty Cart CTA URL"
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_threshold",
+        "label": "Free Shipping Threshold",
+        "info": "The price threshold the cart total must exceed before free shipping",
+        "default": "50"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Will be scaled down to 32 x 32px"
+      }
+    ]
+  },
+  {
+    "name": "Blog",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_related_articles",
+        "label": "Show Related Articles",
+        "info": "Show related article on the bottom of the blog post page.",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_article_excerpts",
+        "label": "Enable Article Preview Excerpts",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Klaviyo Global Settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "klaviyo_list_id",
+        "label": "Klaviyo List ID",
+        "info": "Navigate to your Klaviyo dashboard, select the desired list from 'Lists & Segments', click 'Settings'."
+      },
+      {
+        "type": "text",
+        "id": "klaviyo_success_message",
+        "label": "Success Message",
+        "default": "Thank you for signing up for our newsletter!"
+      }
+    ]
+  },
+  {
+    "name": "Performance Enhancements",
+    "settings": [
+      {
+        "type": "html",
+        "id": "preload_resources",
+        "label": "Preload important resources",
+        "info": "See: [Preload Important Resources](https://web.dev/optimize-lcp/?utm_source=lighthouse&utm_medium=unknown#preload-important-resources)",
+        "default": "<link rel=\"preload\" as=\"image\" href=\"https://cdn.shopify.com/s/files/1/0073/9812/files/HERO_IMG_de5eb4f3-b9b8-4d67-adff-43186dc3d1a5_992x.progressive.png.jpg?v=1623270539\" imagesrcset=\"https://cdn.shopify.com/s/files/1/0073/9812/files/HERO_IMG_de5eb4f3-b9b8-4d67-adff-43186dc3d1a5_992x.progressive.png.jpg?v=1623270539 992w, https://cdn.shopify.com/s/files/1/0073/9812/files/IMAGE_81f16f19-c610-4fd9-abce-5c76ab1dfcbc_2000x.progressive.png.jpg?v=1623270557 2000w\" imagesizes=\"100vw\">"
+      }
+    ]
+  }
+]

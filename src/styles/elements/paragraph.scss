@@ -1,0 +1,49 @@
+/*------------------------------------*\
+    # P Element / Body Copy
+\*------------------------------------*/
+
+p,
+%body--base,
+.body--base {
+  margin: 0 0 $spacing-unit;
+  font-size: $font-size-body;
+  font-family: $font-primary;
+  line-height: px-to-rem(20px);
+
+  @include desktop-up {
+    font-size: $font-size-body-desktop;
+    line-height: px-to-rem(24px);
+  }
+}
+
+%body--xs,
+.body--xs {
+  font-size: $font-size-body-xs;
+  line-height: px-to-rem(15px);
+
+  @include desktop-up {
+    line-height: px-to-rem(18px);
+  }
+}
+
+%body--small,
+.body--small {
+  font-size: $font-size-body-small;
+  line-height: px-to-rem(14px);
+
+  @include desktop-up {
+    font-size: $font-size-body-small-desktop;
+    line-height: px-to-rem(22px);
+  }
+}
+
+%body--large,
+.body--large {
+  font-size: $font-size-body-large;
+  line-height: px-to-rem(20px);
+
+  @include desktop-up {
+    font-size: $font-size-body-large-desktop;
+    line-height: px-to-rem(28px);
+  }
+}

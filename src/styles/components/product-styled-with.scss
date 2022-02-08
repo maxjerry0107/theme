@@ -1,0 +1,26 @@
+.product-styled-with {
+  display: flex;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit * 3;
+  min-height: 98px;
+  text-decoration: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-styled-with__image {
+  display: block;
+  padding-right: $spacing-unit * 5;
+}
+
+.product-styled-with__title {
+  margin-bottom: 0;
+  color: $color-black;
+  font-size: rem(16);
+  line-height: rem(24);
+  letter-spacing: rem(0.4);
+}
+
+.product-styled-with__arrow {
+  stroke: $color-black;
+}

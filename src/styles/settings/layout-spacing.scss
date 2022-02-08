@@ -1,0 +1,27 @@
+// ---------------------------------
+//   Layout Spacing
+// ---------------------------------
+
+$spacing-unit: px-to-rem(4px);
+$content-gutter: 1rem;
+
+// grid
+$grid-gutter-mobile: 16px;
+$grid-gutter: 36px;
+$collection-grid-gutter-mobile: 20px;
+$collection-grid-gutter: 32px;
+$grid-column-count: 12;
+$block-grid-column-count: 8;
+
+$container-max-width: $breakpoint-full-width;
+$content-medium-width: 1096px;
+$content-max-width: 1440px;
+
+// header
+$mobile-nav-height: 58px;
+$mobile-utility-nav-height: 44px;
+$desktop-nav-height: 100px;
+$mobile-header-promo-bar-height: 40px;
+$desktop-header-promo-bar-height: 40px;
+$mobile-scroll-margin: $mobile-nav-height + $mobile-header-promo-bar-height;
+$desktop-scroll-margin: $desktop-nav-height + $desktop-header-promo-bar-height;

@@ -1,0 +1,16 @@
+{
+  "name": "Findify Search Results Page",
+  "wrapper": "div.page-layout--search-results",
+  "sections": {
+    "search-result": {
+      "type": "search-result"
+    },
+    "collection-footer": {
+      "type": "collection-footer"
+    }
+  },
+  "order": [
+    "search-result",
+    "collection-footer"
+  ]
+}

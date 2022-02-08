@@ -1,0 +1,189 @@
+.bazaarvoice-reviews__title {
+  margin-bottom: $spacing-unit * 9;
+  font-size: px-to-rem(26px);
+  line-height: px-to-rem(32px);
+
+  @include mobile-only {
+    margin: $spacing-unit * 10 auto;
+    text-align: center;
+  }
+}
+
+.bazaarvoice-main-widget {
+  position: relative;
+  border-top: 1px solid $color-grey-400;
+}
+
+/* stylelint-disable  selector-max-id */
+.bazaarvoice-main-widget .bv-cv2-cleanslate,
+.bazaarvoice-main-widget .bv-cv2-cleanslate h1,
+.bazaarvoice-main-widget .bv-cv2-cleanslate h2,
+.bazaarvoice-main-widget .bv-cv2-cleanslate h3,
+.bazaarvoice-main-widget .bv-cv2-cleanslate h4,
+.bazaarvoice-main-widget .bv-cv2-cleanslate h5,
+.bazaarvoice-main-widget .bv-cv2-cleanslate h6,
+.bazaarvoice-main-widget .bv-cv2-cleanslate p,
+.bazaarvoice-main-widget .bv-cv2-cleanslate dl,
+.bazaarvoice-main-widget .bv-cv2-cleanslate dt,
+.bazaarvoice-main-widget .bv-cv2-cleanslate ol,
+.bazaarvoice-main-widget .bv-cv2-cleanslate form,
+.bazaarvoice-main-widget .bv-cv2-cleanslate select.bv-select-cleanslate,
+.bazaarvoice-main-widget .bv-cv2-cleanslate option,
+.bazaarvoice-main-widget .bv-cv2-cleanslate pre,
+.bazaarvoice-main-widget .bv-cv2-cleanslate div,
+.bazaarvoice-main-widget .bv-cv2-cleanslate caption,
+.bazaarvoice-main-widget .bv-cv2-cleanslate thead,
+.bazaarvoice-main-widget .bv-cv2-cleanslate ul,
+.bazaarvoice-main-widget .bv-cv2-cleanslate li,
+.bazaarvoice-main-widget .bv-cv2-cleanslate ul li,
+.bazaarvoice-main-widget .bv-cv2-cleanslate ol li,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-shared ul li,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-shared ol li,
+.bazaarvoice-main-widget .bv-cv2-cleanslate address,
+.bazaarvoice-main-widget .bv-cv2-cleanslate blockquote,
+.bazaarvoice-main-widget .bv-cv2-cleanslate dd,
+.bazaarvoice-main-widget .bv-cv2-cleanslate fieldset,
+.bazaarvoice-main-widget .bv-cv2-cleanslate iframe,
+.bazaarvoice-main-widget .bv-cv2-cleanslate strong,
+.bazaarvoice-main-widget .bv-cv2-cleanslate legend,
+.bazaarvoice-main-widget .bv-cv2-cleanslate em,
+.bazaarvoice-main-widget .bv-cv2-cleanslate s,
+.bazaarvoice-main-widget .bv-cv2-cleanslate cite,
+.bazaarvoice-main-widget .bv-cv2-cleanslate span,
+.bazaarvoice-main-widget .bv-cv2-cleanslate input,
+.bazaarvoice-main-widget .bv-cv2-cleanslate sup,
+.bazaarvoice-main-widget .bv-cv2-cleanslate label,
+.bazaarvoice-main-widget .bv-cv2-cleanslate dfn,
+.bazaarvoice-main-widget .bv-cv2-cleanslate object,
+.bazaarvoice-main-widget .bv-cv2-cleanslate big,
+.bazaarvoice-main-widget .bv-cv2-cleanslate q,
+.bazaarvoice-main-widget .bv-cv2-cleanslate font,
+.bazaarvoice-main-widget .bv-cv2-cleanslate samp,
+.bazaarvoice-main-widget .bv-cv2-cleanslate acronym,
+.bazaarvoice-main-widget .bv-cv2-cleanslate small,
+.bazaarvoice-main-widget .bv-cv2-cleanslate img,
+.bazaarvoice-main-widget .bv-cv2-cleanslate strike,
+.bazaarvoice-main-widget .bv-cv2-cleanslate code,
+.bazaarvoice-main-widget .bv-cv2-cleanslate sub,
+.bazaarvoice-main-widget .bv-cv2-cleanslate ins,
+.bazaarvoice-main-widget .bv-cv2-cleanslate textarea,
+.bazaarvoice-main-widget .bv-cv2-cleanslate var,
+.bazaarvoice-main-widget .bv-cv2-cleanslate a,
+.bazaarvoice-main-widget .bv-cv2-cleanslate abbr,
+.bazaarvoice-main-widget .bv-cv2-cleanslate applet,
+.bazaarvoice-main-widget .bv-cv2-cleanslate del,
+.bazaarvoice-main-widget .bv-cv2-cleanslate kbd,
+.bazaarvoice-main-widget .bv-cv2-cleanslate tt,
+.bazaarvoice-main-widget .bv-cv2-cleanslate b,
+.bazaarvoice-main-widget .bv-cv2-cleanslate i,
+.bazaarvoice-main-widget .bv-cv2-cleanslate hr,
+.bazaarvoice-main-widget .bv-cv2-cleanslate article,
+.bazaarvoice-main-widget .bv-cv2-cleanslate aside,
+.bazaarvoice-main-widget .bv-cv2-cleanslate dialog,
+.bazaarvoice-main-widget .bv-cv2-cleanslate figure,
+.bazaarvoice-main-widget .bv-cv2-cleanslate footer,
+.bazaarvoice-main-widget .bv-cv2-cleanslate header,
+.bazaarvoice-main-widget .bv-cv2-cleanslate hgroup,
+.bazaarvoice-main-widget .bv-cv2-cleanslate menu,
+.bazaarvoice-main-widget .bv-cv2-cleanslate nav,
+.bazaarvoice-main-widget .bv-cv2-cleanslate section,
+.bazaarvoice-main-widget .bv-cv2-cleanslate time,
+.bazaarvoice-main-widget .bv-cv2-cleanslate mark,
+.bazaarvoice-main-widget .bv-cv2-cleanslate audio,
+.bazaarvoice-main-widget .bv-cv2-cleanslate video,
+.bazaarvoice-main-widget .bv-cv2-cleanslate button {
+  font-size: $font-size-body !important;
+  font-family: $font-body !important;
+}
+
+
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-search .bv-masthead,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-generic-submission .bv-masthead {
+  background-color: $color-white !important;
+}
+
+.bazaarvoice-main-widget #BVRRSearchContainer,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-action-bar-header,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-control-bar {
+  display: none !important;
+}
+
+.bv-cv2-cleanslate .bv-section-summary-table .bv-section-summary-inline.bv-flex-container-responsive {
+  @include tablet-up {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.bv-cv2-cleanslate .bv-core-container-70 .bv-section-summary-inline .bv-flex-container-column,
+.bv-cv2-cleanslate .bv-core-container-70 .bv-section-summary-inline .bv-secondary-rating-summary-list {
+  @include tablet-down {
+    width: 100% !important;
+  }
+}
+
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-section-summary {
+  @include tablet-down {
+    margin: 0 -10px 20px -10px !important;
+  }
+}
+
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-action-bar {
+  margin: 0 !important;
+
+  @include tablet-up {
+    position: absolute !important;
+    top: 10px !important;
+    right: 0 !important;
+    left: auto !important;
+  }
+}
+
+/* stylelint-disable  order/order */
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-action-bar button {
+  padding: $spacing-unit * 3 $spacing-unit * 5 !important;
+  font-weight: normal !important;
+  text-transform: uppercase !important;
+
+  @extend %button;
+}
+
+/* stylelint-enable  order/order */
+
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-control-bar,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-pagination,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-details-container .bv-secondary-ratings,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-item .bv-content-feedback-vote .bv-content-feedback-vote-request,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-item:hover .bv-content-feedback-vote .bv-content-feedback-vote-request {
+  @include tablet-down {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-item-author-profile-offset-on .bv-content-header,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-summary,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-details-container .bv-secondary-ratings,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-actions-container {
+  @include tablet-down {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-list.bv-content-list-clientresponses .bv-content-header .bv-content-data-summary,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-details-offset-off {
+  @include tablet-down {
+    padding: 10px !important;
+  }
+}
+
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-item .bv-content-feedback-vote .bv-content-feedback-btn-container button,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-item:hover .bv-content-feedback-vote .bv-content-feedback-btn-container button,
+.bazaarvoice-main-widget .bv-cv2-cleanslate .bv-core-container-70 .bv-content-feedback-vote-active .bv-content-report-btn {
+  padding-right: 20px !important;
+  padding-left: 0 !important;
+  background-color: transparent !important;
+}
+
+/* stylelint-enable  selector-max-id */

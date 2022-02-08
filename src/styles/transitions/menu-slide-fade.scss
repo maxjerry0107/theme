@@ -1,0 +1,40 @@
+$delay: 0.3s;
+$timing: 0.3s;
+
+// menu-slide-fade-left
+.menu-slide-fade-left-enter-active {
+  transition: opacity $timing $delay, transform $timing $delay ease;
+}
+
+.menu-slide-fade-left-leave-active {
+  transition: opacity $timing, transform $timing ease;
+}
+
+.menu-slide-fade-left-enter,
+.menu-slide-fade-left-leave-active {
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+.menu-slide-fade-left-leave-active {
+  transform: translateX(-30px);
+}
+
+// menu-slide-fade-right
+.menu-slide-fade-right-enter-active {
+  transition: opacity $timing $delay, transform $timing $delay ease;
+}
+
+.menu-slide-fade-right-leave-active {
+  transition: opacity $timing ease, transform $timing ease;
+}
+
+.menu-slide-fade-right-enter,
+.menu-slide-fade-right-leave-active {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+
+.menu-slide-fade-right-leave-active {
+  transform: translateX(30px);
+}

@@ -1,0 +1,26 @@
+@mixin underline-hover($color: $color-black) {
+  border-bottom-color: $color;
+  border-bottom-width: px-to-rem(2px);
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: -1px;
+    z-index: 2;
+    width: 0;
+    height: 100%;
+    border-bottom: 3px solid $color--primary;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    border-color: transparent;
+    border-bottom-color: $color;
+
+    &:after {
+      width: calc(100% + 2px);
+    }
+  }
+}

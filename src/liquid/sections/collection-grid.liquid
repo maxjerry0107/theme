@@ -1,0 +1,222 @@
+{%- assign collection_cta = blank -%}
+{%- assign aspectRatio = '130.435%' -%}
+
+{%- for block in section.blocks -%}
+  {%- if block.settings.collection == collection.handle -%}
+    {%- capture cta_data -%}
+      {%- if block.settings.cta_title -%}
+        {
+          "type": "cta",
+          "position": {{ block.settings.cta_position }},
+          "title": "{{ block.settings.cta_title | escape }}",
+          "description": "{{ block.settings.cta_description | escape }}",
+          "btnText": "{{ block.settings.cta_btn_text | escape }}",
+          "btnUrl": "{{ block.settings.cta_btn_link }}",
+          "backgroundImage": "{%- if block.settings.cta_background_image -%}{{ block.settings.cta_background_image | img_url: '725x' }}{%- endif -%}",
+          "overlayOpacity": "{{ block.settings.cta_overlay_opacity | escape }}"
+        }
+      {%- endif -%}
+    {%- endcapture -%}
+
+    {%- assign collection_cta = cta_data -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+
+{%- capture preloaded_collection -%}
+{
+  "title": "{{ collection.title | escape }}",
+  "handle": "{{ collection.handle | escape }}",
+  "products": [
+    {%- for product in collection.products -%}
+      {%- render 'json--product', product: product, order: forloop.index -%}{%- unless forloop.last -%},{%- endunless -%}
+      {% if forloop.index >= settings.collection_pagination_count %}
+        {% break %}
+      {% endif %}
+    {%- endfor -%}
+  ]
+}
+{%- endcapture -%}
+
+{%- capture promo_content -%}
+  {
+    "promo_tile_image": {{ collection.metafields.my_fields.promo_tile_image | json | default: "" }},
+    "promo_tile_title": {{ collection.metafields.my_fields.promo_tile_title | json }},
+    "promo_tile_desc": {{ collection.metafields.my_fields.promo_tile_desc_text | json }},
+    "promo_tile_cta_text": {{ collection.metafields.my_fields.promo_tile_cta_text | json }},
+    "promo_tile_cta_url": {{ collection.metafields.my_fields.promo_tile_cta_url | json }},
+    "promo_tile_badge_text": {{ collection.metafields.my_fields.promo_tile_badge_text | json }}
+  }
+{%- endcapture -%}
+
+<div class="container" style="min-height: 800px;">
+  <div class="">
+    <collection-grid
+      collection-handle="{{ collection.handle }}"
+      :preloaded-collection="{{ preloaded_collection | escape }}"
+      :tile-color="'{{ settings.product_image_background_color }}'"
+      :products-per-page="{{ settings.collection_pagination_count | json }}"
+      {% if collection_cta != blank %}
+        :cta="{{ collection_cta | escape }}"
+      {% endif %}
+      promo-tile="{{ promo_content | escape | strip_newlines }}"
+      >
+        <div class="collection-grid">
+          <div class="collection-grid__grid">
+            <div class="row small-up-2 medium-up-4">
+              {%- for product in collection.products -%}
+                <div class="column collection-grid__column">
+                  <div class="product-tile u-no-link" style="--tileAspectRatio: {{ aspectRatio }};">
+                    <a href="{{ product.url }}" class="product-tile__media">
+                      <div class="product-tile__media-wrapper">
+                        {%- assign mainColor = product.selected_or_first_available_variant.option2 -%}
+                        {%- assign firstImage = product.selected_or_first_available_variant.image -%}
+                        {%- assign mainImage = nil -%}
+                        {%- for image in product.images -%}
+                          {%- assign imgAlt = image.alt | split: '::' -%}
+                          {%- if mainColor == imgAlt[1] and imgAlt[2] == 'Main' -%}
+                            <img
+                              alt="{{ imgAlt[0] }}"
+                              class="product-tile__image product-tile__image--default"
+                              src="{{ image.src | img_url: '225x' }}"
+                              data-src="{{ image.src | img_url: '450x' }}"
+                              width="368"
+                              height="480"
+                              loading="lazy"
+                              style="height: auto";
+                              onload="if(!window.findify) this.src = this.data.src";
+                            >
+                            {%- assign mainImage = image -%}
+                          {%- endif -%}
+                        {%- endfor -%}
+                        {%- if mainImage == nil or mainImage == '' -%}
+                          {%- if firstImage == nil or firstImage == '' -%}
+                            {%- assign firstImage = product.images | first -%}
+                          {%- endif -%}
+                          <img
+                            alt="{{ firstImage.alt | split: '::' | first }}"
+                            class="product-tile__image product-tile__image--default"
+                            src="{{ firstImage.src | img_url: '225x' }}"
+                            data-src="{{ firstImage.src | img_url: '450x' }}"
+                            width="368"
+                            height="480"
+                            loading="lazy"
+                            style="height: auto";
+                            onload="if(!window.findify) this.src = this.data.src";
+                          >
+                        {%- endif -%}
+                      </div>
+                    </a>
+
+                    {%- liquid
+                      assign swatchesString = ''
+                      for variant in product.variants
+                        assign option2 = variant.option2 | handleize
+                        unless swatchesString contains option2
+                          assign swatchesString = swatchesString | append: option2 | append: ', '
+                        endunless
+                      endfor
+                      assign swatches = swatchesString | split: ', '
+                    -%}
+                    <div class="product-tile__swatches">
+                      {%- for swatch in swatches -%}
+                        <button class="button button--round product-tile__swatch"
+                          style="background-image: url('https://cdn.shopify.com/s/files/1/0073/9812/files/{{ swatch | downcase }}_30x.png');">
+                          <div class="button__content"><span class="u-sr-only">{{ swatch }}</span></div>
+                        </button>
+                      {%- endfor -%}
+                    </div>
+                    <a href="{{ product.url }}" class="product-tile__details text-align--center">
+                      <h3 class="product-tile__title heading--7">{{ product.title }}</h3>
+                      <!---->
+                    </a>
+                    <a href="{{ product.url }}" class="product-tile__pricing text-align--center">
+                      <p class="product-tile__price">
+                        <span class="product-tile__price__original">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
+                        <span class="product-tile__price__sale">{{ product.selected_or_first_available_variant.price | money }}</span>
+                      </p>
+                    </a>
+                  </div>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+    </collection-grid>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Collection Grid",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "type": "collection",
+            "id": "collection",
+            "label": "Collection"
+          },
+          {
+            "type": "header",
+            "content": "Interstitial Tile"
+          },
+          {
+            "type": "text",
+            "id": "cta_title",
+            "label": "Title"
+          },
+          {
+            "type": "image_picker",
+            "id": "cta_background_image",
+            "label": "Background Image"
+          },
+          {
+            "type": "range",
+            "id": "cta_position",
+            "label": "Position",
+            "min": 1,
+            "max": 20,
+            "step": 1,
+            "default": 4
+          },
+          {
+            "type": "range",
+            "id": "cta_overlay_opacity",
+            "label": "Overlay Opacity",
+            "min": 0,
+            "max": 1,
+            "step": 0.1,
+            "default": 0
+          },
+          {
+            "type": "textarea",
+            "id": "cta_description",
+            "label": "Description"
+          },
+          {
+            "type": "text",
+            "id": "cta_btn_text",
+            "label": "Button Text"
+          },
+          {
+            "type": "url",
+            "id": "cta_btn_link",
+            "label": "Button Link"
+          }
+        ]
+      }
+    ],
+    "templates": ["article", "collection", "index", "page", "product"],
+    "presets": [
+      {
+        "name": "Collection Grid",
+        "category": "Collections"
+      }
+    ]
+  }
+{% endschema %}

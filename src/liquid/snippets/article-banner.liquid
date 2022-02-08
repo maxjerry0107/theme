@@ -1,0 +1,15 @@
+{%- if article.image -%}
+  <div class="article__hero">
+    <banner
+      :two-columns="false"
+      desktop-image="{{ article.image | img_url: '1400x' }}"
+      mobile-image="{{ article.image | img_url: '768x' }}"
+      src-set="{{ article.image | img_url: '768x' }} 768w, {{ article.image | img_url: '1024x' }} 1024w, {{ article.image | img_url: '1400x' }} 1400w"
+      desktop-image-alt="{{ article.image.alt | escape }}"
+      mobile-image-alt="{{ article.image.alt | escape }}"
+      :desktop-sizes="{%- if article.image != nil %}[{{ article.image.width }}, {{ article.image.height }}]{% endif -%}"
+      :mobile-sizes="{%- if article.image != nil %}[{{ article.image.width }}, {{ article.image.height }}]{% endif -%}"
+    >
+    </banner>
+  </div>
+{%- endif -%}

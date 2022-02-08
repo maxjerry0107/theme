@@ -1,0 +1,25 @@
+
+<script type="text/javascript" async defer src="//www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+<script type="text/javascript">
+  var _learnq = _learnq || [];
+  _learnq.push(['identify', {
+    '$email' : '{{ customer.email }}'
+  }]);
+  var attachKform = function() {
+    if (window.KlaviyoSubscribe) {
+      KlaviyoSubscribe.attachToForms('#email_signup', {
+        hide_form_on_success: true,
+        extra_properties: {
+          $source: '$embed',
+          $method_type: "Klaviyo Form",
+          $method_id: 'embed'
+        }
+      });
+    }
+    else {
+      console.warn('KlaviyoSubscribe is not defined.');
+    }
+    window.removeEventListener('load', attachKform);
+  };
+  window.addEventListener('load', attachKform);
+</script>

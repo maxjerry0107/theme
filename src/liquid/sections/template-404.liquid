@@ -1,0 +1,57 @@
+<div class="not-found content">
+  <div class="not-found__container">
+    <div class="not-found__image-container">
+      {%- unless section.settings.image == blank -%}
+        <img class="not-found__image" src="{{ section.settings.image | img_url: '500x' }}" alt="{{ section.settings.image.alt }}" width="500" height="auto" loading="lazy" />
+      {%- endunless -%}
+    </div>
+    <div class="not-found__text-container">
+      <p class="not-found__title">{{ section.settings.title }}</p>
+      <h1 class="not-found__description">{{ section.settings.description }}</h1>
+      <button-component class="button--secondary button--secondary-arrow" href="{{ section.settings.cta_link }}">
+        {{ section.settings.cta_text }}
+        <icon name="long-arrow-right" size="18px" class="button__icon"></icon>
+      </button-component>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "404 Page",
+    "class": "not-found--wrapper",
+    "settings": [
+      { "type": "header", "content": "Content" },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "404 Page Not Found"
+      },
+      {
+        "type": "text",
+        "id": "description",
+        "label": "Text",
+        "default": "The page you requested does not exist"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      { "type": "header", "content": "CTA" },
+      {
+        "type": "text",
+        "id": "cta_text",
+        "label": "CTA Label",
+        "default": "Continue Shopping"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "CTA Link",
+        "default": "/"
+      }
+    ]
+  }
+{% endschema %}

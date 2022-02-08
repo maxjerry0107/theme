@@ -1,0 +1,57 @@
+{%- paginate blog.articles by 6 -%}
+  <div class="blog__articles">
+    <div class="row small-up-1 medium-up-3">
+      {%- for article in blog.articles -%}
+        {%- assign imagePosition = 'center center' -%}
+        {%- if article.metafields.featured_image -%}
+          {%- assign imagePosition = article.metafields.featured_image.position -%}
+        {%- endif -%}
+        <div class="column">
+          <div class="article-preview">
+            {%- if article.image -%}
+              <a class="article-preview__image-wrapper" href="{{ article.url }}">
+                <img class="article-preview__image" src="{{ article.image | img_url: '1024x1024', crop: 'center' }}" alt="{{ article.img.alt }}" width="{{ article.image.width }}" height="{{ article.image.width }}" loading="lazy" style="object-position: {{ imagePosition }};" />
+              </a>
+            {%- endif -%}
+
+            <div class="article-preview__content">
+              <h3 class="article-preview__title heading heading--4"><a class="u-no-link" href="{{ article.url }}">{{ article.title }}</a></h3>
+
+              {%- if article.tags.size > 0 -%}
+                <ul class="u-list-inline article-preview__tags">
+                  {%- for tag in article.tags -%}
+                    <li class="article-preview__tags__item">
+                      <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="u-accent-link">{{ tag }}</a>
+                      {%- unless forloop.last -%},{%- endunless -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+              {%- comment -%}
+                <div class="article-preview__date">{{ article.created_at | date: "%b %d, %Y" }}</div>
+              {%- endcomment -%}
+              {%- if settings.enable_article_excerpts -%}
+                <div class="article-preview__excerpt">
+                  {%- if article.excerpt.size > 0 -%}
+                    {{ article.excerpt }}
+                  {%- else -%}
+                    <p>{{ article.content | strip_html | truncatewords: 10 }}</p>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+              <button-component class="button--link article-preview__read-more" href="{{- article.url -}}">
+                {{- 'blogs.article.read_more' | t -}}
+              </button-component>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+  <div class="blog__pagination">
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate  -%}
+    {%- endif -%}
+  </div>
+{%- endpaginate -%}

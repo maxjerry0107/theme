@@ -1,0 +1,267 @@
+
+{%- capture nav_links -%}
+  {%- render 'json--menu-item-blocks', menu_blocks: section.blocks -%}
+{%- endcapture -%}
+
+{%- if section.settings.logo == blank -%}
+  {%- capture _logo -%}
+    {%- render 'logo' -%}
+  {%- endcapture -%}
+{%- else -%}
+  {%- assign _logo = section.settings.logo | img_url: '200x' -%}
+  {%- assign _logo_large = section.settings.logo | img_url: '200x', scale: 2 -%}
+{%- endif -%}
+
+{% capture social_media %}
+  {% assign socialLinks = 'twitter,instagram,facebook,pinterest' | split: ',' %}
+  [
+    {% for social in socialLinks %}
+      {% assign socialLink = social | prepend: 'social_' | append: '_link' %}
+      {% if settings[socialLink] != blank %}
+        {
+          "title": {{ social | json }},
+          "link": {{ settings[socialLink] | json }}
+        }{% unless forloop.last %},{% endunless %}
+      {% endif %}
+    {% endfor %}
+  ]
+{% endcapture %}
+
+<site-header
+  logo="{{ _logo }}"
+  logo-large="{{ _logo_large }}"
+  shop-name="{{ shop.name }}"
+  :h1="{% if template.name == 'index' %}true{% else %}false{% endif %}"
+>
+  <slot name="default">
+    <div class="site-header">
+      <div class="site-header__mobile-nav">
+        <div class="mobile-navigation">
+          <button type="button" class="hamburger">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+            <span class="u-sr-only">Open Menu</span>
+          </button>
+        </div>
+      </div>
+      <div class="site-header__logo">
+        <div class="header-logo">
+          <h1 class="header-logo__heading">
+            <a href="/" class="header-logo__image">
+              <img
+                src="{{ _logo }}"
+                srcset="{{ _logo }} 1x, {{ _logo_large }} 2x"
+                alt="{{ shop.name }}"
+                width="165"
+                height="25"
+              >
+              <span class="u-hidden">{{ shop.name }}</span>
+            </a>
+          </h1>
+        </div>
+      </div>
+      <div class="site-header__utility-nav">
+        <ul class="utility-nav">
+          <li class="utility-nav__link">
+            <div class="account-link">
+              <button
+                class="button button--icon header-search__button">
+                <svg class="button__icon button__icon icon icon--search" style="height: 20px; width: 20px;">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#search"></use>
+                </svg><span class="u-sr-only">Open Search</span>
+              </button>
+            </div>
+          </li>
+          <li class="utility-nav__link">
+            <div class="favorites-link">
+              <button class="button button--icon">
+                <div class="button__content">
+                  <div class="u-sr-only">Open Cart</div>
+                  <svg class="button__icon icon icon--cart" style="height: 20px; width: 20px;">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cart"></use>
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </slot>
+  <mobile-navigation
+    slot="mobile-navigation"
+    :menu-items="{{ nav_links | escape }}"
+    :logged-in="{% if customer != blank %}true{% else %}false{% endif %}"
+    :social-media="{{ social_media | escape }}"
+    accessibility-link="{{ settings.essential_accessibility }}"
+    favorites-link="{{ settings.favorites_url }}"
+  ></mobile-navigation>
+
+  <mobile-utility-nav
+    slot="mobile-utility"
+    :menu-items="{{ nav_links | escape }}"
+    :logged-in="{% if customer != blank %}true{% else %}false{% endif %}">
+  </mobile-utility-nav>
+
+  <desktop-utility-nav
+    slot="desktop-utility"
+    :logged-in="{% if customer != blank %}true{% else %}false{% endif %}"
+    favorites-link="{{ settings.favorites_url }}">
+  </desktop-utility-nav>
+
+  <header-logo
+    slot="logo"
+    image="{{ _logo }}"
+    large-image="{{ _logo_large }}"
+    alt="{{ shop.name }}"
+    :h1="{% if template.name == 'index' %}true{% else %}false{% endif %}"
+  ></header-logo>
+
+  <primary-navigation
+    slot="primary-navigation"
+    :menu-items="{{ nav_links | escape }}"
+  ></primary-navigation>
+
+  <utility-nav
+    slot="utility-nav"
+    :logged-in="{% if customer != blank %}true{% else %}false{% endif %}"
+    product-image-background-color="{{ settings.product_image_background_color | escape }}"
+  ></utility-nav>
+</site-header>
+{% schema %}
+  {
+    "name": "Main Navigation",
+    "class": "site-header-wrapper",
+    "tag": "header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo image",
+        "info": "If left blank, the SVG version of the logo is used. SVG logo requires developer to change."
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Menu Items",
+        "type": "menu_item",
+        "settings": [
+          {
+            "label": "Menu Name",
+            "id": "title",
+            "type": "text"
+          },
+          {
+            "label": "Link",
+            "id": "link",
+            "type": "url"
+          },
+          {
+            "type": "header",
+            "content": "Menu Links"
+          },
+          {
+            "label": "Link List",
+            "id": "link_list",
+            "type": "link_list"
+          },
+          {
+            "label": "Enabled Featured List",
+            "id": "featured_list_enabled",
+            "info": "Enabling this adds decorative separator between the first link list from the others",
+            "type": "checkbox"
+          },
+          {
+            "type": "header",
+            "content": "Tiles"
+          },
+          {
+            "label": "Tiles Heading",
+            "id": "tiles_heading",
+            "type": "text"
+          },
+          {
+            "type": "header",
+            "content": "Tile 1"
+          },
+          {
+            "label": "Tile 1 Image",
+            "id": "tile_1_image",
+            "type": "image_picker",
+            "info": "If is there is only one tile image, dimensions should be 535 x 220, otherwise dimensions should be 315 x 252"
+          },
+          {
+            "label": "Tile 1 Link",
+            "id": "tile_1_link",
+            "type": "url"
+          },
+          {
+            "label": "Tile 1 Heading",
+            "id": "tile_1_heading",
+            "type": "text"
+          },
+          {
+            "label": "Tile 1 Text",
+            "id": "tile_1_text",
+            "type": "richtext"
+          },
+          {
+            "type": "header",
+            "content": "Tile 2"
+          },
+          {
+            "label": "Tile 2 Image",
+            "id": "tile_2_image",
+            "type": "image_picker",
+            "info": "If is there is only one tile image, dimensions should be 535 x 220, otherwise dimensions should be 315 x 252"
+          },
+          {
+            "label": "Tile 2 Link",
+            "id": "tile_2_link",
+            "type": "url"
+          },
+          {
+            "label": "Tile 2 Heading",
+            "id": "tile_2_heading",
+            "type": "text"
+          },
+          {
+            "label": "Tile 2 Text",
+            "id": "tile_2_text",
+            "type": "richtext"
+          },
+          {
+            "type": "header",
+            "content": "Tile 3"
+          },
+          {
+            "label": "Tile 3 Image",
+            "id": "tile_3_image",
+            "type": "image_picker",
+            "info": "If is there is only one tile, image dimensions should be 535 x 220, otherwise dimensions should be 315 x 252"
+          },
+          {
+            "label": "Tile 3 Link",
+            "id": "tile_3_link",
+            "type": "url"
+          },
+          {
+            "label": "Tile 3 Heading",
+            "id": "tile_3_heading",
+            "type": "text"
+          },
+          {
+            "label": "Tile 3 Text",
+            "id": "tile_3_text",
+            "type": "richtext"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

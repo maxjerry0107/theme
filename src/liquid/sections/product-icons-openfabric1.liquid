@@ -1,0 +1,116 @@
+{% render 'product-value-props', wrapperClass: 'value-props--full-width', sectionTitle: section.settings.title, sectionDescription: section.settings.description %}
+
+{% schema %}
+{
+  "name": "Product Icons OpenFabric1",
+  "class": "value-props-section value-props-section--product value-props-section--openfabric1",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_section",
+      "label": "Show this section",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "product_tags",
+      "label": "Product Tags",
+      "info": "List the tags for any product that should include this section. Each tag seperated by a single comma.",
+      "default": "icon-grid-openfabric1"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "All in the Details"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description (optional)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dots",
+      "label": "Show Dots (Desktop and Mobile)",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows_desktop",
+      "label": "Show Arrows (Desktop Only)",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "slides_to_show_mobile",
+      "label": "Slides to show (Mobile)",
+      "default": 2.0,
+      "step": 0.1,
+      "min": 1,
+      "max": 3.9
+    },
+    {
+      "type": "range",
+      "id": "slides_to_show_desktop",
+      "label": "Slides to show (Desktop)",
+      "default": 5,
+      "step": 1,
+      "min": 1,
+      "max": 6
+    },
+    {
+      "type": "range",
+      "id": "slides_to_scroll",
+      "label": "Slides to Scroll at a time (Desktop only)",
+      "default": 5,
+      "step": 1,
+      "min": 1,
+      "max": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "scroll_loops",
+      "label": "Inifinte Scroll (the scroll loops)",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value_prop",
+      "name": "Value Prop",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "textarea",
+          "id": "product_tags",
+          "label": "Product Tags",
+          "info": "List the tags for any product that should include this value props block. Each tag seperated by a single comma."
+        }
+      ]
+    }
+  ],
+  "templates": ["product"],
+  "presets": [
+    {
+      "name": "Product Icons OpenFabric1",
+      "category": "Content Blocks"
+    }
+  ]
+}
+{% endschema %}

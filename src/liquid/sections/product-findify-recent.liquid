@@ -1,0 +1,22 @@
+{%- if section.settings.enabled -%}
+  <div class="findify-element" id="product-findify-rec-6"></div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Findify Recently Viewed",
+  "class": "section--product-findify",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Enable",
+      "default": true,
+      "info": "Enable or disable this section"
+    }
+  ],
+  "presets": [{
+    "name": "Findify Recently Viewed"
+  }]
+}
+{% endschema %}

@@ -1,0 +1,12 @@
+.u-list-simple,
+.u-list-inline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.u-list-inline {
+  li {
+    display: inline-block;
+  }
+}

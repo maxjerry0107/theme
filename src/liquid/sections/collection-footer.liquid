@@ -1,0 +1,35 @@
+{% if collection and collection.metafields.seo.seo_content_block != blank %}
+  <div class="container">
+    <truncate-text class="u-text-center" content="{{ collection.metafields.seo.seo_content_block }}"></truncate-text>
+  </div>
+{% endif %}
+
+{% assign collection_footer = collection.metafields.footer %}
+{% assign enabled = true %}
+
+{%- capture _settings -%}
+{
+  "heading": {{ collection_footer.title | json }},
+  "collections": [
+    {%- for index in (1..3) -%}
+      {% assign collection_image = 'collection_image_' | append: index %}
+      {% assign collection_handle = 'collection_handle_' | append: index %}
+      {% assign _collection = collections[collection_footer[collection_handle]] %}
+      {% if collection_footer[collection_image] == blank %}
+        {% assign enabled = false %}
+        {% break %}
+      {% endif %}
+      {
+        "image": {{ collection_footer[collection_image] | json }},
+        "imageAltText": {{ _collection.title | json }},
+        "title": {{ _collection.title | json }},
+        "url": {{ _collection.url | json }},
+      }{%- unless forloop.last %},{% endunless -%}
+    {%- endfor -%}
+  ]
+}
+{%- endcapture -%}
+
+{% if enabled %}
+  <collection-footer :settings='{{ _settings | escape }}'></collection-footer>
+{% endif %}

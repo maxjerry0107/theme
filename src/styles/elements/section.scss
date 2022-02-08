@@ -1,0 +1,7 @@
+section {
+  scroll-margin-top: $mobile-scroll-margin;
+
+  @include desktop-up {
+    scroll-margin-top: $desktop-scroll-margin;
+  }
+}

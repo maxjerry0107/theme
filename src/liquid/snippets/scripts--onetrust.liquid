@@ -1,0 +1,20 @@
+{%- comment -%}<!-- CookiePro Cookies Consent Notice start for wearcommando.com -->{%- endcomment -%}
+{%- comment -%} 
+  ***  WARNING!!!! DO NOT EDIT WITHOUT FIRST CONSULTING the Data team. This script controls the flow of cookies and some other data that will affect GTM and Facebook marketplace. ***
+{%- endcomment -%}
+<script id="cookiepro-onetrust-script" data-src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="bf7bd176-9292-46fb-86f0-035f63860be7" async></script>
+<link id="cookiepro-onetrust-styling" rel="print" href="{{ 'onetrust.css' | asset_url }}" as="style">
+<script type="text/javascript">
+  function OptanonWrapper() { }
+  window.addEventListener('load', function() {
+    const styling = document.querySelector('#cookiepro-onetrust-styling');
+    const script = document.querySelector('#cookiepro-onetrust-script');
+    if (styling) {
+      styling.rel = 'stylesheet';
+    }
+    if(script && script.dataset && script.dataset.src){
+      script.setAttribute('src', script.dataset.src);
+    }
+  });
+</script>
+{%- comment -%}<!-- CookiePro Cookies Consent Notice end for wearcommando.com -->{%- endcomment -%}

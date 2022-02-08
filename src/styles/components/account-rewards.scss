@@ -1,0 +1,767 @@
+$loyalty-loin-content-max: 1198px; //1162px + 18px padding on both sides
+
+.account-rewards {
+  margin: 0 auto;
+  padding: $spacing-unit * 6 0 $spacing-unit * 25;
+  max-width: $loyalty-loin-content-max;
+
+  @include desktop-up {
+    padding: $spacing-unit * 12 0 $spacing-unit * 25;
+  }
+
+  > .container--wide {
+    padding: 0;
+  }
+}
+
+.acccount-rewards--welcome {
+  font-size: px-to-rem(22px);
+  font-style: normal;
+  font-family: $font-headings;
+  font-weight: normal;
+  line-height: px-to-rem(28px);
+
+  @include tablet-up {
+    font-size: px-to-rem(26px);
+    line-height: px-to-rem(32px);
+  }
+}
+
+.account-rewards__action-links {
+  @include mobile-only {
+    margin-bottom: $spacing-unit * 8;
+  }
+
+  & > a {
+    color: $color-black-500;
+    font-size: px-to-rem(14px);
+    line-height: px-to-rem(22px);
+    letter-spacing: 0.03em;
+  }
+}
+
+.account-rewards__sub-heading {
+  padding: $spacing-unit * 4 0 $spacing-unit * 6;
+  font-size: px-to-rem(16px);
+  line-height: px-to-rem(24px);
+  letter-spacing: 0.02em;
+
+  @include tablet-up {
+    padding: $spacing-unit * 10 0 $spacing-unit * 13;
+    font-size: px-to-rem(20px);
+    line-height: px-to-rem(30px);
+    letter-spacing: -0.015em;
+  }
+}
+
+.account-rewards_program-benefit {
+  @include mobile-only {
+    margin: 0 0 $spacing-unit * 6;
+  }
+
+  p {
+    font-size: px-to-rem(16px);
+    line-height: px-to-rem(24px);
+    letter-spacing: 0.02em;
+  }
+
+  strong {
+    margin-bottom: $spacing-unit * 2;
+  }
+}
+
+.account-rewards__line-break {
+  display: none;
+  margin: 0 0 $spacing-unit * 10 0;
+
+  @include tablet-up {
+    display: block;
+  }
+}
+
+.account-rewards__loyalty-lion {
+  margin-top: $spacing-unit * 18;
+}
+
+/*
+ * All styles below here are meant to override Loyalty Lion overly specific styles
+*/
+
+/* stylelint-disable selector-no-id, selector-max-id, declaration-no-important */
+:root {
+  --loyaltylion-mobile-nav-text: 'Get Rewards';
+}
+
+#loyaltylion * {
+  font-family: $font-body;
+}
+
+#loyaltylion .lion-loyalty-panel {
+  @include mobile-only {
+    display: block;
+  }
+}
+
+#loyaltylion .lion-loyalty-panel-sidebar,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-sidebar header .lion-loyalty-panel-sidebar__title,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-content .lion-loyalty-panel-content__header {
+  background-color: $color-white;
+  border-width: 0;
+}
+
+#loyaltylion .lion-loyalty-panel-sidebar__header {
+  display: block;
+  color: $color-black;
+  border-bottom-width: 0;
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-sidebar header .lion-loyalty-panel-sidebar__title {
+  background-size: contain;
+  background-image: url('./commando-crew.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  @include mobile-only {
+    display: block;
+    background-position: center center;
+  }
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-sidebar .lion-loyalty-panel-sidebar__menu,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-content .lion-loyalty-panel-content__header,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-page-rewards__claimed-rewards-header,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-rule-item__title {
+  font-family: $font-body;
+}
+
+#loyaltylion .lion-loyalty-panel-sidebar {
+  @include mobile-only {
+    display: block;
+    position: relative;
+    width: auto;
+    font-size: 1em;
+  }
+}
+
+#loyaltylion .lion-loyalty-panel-sidebar__mobile-menu-toggle-button {
+  @include mobile-only {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    color: $color-black;
+    background-size: 20px;
+    background-image: url('chevron-down.svg');
+    background-repeat: no-repeat;
+    background-position: 96% center;
+    border: 1px solid $color-grey-900;
+
+    &:before {
+      content: var(--loyaltylion-mobile-nav-text);
+      display: block;
+      padding: $spacing-unit * 3;
+      color: $color-grey-900;
+      font-size: px-to-rem(16px);
+      line-height: px-to-rem(24px);
+    }
+  }
+
+  &.lion-loyalty-panel-sidebar__mobile-menu-toggle-button--active {
+    @include mobile-only {
+      background-color: $color-white;
+    }
+  }
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-sidebar__points {
+  display: block;
+  margin: $spacing-unit * 5 0;
+  width: 100%;
+
+  @include mobile-only {
+    text-align: center;
+  }
+
+  @include tablet-up {
+    margin: $spacing-unit * 14 0 $spacing-unit * 10;
+    padding: 0;
+    text-align: left;
+  }
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-sidebar__points-value,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-sidebar__points-text {
+  display: inline-block;
+  font-size: px-to-rem(28px);
+  font-style: normal;
+  font-weight: normal;
+  line-height: px-to-rem(40px);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+#loyaltylion .lion-loyalty-panel-page-earn {
+  background-color: $color-grey-900;
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-sidebar__points-value:before {
+  display: none;
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-sidebar .lion-loyalty-panel-sidebar__menu {
+  @include tablet-up {
+    max-width: 136px;
+  }
+}
+
+#loyaltylion .lion-loyalty-panel-sidebar__menu {
+  @include mobile-only {
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 5;
+    padding: 0;
+    width: 100%;
+    background-color: $color-white;
+  }
+}
+
+#loyaltylion .lion-loyalty-panel-sidebar__menu--open {
+  @include mobile-only {
+    display: block;
+    border: 1px solid $color-grey-900;
+  }
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-sidebar__menu-item {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: $spacing-unit * 3;
+  color: $color-black;
+  font-weight: normal;
+  line-height: px-to-rem(24px);
+  background-color: $color-white;
+
+  @include mobile-only {
+    width: 100%;
+    border-bottom: 1px solid $color-grey-900;
+  }
+
+  @include tablet-up {
+    margin: $spacing-unit * 3 0;
+    padding: $spacing-unit 0 0 0;
+    min-width: 70px;
+    text-transform: uppercase;
+
+    @include underline-hover();
+  }
+
+  &:hover {
+    background-color: $color-white;
+  }
+
+  &.lion-active {
+    color: $color-black;
+    background-color: $color-white;
+
+    @include mobile-only {
+      color: $color--primary;
+    }
+
+    &:after {
+      width: 100%;
+      border-bottom-color: $color--primary;
+    }
+  }
+
+  &:before {
+    content: '';
+    display: none;
+  }
+}
+
+#loyaltylion .lion-loyalty-panel {
+  justify-content: space-between;
+}
+
+#loyaltylion .lion-loyalty-panel-content {
+  max-width: 800px;
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-content .lion-loyalty-panel-content__header,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-page-rewards__claimed-rewards-header {
+  padding: 0 0 $spacing-unit * 3;
+  height: auto;
+  font-size: px-to-rem(16px);
+  line-height: px-to-rem(24px);
+  text-transform: uppercase;
+  background-color: $color-white;
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-content .lion-loyalty-panel-content__header {
+  @include mobile-only {
+    display: none;
+  }
+}
+
+#loyaltylion .lion-loyalty-panel-content__page-description {
+  @include mobile-only {
+    display: block;
+    padding: $spacing-unit * 5;
+    font-size: px-to-rem(16px);
+    text-align: center;
+    background-color: $color-white;
+    border-bottom-width: 0;
+  }
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-content__overflow-container {
+  margin-top: 0;
+  background-color: $color-white;
+}
+
+#loyaltylion .lion-loyalty-panel-content.lion-loyalty-panel-content--refer,
+#loyaltylion .lion-loyalty-panel-content.lion-loyalty-panel-content--history,
+#loyaltylion .lion-loyalty-panel-content.lion-loyalty-panel-content--help {
+  margin-top: $spacing-unit * 5;
+  background-color: $color-grey-900;
+}
+
+#loyaltylion .lion-loyalty-panel-page-rewards__rewards-list {
+  padding: 0;
+  background-color: $color-grey-900;
+
+  @include tablet-up {
+    padding: $spacing-unit;
+  }
+}
+
+#loyaltylion .lion-loyalty-panel-reward-item {
+  padding: $spacing-unit * 3;
+
+  @include tablet-up {
+    padding: $spacing-unit * 8 $spacing-unit * 3;
+  }
+}
+
+#loyaltylion .lion-loyalty-panel-reward-item__content {
+  padding: $spacing-unit * 5 $spacing-unit * 4 $spacing-unit * 4;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#loyaltylion .lion-loyalty-panel-reward-item__title {
+  font-size: px-to-rem(20px);
+  font-family: $font-body;
+  font-weight: normal;
+  line-height: px-to-rem(40px);
+}
+
+#loyaltylion .lion-loyalty-panel-reward-item__meta {
+  margin-top: 0;
+  margin-bottom: $spacing-unit * 8;
+}
+
+#loyaltylion .lion-loyalty-panel-reward-item__cost {
+  font-size: px-to-rem(16px);
+  font-family: $font-body;
+  line-height: px-to-rem(24px);
+}
+
+.lion-action-button,
+#loyaltylion .lion-action-button {
+  margin-top: 0;
+  background-color: $color-black;
+  border-radius: 0;
+
+  &.lion-loyalty-panel-reward-item__redeem-button {
+    font-size: px-to-rem(14px);
+    line-height: px-to-rem(22px);
+  }
+}
+
+#loyaltylion .lion-loyalty-panel-reward-item__redeem-button--disabled:hover,
+#loyaltylion .lion-loyalty-panel-reward-item__redeem-button--disabled:active {
+  background-color: $color-black;
+  cursor: default;
+}
+
+#loyaltylion .lion-loyalty-panel-reward-item__redeem-button-text {
+  font-size: px-to-rem(14px);
+  font-family: $font-body;
+  line-height: px-to-rem(22px);
+  text-transform: uppercase;
+}
+
+#loyaltylion .lion-loyalty-panel-reward-item__fill {
+  z-index: 2;
+  background-color: $color--primary;
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-page-rewards__claimed-rewards-header {
+  padding: $spacing-unit * 8 0 $spacing-unit * 3;
+
+  @include tablet-up {
+    padding-top: $spacing-unit * 10;
+  }
+}
+
+#loyaltylion .lion-loyalty-panel-page-rewards__claimed-rewards-list--no-items {
+  font-size: px-to-rem(14px);
+  line-height: px-to-rem(22px);
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-rule-item__title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#loyaltylion .lion-loyalty-panel-rule-item--actionable .lion-loyalty-panel-rule-item__content {
+  display: block;
+  padding: $spacing-unit * 8;
+  height: auto;
+  background-color: $color-white;
+  border-width: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#loyaltylion .lion-loyalty-panel-rule-item--actionable:hover .lion-loyalty-panel-rule-item__content {
+  border-width: 0;
+  box-shadow: 0 0 0 1px $color-black;
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-modal__header,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-modal__content {
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-modal__content .lion-action-button {
+  width: 100%;
+
+  /* stylelint-disable order/order */
+  @extend %button;
+
+  /* stylelint-enable order/order */
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-rule-item__icon {
+  position: relative;
+  top: 0;
+  right: auto;
+  left: auto;
+  z-index: 1;
+  margin: 0 auto;
+  width: 40px;
+  height: 40px;
+  background-size: 20px;
+  box-shadow: 0 0 0 1px $color-black;
+
+  &.lion-icon__rule--purchase {
+    background-size: 12px;
+    background-image: url('shop-with-us.png');
+  }
+
+  &.lion-icon__rule--birthday {
+    background-image: url('happy-birthday.png');
+  }
+
+  &.lion-icon__rule--facebook-like {
+    background-size: 12px;
+    background-image: url('like-on-facebook.png');
+  }
+
+  &.lion-icon__rule--instagram-follow {
+    background-image: url('follow-on-instagram.png');
+  }
+
+  &.lion-icon__rule--referral {
+    background-image: url('refer-a-friend.png');
+  }
+
+  &.lion-icon__rule--collection-purchase {
+    background-image: url('his-and-hers.png');
+  }
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-rule-item__points {
+  text-align: center;
+  background-color: $color-white;
+}
+
+#loyaltylion .lion-referral-widget--format-panel .lion-referral-widget-main__intro {
+  @include tablet-down {
+    padding: 0;
+  }
+}
+
+#loyaltylion .lion-referral-widget--format-panel .lion-referral-widget-main__intro > span {
+  display: block;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+#loyaltylion .lion-referral-widget--format-panel .lion-referral-widget-main__intro span {
+  color: $color-black;
+  font-family: $font-headings;
+  text-align: center;
+
+  @extend %heading--6;
+}
+
+#loyaltylion .lion-referral-widget-main__share-link {
+  @include tablet-up {
+    margin-bottom: px-to-rem(20px);
+  }
+}
+
+#loyaltylion .lion-referral-widget-main__share-link-text {
+  margin-bottom: px-to-rem(24px);
+  color: $color-black;
+  font-size: px-to-rem(16px);
+  line-height: px-to-rem(24px);
+
+  @include tablet-down {
+    padding: 0 50px;
+  }
+}
+
+#loyaltylion .lion-loyalty-panel-page-help {
+  background-color: $color-grey-900;
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-page-help__content h1,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-page-help__content h2,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-page-help__content h3,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-loyalty-panel-page-help__content h4 {
+  font-size: px-to-rem(16px);
+  font-family: $font-body;
+  font-weight: $font-weight-semibold;
+  line-height: px-to-rem(24px);
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+
+  @include tablet-up {
+    font-size: px-to-rem(20px);
+  }
+}
+
+#loyaltylion .lion-screen--light {
+  background-color: rgba(50, 50, 50, 0.6);
+}
+
+#loyaltylion .lion-modal {
+  padding: ($spacing-unit * 15) ($spacing-unit * 2) ($spacing-unit * 12);
+  border-radius: 0;
+}
+
+#loyaltylion .lion-modal__close-button {
+  font-weight: $font-weight-light;
+}
+
+#loyaltylion .lion-modal__header,
+#loyaltylion .lion-modal__header .lion-modal__title,
+#loyaltylion #lion-loyalty-panel-custom-css .lion-modal__title {
+  font-size: px-to-rem(36px);
+  font-style: normal;
+  font-family: $font-headings;
+  font-weight: normal;
+  line-height: px-to-rem(50px);
+  letter-spacing: 0.015em;
+  text-align: center;
+  text-transform: capitalize;
+  background-color: $color-white;
+  border-width: 0;
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-action-modal__description {
+  margin-bottom: $spacing-unit * 3;
+  font-size: px-to-rem(16px);
+  font-family: $font-body;
+  font-weight: $font-weight-semibold;
+  line-height: px-to-rem(24px);
+  letter-spacing: 0.02em;
+}
+
+#loyaltylion .lion-birthday-entry-form__inputs {
+  margin-bottom: $spacing-unit * 3;
+}
+
+#loyaltylion .lion-loyalty-panel-page-rewards__claimed-rewards-list--no-items,
+#loyaltylion .lion-loyalty-panel-page-history,
+#loyaltylion .lion-referral-widget--format-panel .lion-referral-widget-main,
+#loyaltylion .lion-referral-widget-email-form {
+  padding: $spacing-unit * 6 $spacing-unit * 3;
+  background-color: $color-grey-900;
+
+  @include tablet-up {
+    padding: $spacing-unit * 6 $spacing-unit * 6 $spacing-unit * 8;
+  }
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-customer-history-table__header-cell {
+  font-size: px-to-rem(14px);
+  font-family: $font-body;
+  font-weight: $font-weight-regular;
+  line-height: px-to-rem(24px);
+  text-transform: capitalize;
+  border-bottom: 2px solid $color-black;
+}
+
+#loyaltylion .lion-customer-history-table__row-cell {
+  font-size: px-to-rem(14px);
+  font-family: $font-body;
+  font-weight: $font-weight-regular;
+  line-height: px-to-rem(24px);
+  border-bottom: 2px solid $color-black;
+}
+
+#loyaltylion #lion-loyalty-panel-custom-css .lion-history-state-bubble--approved {
+  background-color: transparent;
+  border-width: 0;
+}
+
+#loyaltylion .lion-referral-widget--format-panel .lion-referral-widget-main__icon {
+  display: none;
+}
+
+#loyaltylion .lion-referral-share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 20px 0 0;
+  width: 40px;
+  border-radius: 0;
+  visibility: hidden;
+
+  @include tablet-up {
+    margin: 0 36px 0 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    visibility: visible;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    color: $color-black;
+    transform: translate(-50%, -50%);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $color-black;
+    border-radius: 50px;
+    visibility: visible;
+    transform: translate(-50%,-50%);
+  }
+}
+
+#loyaltylion .lion-referral-email-form__field {
+  input,
+  textarea {
+    margin: 0;
+    padding: 12px 18px;
+
+    width: 100%;
+    color: $text--main;
+    font-size: rem(16);
+    font-family: $font-body;
+    line-height: 1.25;
+    background-color: $bg--main;
+    border: 1px solid $border--input;
+    border-radius: 0; // iOS reset
+    -webkit-appearance: none; // iOS reset (legacy)
+    transition: border-color 0.5s ease;
+
+    &:hover,
+    &:active {
+      border-color: $border--input--focus;
+    }
+
+    .error & {
+      background-color: $color--error-light;
+      border-color: $color--error;
+    }
+  }
+}
+
+#loyaltylion .lion-referral-widget-main__share-controls {
+  flex-grow: 1;
+}
+
+#loyaltylion .lion-referral-widget-main__share-controls .lion-referral-widget-main__share-buttons {
+  padding-bottom: 25px;
+  border-top: 0;
+}
+
+#loyaltylion .lion-referral-widget-main__share-link-container {
+  border: 0;
+
+  @include tablet-up {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+#loyaltylion .lion-referral-widget-main__share-link-url {
+  margin-right: 0;
+  margin-bottom: px-to-rem(29px);
+  padding: 11px 0;
+  width: 100%;
+  color: $color-grey-500;
+  font-size: px-to-rem(16px);
+  line-height: 1.5;
+  text-align: center;
+  background: $color-white;
+  border: 1.2px solid $color-grey-400;
+
+  @include tablet-up {
+    margin-bottom: 0;
+    padding: 11px 20px;
+    max-width: 370px;
+    text-align: left;
+  }
+}
+
+#loyaltylion .lion-copy-to-clipboard-button {
+  padding: 12.5px 20px 13.5px;
+  background: $color-black-500;
+  border: 0;
+  border-radius: 0;
+
+  &:before {
+    content: 'Copy Link';
+    color: $color-white;
+    font-size: 14px;
+    font-family: $font-primary !important;
+    line-height: 1.57;
+    text-transform: uppercase;
+    speak: normal;
+  }
+}
+
+#loyaltylion .lion-loyalty-panel-page-history,
+#loyaltylion .lion-loyalty-panel-page-rewards__claimed-rewards-list--no-items,
+#loyaltylion .lion-referral-widget--format-panel .lion-referral-widget-main,
+#loyaltylion .lion-referral-widget-email-form {
+  padding: 1.5rem px-to-rem(25px);
+}

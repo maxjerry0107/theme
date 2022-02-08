@@ -1,0 +1,8 @@
+$cv-options: (auto, layout, paint, size, style);
+
+@each $opt in $cv-options {
+  .cv--#{$opt} {
+    /* content-visibility: $opt; */
+  }
+}
+  

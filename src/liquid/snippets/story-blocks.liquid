@@ -1,0 +1,52 @@
+{%- capture story_blocks -%}
+  [{%- for block in section_blocks -%}
+    {%- if block.type == 'content_block' or block.type == 'klaviyo_block' or block.type == 'video_block' -%}
+      {
+        "type": {{ block.type | json }},
+        "id": {{ block.id | json }},
+        "backgroundColor": {{ block.settings.background_color | json }},
+        "backgroundImage": {
+          "src": {%- if block.settings.background_image -%}{{ block.settings.background_image.src | img_url: 'master' | json }}{%- else -%}""{%- endif -%},
+          "alt": {%- if block.settings.background_image -%}{{ block.settings.background_image.alt | json }}{%- else -%}""{%- endif -%},
+          "width": {%- if block.settings.background_image -%}{{ block.settings.background_image.width | json }}{%- else -%}""{%- endif -%},
+          "height": {%- if block.settings.background_image -%}{{ block.settings.background_image.height | json }}{%- else -%}""{%- endif -%},
+        },
+        "textColor": {{ block.settings.text_color | json }},
+        "textAlignment": {{ block.settings.text_alignment | json }},
+        "verticalAlignment": {{ block.settings.text_position_vertical | default: 'flex-start' | json }},
+        "inlineImage": {
+          "src": {%- if block.settings.inline_image -%}{{ block.settings.inline_image.src | img_url: '100x' | format: 'pjpg' | json }}{%- else -%}""{%- endif -%},
+          "alt": {%- if block.settings.inline_image -%}{{ block.settings.inline_image.alt | json }}{%- else -%}""{%- endif -%},
+          "width": {%- if block.settings.inline_image -%}{{ block.settings.inline_image.width | json }}{%- else -%}""{%- endif -%},
+          "height": {%- if block.settings.inline_image -%}{{ block.settings.inline_image.height | json }}{%- else -%}""{%- endif -%},
+        },
+        "preHeading": {{ block.settings.pre_heading | strip_html | json }},
+        "heading": {{ block.settings.heading | strip_html | json }},
+        "body": "{{ block.settings.body | replace: '<p></p>', '<br>' | newline_to_br | escape }}",
+        "contentWidth": {{ block.settings.content_width | json }},
+        "ctaUrl": {{ block.settings.cta_url | json }},
+        "ctaText": {{ block.settings.cta_text | strip_html | json }},
+        "ctaType": {{ block.settings.cta_type | json }},
+        "mobileOrder": {{ block.settings.mobile_order | default: 0 }},
+        {%- if block.type == 'klaviyo_block' -%}
+          "klaviyoListId": "{{ block.settings.klaviyo_form_id | default: settings.klaviyo_list_id }}",
+          "klaviyoSignupMessage": "{{ block.settings.klaviyo_sigup_message | default: settings.klaviyo_sigup_message }}",
+          "klaviyoSuccessMessage": "{{ block.settings.klaviyo_success_message | default: settings.klaviyo_success_message }}",
+        {%- endif -%}
+        {%- if block.type == 'video_block' and block.settings.video != nil -%}
+          "video": {
+            "media_type": "external_video",
+            "aspect_ratio": {{ 16 | divided_by: 9.0 }},
+            "host": {{ block.settings.video.type | json }},
+            "external_id": {{ block.settings.video.id | json }},
+            "src": {{ block.settings.video | json }},
+          },
+          "transcriptLink": {{ block.settings.transcript_link | json }},
+        {%- endif -%}
+      }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}]
+{%- endcapture -%}
+<page-blocks
+  :section-blocks="{{- story_blocks | escape | strip -}}"
+></page-blocks>

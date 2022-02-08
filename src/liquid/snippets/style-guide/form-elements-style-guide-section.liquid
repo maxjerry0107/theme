@@ -1,0 +1,312 @@
+<div class="page-layout__section page-layout__section--style-guide">
+  <div class="container">
+    <h2 class="heading heading--divider">Form Elements</h2>
+    <form>
+      <h3 class="heading heading--divider">Text Inputs</h3>
+      <div class="row">
+        <div class="column small-12 medium-6">
+          <text-input
+            id="text-input-example"
+            name="text-input-example"
+            label="Text Input Example"
+            placeholder="Placeholder text"
+          ></text-input>
+          <text-input
+            id="hidden-label-text-input-example"
+            name="hidden-label-text-input-example"
+            label="Hidden Label Text Input Example"
+            placeholder="Hidden Label"
+            hide-label
+          ></text-input>
+          <text-input
+            id="disabled-text-input-example"
+            name="disabled-text-input-example"
+            label="Disabled Example"
+            placeholder="Placeholder text"
+            disabled
+            value="Pre-filled value"
+          ></text-input>
+          <text-input
+            id="required-text-input-example"
+            name="required-text-input-example"
+            label="Required Example"
+            placeholder="Placeholder text"
+            required
+          ></text-input>
+          <text-input
+            id="error-text-input-example"
+            name="error-text-input-example"
+            label="Error Example"
+            placeholder="Placeholder text"
+            required
+            error
+          ></text-input>
+          <text-input
+            id="email-input-example"
+            name="email-input-example"
+            label="Email Input Example"
+            placeholder="example@wthn.com"
+            type="email"
+            error-text="You must enter a valid email"
+          ></text-input>
+          <text-input
+            id="required-email-input-example"
+            name="required-email-input-example"
+            label="Required Email Input Example"
+            placeholder="example@wthn.com"
+            required
+            type="email"
+            error-text="You must enter a valid email"
+          ></text-input>
+          <text-input
+            id="full-width-text-input-example"
+            name="full-width-text-input-example"
+            label="Full Width Text Input Example"
+            placeholder="Placeholder text"
+            class="text-input--full-width"
+          ></text-input>
+          <text-input
+            id="validation-text-input-example"
+            name="validation-text-input-example"
+            label="An input with a custom validation pattern."
+            placeholder="No numbers allowed"
+            error-text="This field cannot contain numbers"
+            pattern="/^([^0-9]*)$/"
+          ></text-input>
+        </div>
+        <div class="column small-12 medium-6">
+          <text-input
+            id="textarea-example"
+            name="textarea-example"
+            label="Textarea Example"
+            placeholder="Placeholder text"
+            type="textarea"
+          ></text-input>
+          <text-input
+            id="disabled-textarea-example"
+            name="disabled-textarea-example"
+            label="Disabled Textarea Example"
+            placeholder="Placeholder text"
+            type="textarea"
+            disabled
+            value="Pre-filled value"
+          ></text-input>
+          <text-input
+            id="required-textarea-example"
+            name="required-textarea-example"
+            label="Required Textarea Example"
+            placeholder="Placeholder text"
+            type="textarea"
+            required
+          ></text-input>
+          <text-input
+            id="error-textarea-example"
+            name="error-textarea-example"
+            label="Required Textarea Example"
+            placeholder="Placeholder text"
+            type="textarea"
+            required
+            error
+          ></text-input>
+          <text-input
+            id="full-width-textarea-example"
+            name="full-width-textarea-example"
+            label="Full Width Textarea Example"
+            placeholder="Placeholder text"
+            class="text-input--full-width"
+            type="textarea"
+          ></text-input>
+        </div>
+      </div>
+    </form>
+      <div class="row">
+        <div class="column small-12 medium-4">
+          <h3 class="heading heading--divider">Checkboxes</h3>
+          <checkbox-input
+            name="test-checkbox"
+            label="Checkbox Input"
+            id="test_checkbox"
+            value="test"
+          ></checkbox-input>
+          <checkbox-input
+            name="checked-test-checkbox"
+            label="Checked Checkbox Input"
+            id="checked_test_checkbox"
+            value="test_checked"
+            checked
+          ></checkbox-input>
+          <checkbox-input
+            name="disabled-test-checkbox"
+            label="Disabled Checkbox Input"
+            id="disabled_test_checkbox"
+            value="disabled_test"
+            disabled
+          ></checkbox-input>
+          <checkbox-input
+            name="disabled-checked-test-checkbox"
+            label="Disabled Checked Checkbox Input"
+            id="disabled_checked_test_checkbox"
+            value="disabled_test_checked"
+            checked
+            disabled
+          ></checkbox-input>
+          <checkbox-input
+            name="full-width-test-checkbox"
+            label="Full Width Checkbox Input"
+            id="full_width_test_checkbox"
+            value="test"
+            class="checkbox-input--full-width"
+          ></checkbox-input>
+        </div>
+        <div class="column small-12 medium-4">
+          <h3 class="heading heading--divider">Radio Input</h3>
+          <div>
+            <h4 class="heading heading--5">Option Set 1</h4>
+            <radio-input
+              name="test-radio-input"
+              label="Radio Button Option 1"
+              id="test_radio_button"
+              value="radio_1"
+            ></radio-input><br />
+            <radio-input
+              name="test-radio-input"
+              label="Radio Button Option 2"
+              id="test_radio_button"
+              value="radio_2"
+              checked
+            ></radio-input><br />
+            <radio-input
+              name="test-radio-input"
+              label="Disabled Radio Button"
+              id="test_radio_button"
+              value="radio_3"
+              disabled
+            ></radio-input><br />
+          </div>
+          <div>
+            <h4 class="heading heading--5">Option Set 2 (Full Width, Disabled and Selected)</h4>
+            <radio-input
+              name="test-dsiabled-radio-input"
+              label="Radio Button Option 1"
+              id="test_radio_button"
+              value="radio_1"
+              class="radio-input--full-width"
+              disabled
+            ></radio-input>
+            <radio-input
+              name="test-dsiabled-radio-input"
+              label="Radio Button Option 2"
+              id="test_radio_button"
+              value="radio_2"
+              class="radio-input--full-width"
+              checked
+              disabled
+            ></radio-input>
+            <radio-input
+              name="test-dsiabled-radio-input"
+              label="Disabled Radio Button"
+              id="test_radio_button"
+              value="radio_3"
+              class="radio-input--full-width"
+              disabled
+            ></radio-input>
+          </div>
+        </div>
+        <div class="column small-12 medium-4">
+          <h3 class="heading heading--divider">Quantity Inputs</h3>
+          <quantity-input
+            :min="0"
+            :max="10"
+            :step="1"
+            :value="1">
+          </quantity-input>
+          <quantity-input
+            :min="0"
+            :max="10"
+            :step="1"
+            :value="1"
+            small>
+          </quantity-input>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column small-12 medium-4">
+          <h3 class="heading heading--divider">Select Inputs</h3>
+          <select-input
+            name="select-example"
+            :options="[{value: 'option 1', label: 'Option 1'}, {value: 'option 2', label: 'Option 2', disabled: true }, {value: 'option 3', label: 'Option 3'}]"
+            label="Select Input"
+            placeholder="Select one..."
+          ></select-input>
+          <select-input
+            name="select-hidden-label-example"
+            :options="[{value: 'option 1', label: 'Option 1'}, {value: 'option 2', label: 'Option 2', disabled: true }, {value: 'option 3', label: 'Option 3'}]"
+            label="Select Input With a Hidden Label"
+            hide-label
+            placeholder="Hidden label..."
+          ></select-input>
+          <select-input
+            name="required-select-example"
+            :options="[{value: 'option 1', label: 'Option 1'}, {value: 'option 2', label: 'Option 2', disabled: true }, {value: 'option 3', label: 'Option 3'}]"
+            label="Select Input"
+            required
+          ></select-input>
+          <select-input
+            name="pre-selected-select-example"
+            :options="[{value: 'option 1', label: 'Option 1'}, {value: 'option 2', label: 'Option 2', disabled: true }, {value: 'option 3', label: 'Option 3'}]"
+            label="Select Input With a Selected Value"
+            selected="option 3"
+            required
+          ></select-input>
+          <select-input
+            name="disabled-select-example"
+            :options="[{value: 'option 1', label: 'Option 1'}, {value: 'option 2', label: 'Option 2', disabled: true }, {value: 'option 3', label: 'Option 3'}]"
+            label="Disabeld Select Input"
+            placeholder="Select one..."
+            disabled
+          ></select-input>
+          <select-input
+            name="pre-selected-disabled-select-example"
+            :options="[{value: 'option 1', label: 'Option 1'}, {value: 'option 2', label: 'Option 2', disabled: true }, {value: 'option 3', label: 'Option 3'}]"
+            label="Disabeld and Pre-Selected Select Input"
+            selected="option 3"
+            disabled
+          ></select-input>
+          <select-input
+            name="full-width-select-example"
+            :options="[{value: 'option 1', label: 'Option 1'}, {value: 'option 2', label: 'Option 2', disabled: true }, {value: 'option 3', label: 'Option 3'}]"
+            label="Full Width Select Input"
+            placeholder="Select one..."
+            class="input-select--full"
+          ></select-input>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- Accordions -->
+<div class="page-layout__section page-layout__section--style-guide">
+  <div class="container">
+    <h2 class="heading heading--divider">Accordions</h2>
+  <div class="row">
+    <div class="column small-12 medium-4">
+      <accordion-group>
+        <accordion
+          heading="Product Details">
+          <p>We're very happy to send you a size you will love 
+          100% FREE! For quick and easy size exchanges click here: Size Exchanges or, please feel welcome to call or email us. We're very happy to help!"</p>
+        </accordion>
+        <accordion
+          heading="Product Details">
+          <p>We're very happy to send you a size you will love 
+          100% FREE! For quick and easy size exchanges click here: Size Exchanges or, please feel welcome to call or email us. We're very happy to help!"</p>
+        </accordion>
+        <accordion
+          heading="Product Details">
+          <p>We're very happy to send you a size you will love 
+          100% FREE! For quick and easy size exchanges click here: Size Exchanges or, please feel welcome to call or email us. We're very happy to help!"</p>
+        </accordion>
+      </accordion-group>
+    </div>
+  </div>
+</div>

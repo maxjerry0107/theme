@@ -1,0 +1,146 @@
+<!-- /templates/customers/account.rewards.liquid -->
+{% comment %}
+
+For all available customer liquid tags:
+- http://docs.shopify.com/themes/liquid-variables/customer
+
+{% endcomment %}
+<section class="account-rewards light-gray pad-top">
+  <div class="container container--wide">
+    <div class="row collapse page-header with-border">
+      <div class="column small-12 u-hidden-tablet-up actions text-align--right">
+        <p class="account-rewards__action-links action-return note small-type" id="return_to_store"> <a
+            href="{{ '/account' }}">Account Overview</a> | {{ 'Logout' | customer_logout_link }}</p>
+      </div>
+      <div class="column small-12 medium-7">
+        <h1 class="acccount-rewards--welcome">Welcome to Commando Crew, {{ customer.first_name }}!</h1>
+      </div>
+      <div class="column u-hidden-mobile-only medium-5 actions text-align--right">
+        <p class="account-rewards__action-links action-return note small-type" id="return_to_store"> <a href="{{ '/account' }}">Account Overview</a> | {{ 'Logout' | customer_logout_link }}</p>
+      </div>
+    </div>
+    <div class="row collapse">
+      <div class="column small-12">
+        <p class="account-rewards__sub-heading">A loyalty program that rewards you for shopping commando. The more you spend, the more rewards you earn. It’s that simple.</p>
+        <hr class="account-rewards__line-break">
+      </div>
+    </div>
+    <div class="row collapse u-hidden-mobile-only" data-toggle="mobile">
+      <div class="column small-12 medium-4 account-rewards_program-benefit">
+        <p><strong>Earn points when you shop</strong><br />
+          Spend $1, earn 1 point<br />
+          Earn 200 points, receive $10 off your next purchase
+        </p>
+      </div>
+      <div class="column small-12 medium-4 account-rewards_program-benefit">
+        <p><strong>Earn points when you get social</strong><br />
+          Like us on Facebook, earn 50 points<br />
+          Follow us on Instagram, earn 50 points
+        </p>
+      </div>
+      <div class="column small-12 medium-4 account-rewards_program-benefit">
+        <p><strong>Earn points when you refer a friend</strong><br />
+          When she creates an account and makes her first purchase of $100 or more, you earn $25. Plus when your friend makes her first purchase, she'll receive $25 off.
+        </p>
+      </div>
+    </div>
+    <div class="row collapse u-hidden-tablet-up">
+      <div class="column small-12 medium-hide">
+        <button id="mobileToggleBtn" class="button button--link" type="button">
+          <div class="button__content"><span class="btn-content__text">Show More</span>
+          <span class="btn-content__text u-hidden">Show Less</span></div>
+        </button>
+      </div>
+    </div>
+    <div id="rewardsApp" class="account-rewards__loyalty-lion row collapse">
+      <div class="column small-12">
+        <div data-lion-account></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+  !(function(){
+    var hidingClass = 'u-hidden-mobile-only';
+    var btnTextHideClass = 'u-hidden';
+
+    function toggleHidden(evt) {
+      var btn = evt.target;
+      var btnTexts = [...btn.querySelectorAll('.btn-content__text')];
+      var toggleBlock = document.querySelector('[data-toggle="mobile"]');
+      toggleBlock.classList.toggle(hidingClass);
+      btnTexts.forEach((txtElm) => {
+        txtElm.classList.toggle(btnTextHideClass);
+      });
+    }
+
+    var updateCSSVariable = function(elm) {
+      var text = elm ? elm.innerText : '';
+      var root = document.documentElement;
+      if (text) {
+        root.style.setProperty('--loyaltylion-mobile-nav-text', "'" + text + "'");
+      }
+    };
+
+    var panelClick = function(e) {
+      updateCSSVariable(e.target);
+    };
+
+    var activePanel = document.querySelector('.lion-loyalty-panel-sidebar__menu-item.lion-active');
+    if (activePanel) {
+      updateCSSVariable(activePanel);
+    }
+    else {
+      setTimeout(() => {
+        updateCSSVariable(document.querySelector('.lion-loyalty-panel-sidebar__menu-item.lion-active'));
+      }, 1000);
+    }
+
+    /**
+     *  We need to wait for the async loading of Loyalty lion, that's why this exists...
+     */
+    var waitForIt = function(interval, selector, callback) {
+      var counter = 0;
+      var waiting = setInterval(() => {
+        var elm = document.querySelector(selector);
+        if (elm || counter > 10) {
+          clearInterval(waiting);
+          callback();
+        }
+        else {
+          counter++;
+        }
+      }, interval);
+    };
+
+    window.addEventListener('DOMContentLoaded', function(){
+      window.loyaltylion.on('ready', () => {
+        waitForIt(1000, '#mobileToggleBtn', () => {
+          var toggleBtn = document.querySelector('#mobileToggleBtn');
+          toggleBtn.addEventListener('click', toggleHidden);
+        });
+        waitForIt(1010, '#rewardsApp .lion-loyalty-panel-sidebar__menu-item', () => {
+          var allPanels = [...document.querySelectorAll('#rewardsApp .lion-loyalty-panel-sidebar__menu-item')];
+          allPanels.forEach((panel) => {
+            panel.addEventListener('click', panelClick);
+          });
+        });
+      });
+    });
+  }());
+</script>
+
+{% schema %}
+  {
+    "name": "Account Rewards",
+    "class": "account--rewards",
+    "tag": "div",
+    "templates": [
+      "customers/account",
+      "page"
+    ],
+    "presets": [{
+      "name": "Account Rewards"
+    }]
+  }
+{% endschema %}

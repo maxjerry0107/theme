@@ -1,0 +1,122 @@
+
+{%- capture section_style -%}
+
+  {% if section.settings.margin_top != blank %}
+  margin-top: {{ section.settings.margin_top }}px;
+  {% endif %}
+
+  {% if section.settings.margin_bottom != blank %}
+  margin-bottom: {{ section.settings.margin_bottom }}px;
+  {% endif %}
+
+{%- endcapture -%}
+
+{%- capture blog_post_settings -%}
+{
+  "heading": {{ section.settings.heading | json }},
+  "subHeading": {{ section.settings.sub_heading | json }},
+  "posts": [
+    {%- for block in section.blocks -%}
+      {
+        "desktopImage": "{{ block.settings.desktop_image | img_url: '500x' }}",
+        "mobileImage": "{{ block.settings.mobile_image | img_url: '300x' }}",
+        "imageAltText": {{ block.settings.desktop_image.alt | escape | json }},
+        "title": {{ block.settings.article_title | json }},
+        "text": {{ block.settings.article_text | json }},
+        "url": {{ block.settings.article_url | json }},
+        "ctaText": {{ block.settings.article_cta_text | json }}
+      }{%- unless forloop.last %},{% endunless -%}
+    {%- endfor -%}
+  ]
+}
+{%- endcapture -%}
+
+<featured-blog-posts style="{{ section_style }}" :settings='{{ blog_post_settings | escape }}'></featured-blog-posts>
+
+{% schema %}
+  {
+    "name": "Featured Blog Post",
+    "class": "featured-blog-posts-section",
+    "settings": [
+      {
+        "type" : "text",
+        "id" : "heading",
+        "label" : "Heading"
+      },
+      {
+        "type" : "text",
+        "id" : "sub_heading",
+        "label" : "Sub Heading"
+      },
+      {
+        "type": "range",
+        "id": "margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "label": "Margin Bottom",
+        "default": 0
+      }
+    ],
+    "blocks": [
+      {
+        "type": "blog_post",
+        "name": "Blog Post",
+        "limit": 3,
+        "settings": [
+          {
+            "type" : "image_picker",
+            "id" : "desktop_image",
+            "label" : "Desktop image",
+            "info"  : "500 * 500 px .png/.jpg recommends"
+          },
+          {
+            "type" : "image_picker",
+            "id" : "mobile_image",
+            "label" : "Mobile image",
+            "info"  : "300 * 300 px .png/.jpg recommends"
+          },
+          {
+            "type" : "text",
+            "id" : "article_title",
+            "label" : "Featured Article Title"
+          },
+          {
+            "type" : "text",
+            "id" : "article_text",
+            "label" : "Article Body Text"
+          },
+          {
+            "type" : "url",
+            "id" : "article_url",
+            "label" : "Article URL"
+          },
+          {
+            "type" : "text",
+            "id" : "article_cta_text",
+            "label" : "CTA text",
+            "default": "Read More"
+          }
+        ]
+      }
+    ],
+    "templates": ["blog", "index", "collection", "page", "product", "search"],
+    "presets": [
+      {
+        "name": "Featured Blog Post",
+        "category": "Blog"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,113 @@
+{%- capture text_style -%}
+  color: {{ section.settings.text_color }};
+{%- endcapture -%}
+
+<div class="text-banner animation--fade-in">
+  {% if section.settings.bg_image_mobile and section.settings.bg_image %}
+    <picture class="text-banner__image">
+      <source media="(max-width:649px)" srcset="{{ section.settings.bg_image_mobile | img_url: '500x' | format: 'pjpg' }}"/>
+      <img src="{{ section.settings.bg_image | img_url: '800x' | format: 'pjpg'}}" alt="section.settings.bg_image.alt" >
+    </picture>
+  {% endif %}
+
+  <div class="text-banner__content">
+    <h2 class="text-banner__heading heading--2" style="{{ text_style }}">{{ section.settings.heading }}</h2>
+    {% if section.settings.icon %}
+      <img class="text-banner__icon" src="{{ section.settings.icon | img_url: 'x40' }}" >
+    {% endif %}
+
+    {% if section.settings.cta_link and section.settings.cta_label %}
+      <a href="{{ section.settings.cta_link }}" class="button text-banner__cta">
+        {{ section.settings.cta_label }}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Text Banner",
+    "class": "text-banner-section",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "heading",
+        "label": "Heading",
+        "default": "  We believe in the power of prayer and would love to pray for you."
+      },
+      {
+        "type": "image_picker",
+        "id": "icon",
+        "label": "Icon"
+      },
+      {
+        "type": "select",
+        "id": "text_color",
+        "label": "Text Color",
+        "options": [
+          {
+          "value": "black",
+          "label": "Black"
+          },
+          {
+          "value": "white",
+          "label": "White"
+          }
+        ],
+        "default": "white"
+      },
+      {
+        "type": "header",
+        "content": "Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "bg_image_mobile",
+        "label": "Mobile Background Image"
+      },
+      {
+        "type": "header",
+        "content": "CTA"
+      },
+      {
+        "type": "text",
+        "id": "cta_label",
+        "label": "Label"
+      },
+      {
+        "type": "url",
+        "id": "cta_link",
+        "label": "Link"
+      }
+    ],
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "collection",
+      "customers/account",
+      "customers/activate_account",
+      "customers/addresses",
+      "customers/login",
+      "customers/order",
+      "customers/register",
+      "customers/reset_password",
+      "index",
+      "page",
+      "password",
+      "search"
+    ],
+    "presets": [
+      {
+        "name": "Text Banner",
+        "category": "Banner"
+      }
+    ]
+  }
+{% endschema %}

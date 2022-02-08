@@ -1,0 +1,33 @@
+{%- if section.settings.enable -%}
+  {{ section.settings.content }}
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Findify Custom HTML",
+    "class": "findify-custom",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable",
+        "label": "Enable Custom HTML",
+        "default": true
+      },
+      {
+        "type": "html",
+        "id": "content",
+        "label": "HTML Output",
+        "info": "Paste the findify div required here. Do NOT include any script or css!",
+        "default": "<div class=\"findify-element\" id=\"product-findify-rec-6\"></div>"
+      }
+    ],
+    "presets": [{
+      "name": "Findify Custom HTML",
+      "settings": {
+        "enable": true,
+        "content": "<div class=\"findify-element\" id=\"product-findify-rec-6\"></div>"
+      }
+    }]
+  }
+{% endschema %}

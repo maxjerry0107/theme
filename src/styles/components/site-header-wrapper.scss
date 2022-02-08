@@ -1,0 +1,5 @@
+.site-header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: index($layout, 'site-header');
+}

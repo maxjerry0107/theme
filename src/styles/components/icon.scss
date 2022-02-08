@@ -1,0 +1,20 @@
+.icon {
+  fill: $text--main;
+  transition: 0.3s ease all;
+  max-width: 100%;
+
+  h1 &,
+  h2 &,
+  h3 &,
+  h4 &,
+  h5 &,
+  h6 &,
+  p & {
+    letter-spacing: 1px;
+    vertical-align: sub;
+  }
+}
+
+.icon--underline {
+  transform: translateY(22%);
+}

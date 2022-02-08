@@ -1,0 +1,22 @@
+.product-review-summary {
+  margin-bottom: $spacing-unit * 5;
+}
+
+.product-review-summary__rating {
+  display: flex;
+  align-items: center;
+}
+
+.product-review-summary__stars {
+  margin-right: 8px;
+}
+
+.product-review-summary__count,
+.product-review-summary__no-ratings {
+  position: relative;
+  bottom: 3px;
+  margin: 0;
+  font-size: rem(14);
+  line-height: 1.28;
+  text-decoration: none;
+}

@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    #PX-TO-REM
+\*------------------------------------*/
+
+$root-font-size-equiv: 16px;
+
+@function px-to-rem($pixels) {
+  /* stylelint-disable */
+  @if not $pixels {
+    @return false;
+  }
+
+  $px-to-rem: ($pixels / $root-font-size-equiv) * 1rem;
+  $px-to-rem: round($px-to-rem * 100) / 100;
+
+  @return $px-to-rem;
+
+  /* stylelint-enable */
+}
