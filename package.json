@@ -1,14 +1,5 @@
 {
   "name": "starter-theme",
-  "version": "1.0.0-alpha.1",
-  "private": true,
-  "author": "BVA",
-  "description": "Custom theme for base-theme",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/BVAccel/base-theme"
-  },
   "scripts": {
     "watch": "gulp",
     "start": "gulp dev:deploy",
